@@ -112,20 +112,20 @@ class Main extends Component {
                                 <li className="nav-item dropdown active mega-menu mega-menu--wide">
                                   <a href="#home" className="nav-link" id="first-dropdown">Home</a>
                                 </li>
-                                <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                                  <a href="#about" className="nav-link" id="second-dropdown">About</a>
-                                </li>
-                                <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                                  <a href="#partners" className="nav-link" id="third-dropdown">Our Partners</a>
-                                </li>
                                 <li className="nav-item dropdown ">
-                                  <a href="#" className="nav-link dropdown-toggle" id="fourth-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-                                  <ul className="dropdown-menu" aria-labelledby="fourth-dropdown">
+                                  <a href="#" className="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                                  <ul className="dropdown-menu" aria-labelledby="second-dropdown">
                                     <li ><a href="#">Consulting</a></li>
                                     <li ><a href="#">Temp 1</a></li>
                                     <li ><a href="#">Temp 2</a></li>
                                     <li ><a href="#">Temp 3</a></li>
                                   </ul>
+                                </li>
+                                <li className="nav-item dropdown  mega-menu mega-menu--wide">
+                                  <a href="#about" className="nav-link" id="third-dropdown">About</a>
+                                </li>
+                                <li className="nav-item dropdown  mega-menu mega-menu--wide">
+                                  <a href="#partners" className="nav-link" id="fourth-dropdown">Our Partners</a>
                                 </li>
                               </ul>
                             </div>
@@ -280,7 +280,7 @@ class Main extends Component {
                   </div>
                 </div>
               </section>
-              {/* <section className="section light-gray-bg clearfix">
+              <section className="section light-gray-bg clearfix">
                 <div className="container">
                   <div className="row justify-content-lg-center">
                     <div className="col-lg-8">
@@ -398,7 +398,7 @@ class Main extends Component {
                     </div>
                   </div>
                 </div>
-              </section> */}
+              </section>
               <section id="about" className="main-container">
                 <div className="container">
                   <div className="row">
