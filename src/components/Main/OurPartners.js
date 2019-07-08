@@ -1,11 +1,14 @@
-
-
 import React, { Component } from 'react';
 
-export default class OurPartners extends Component {  
+import AtlantaSkyline from "../../assets/images/Atlanta_Skyline.jpg";
+
+export default class OurPartners extends Component {
     render() {
+        let backgroundStyle = {
+            backgroundImage: "url(" + AtlantaSkyline + ")"
+        }
       return (
-        <section id="partners" className="dark-translucent-bg fixed-bg pv-30" style={{backgroundImage: "url(images/corporate-5-section-image-2.jpg)"}}>
+        <section id="partners" className="dark-translucent-bg fixed-bg pv-30" style={backgroundStyle}>
             <div className="container">
             <div className="row justify-content-lg-center">
                 <div className="col-lg-8">

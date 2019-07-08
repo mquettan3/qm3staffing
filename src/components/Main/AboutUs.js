@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SaurelPortrait from "../../assets/images/AboutUs.png";
 
 export default class AboutUs extends Component {  
     render() {
@@ -8,7 +9,7 @@ export default class AboutUs extends Component {
             <div className="row">
               <div className="col-lg-6 order-lg-2">
                 {/* <div className="overlay-container overlay-visible"> */}
-                  <img src="images/corporate-5-section-image-1.jpg" alt=""/>
+                  <img src={SaurelPortrait} alt=""/>
                   {/* <a href="#" className="overlay-link"><i className="fa fa-link"></i></a> */}
                   <div className="overlay-bottom hidden-sm-down">
                     <div className="text">
@@ -20,10 +21,8 @@ export default class AboutUs extends Component {
               <div className="col-lg-6 order-lg-1">
                 <h2 className="title">About Us</h2>
                 <div className="separator-2"></div>
-                <p>Lorem ipsum dolor sit amet, lotrem <span className="text-default">some colored text</span>. Nulla explicabo <strong>attention to this</strong> blanditiis, ex cupiditate ipsam debitis rem.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing llum magni nam doloribus eligendi, veritatis aspernatur amet odit doloremque possimus error. Vel, totam numquam animi!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <strong>Some bold text</strong>, unde voluptatum quidem explicabo et eius aut nisi dolore ut. Sapiente velit quidem, unde fugit. Neque illum, debitis ut, porro natus.</p>
-                {/* <a href="page-about.html" className="btn radius-50 btn-default"><i className="fa fa-users pr-10"></i>Learn More</a> */}
+                <p><span className="text-default">QM3 Solutions</span> stands on a foundation of integrity as we aim to make a difference and directly impact the lives of the individuals which we serve.  With every placement we facilitate we strive to give individuals new views and a new way to see life through.</p>
+                <p>The opportunity to work with people potentially off the streets, or out of jail, and provide them with the life changing opportunity to provide shelter, books, shoes, or other necessities to themselves and their families is paramount to what we stand for.  We want to be a full transition pathway for people to make it from the ghetto all the way to the boardroom.</p>
               </div>
             </div>
           </div>
