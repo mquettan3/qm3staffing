@@ -62,6 +62,8 @@ export default class Slideshow extends Component {
                           data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
                           data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
                           data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">Providing quality candidates with quality positions
+                          <a href="#" class="btn radius-50 btn-dark btn-animated" style={{marginRight: "30px"}}>For Job Seekers <i class="fa fa-arrow-right"></i></a>
+                          <a href="#" class="btn radius-50 btn-dark btn-animated" style={{marginBottom: "10px"}}>For Employers <i class="fa fa-arrow-right"></i></a>
                         </div>
         
                         </li>

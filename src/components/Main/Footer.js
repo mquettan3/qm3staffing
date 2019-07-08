@@ -9,7 +9,7 @@ export default class Footer extends Component {
       var date = new Date();
       this.state = {currentYear: date.getFullYear()};
     }
-    
+
     render() {
       return (
         <footer id="footer" className="clearfix ">
@@ -24,8 +24,8 @@ export default class Footer extends Component {
                       <div className="separator-2"></div>
                       <nav>
                         <ul className="nav flex-column">
+                          <li className="nav-item"><a className="nav-link" href="#">Careers @ QM3</a></li>
                           <li className="nav-item"><a className="nav-link" href="#">Support</a></li>
-                          <li className="nav-item"><a className="nav-link" href="#">Terms</a></li>
                           <li className="nav-item"><a className="nav-link" href="#">About</a></li>
                         </ul>
                       </nav>

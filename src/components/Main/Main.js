@@ -24,12 +24,12 @@ class Main extends Component {
                 <ContactHeader />
                 <Navbar />
               </div>
-                <Slideshow />        
-              <div id="page-start"></div>
               <CallToAction
                 action_name="Subscribe"
                 action_description="Subscribe to our newsletter to be informed when positions open!"
               />
+              <Slideshow />
+              <div id="page-start"></div>
 
               <SectorsAndServices />
               <AboutUs />
