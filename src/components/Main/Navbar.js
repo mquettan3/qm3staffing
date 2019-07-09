@@ -31,7 +31,7 @@ export default class Navbar extends Component {
                     <div className="navbar-brand clearfix hidden-lg-up">
 
                         <div id="logo-mobile" className="logo">
-                        <a href="#home"><img id="logo-img-mobile" src={QM3Logo} alt="The Project" /></a>
+                        <a href="#home"><img id="logo_img" src={QM3Logo} alt="The Project" /></a>
                         </div>
 
                         {/* <div className="site-slogan">
