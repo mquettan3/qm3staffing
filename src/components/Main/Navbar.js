@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../assets/css/main.css';
-import QM3Logo from "../../assets/images/Logos/BizCard_Web_Logo.png";
+import QM3Logo from "../../assets/images/Logos/QM3_Logo.svg";
+import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {  
     render() {
@@ -12,7 +13,7 @@ export default class Navbar extends Component {
                 <div className="header-first clearfix">
 
                     <div id="logo" className="logo">
-                    <a href="#home"><img id="logo_img" src={QM3Logo} alt="The Project" /></a>
+                    <Link to="/"><embed id="logo_img" src={QM3Logo} alt="The Project" /></Link>
                     </div>
 
                     {/* <div className="site-slogan">
@@ -31,7 +32,7 @@ export default class Navbar extends Component {
                     <div className="navbar-brand clearfix hidden-lg-up">
 
                         <div id="logo-mobile" className="logo">
-                        <a href="#home"><img id="logo-img-mobile" src={QM3Logo} alt="The Project" /></a>
+                        <Link to="/"><embed id="logo-img-mobile" src={QM3Logo} alt="The Project" /></Link>
                         </div>
 
                         {/* <div className="site-slogan">
@@ -48,7 +49,7 @@ export default class Navbar extends Component {
                         <ul className="navbar-nav ml-xl-auto">
 
                         <li className="nav-item dropdown active mega-menu mega-menu--wide">
-                            <a href="#home" className="nav-link" id="first-dropdown">Home</a>
+                            <Link to="/" className="nav-link" id="first-dropdown">Home</Link>
                         </li>
                         <li className="nav-item dropdown ">
                             <a href="#" className="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
