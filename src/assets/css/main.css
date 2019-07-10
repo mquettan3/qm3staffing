@@ -2,3 +2,72 @@
     width: 220px;
     height: 61px;
 }
+
+.promo-banner {
+    height: 450px;
+    width: 100%;
+    position: relative;
+}
+
+.promo-background-image {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.promo-overlay {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.promo-caption-title {
+    line-height:  50px;
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    font-size: 42px;
+    white-space: nowrap;
+    color: white;
+    position: relative;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+}
+
+.promo-caption {
+    position: relative;
+    top: 50px;
+}
+
+.promo-caption-subsection {
+    text-align: center;
+}
+
+.promo-caption-subtext {
+    line-height: 35px;
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    font-size: 24px;
+    white-space: nowrap;
+    color: white;
+    position: relative;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 30px;
+}
+
+.promo-caption-spacer {
+    color: white;
+}

@@ -3,10 +3,6 @@ import '../../assets/css/main.css';
 import WarehouseImage from "../../assets/images/WarehouseBackground.jpg";
 import ConstructionImage from "../../assets/images/under_construction.jpeg";
 import { Link } from "react-router-dom";
-// const $ = require('jquery');
-// window.$ = window.jQuery = require('jquery');
-// import '../../plugins/rs-plugin-5/js/jquery.themepunch.tools.min.js'
-// import '../../plugins/rs-plugin-5/js/jquery.themepunch.revolution.min.js'
 
 export default class Slideshow extends Component {
   render() {

@@ -4,7 +4,8 @@ import '../../assets/css/main.css';
 
 import ContactHeader from "./ContactHeader.js";
 import Navbar from "./Navbar.js";
-import Slideshow from "./Slideshow.js";
+// import Slideshow from "./Slideshow.js";
+import Promo from "./Promo.js";
 import CallToAction from './CallToAction.js';
 import SectorsAndServices from './SectorsAndServices.js';
 import AboutUs from './AboutUs.js';
@@ -28,7 +29,8 @@ class Main extends Component {
                 action_name="Subscribe"
                 action_description="Subscribe to our newsletter to be informed when positions open!"
               />
-              <Slideshow />
+              {/* <Slideshow /> */}
+              <Promo />
               <div id="page-start"></div>
 
               <SectorsAndServices />
