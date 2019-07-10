@@ -23,6 +23,21 @@ export default class Candidates extends Component {
                 />
                 <div className="container">
                   <div className="row justify-content-center">
+                    <h1 className="text-center mt-4">Services we Provide to YOU!</h1>
+                    <div className="separator"></div>
+                    <p>We at QM3 Solutions provide more than simply a list of open opportunities with our employers to each of our candidates.  We aim to assist you throughout the entire process from beginning to end to assure that you find the best fit possible.  Please fill out the form below if you are interested in any of the following:
+                      <br /> <br />
+                      <ul>
+                        <li>Resume Writing Assistance</li>
+                        <li>Mentoring / Coaching</li>
+                        <li>Temporary Positions</li>
+                        <li>Contract Placements</li>
+                        <li>Temp to Perm</li>
+                        <li>Permanent Positions</li>
+                      </ul>
+                    </p>
+                  </div>
+                  <div className="row justify-content-center">
                     <h1 className="text-center mt-4">Open Positions</h1>
                     <div className="separator"></div>
                     <p>All of our currently open positions with all of our partnered employers will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
@@ -48,6 +63,10 @@ export default class Candidates extends Component {
                             <div className="form-group has-feedback">
                               <label for="lastName">Last Name*</label>
                               <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"></input>
+                            </div>
+                            <div className="form-group has-feedback">
+                              <label for="inputPhone">Phone Number*</label>
+                              <input type="text" className="form-control" id="inputPhone" placeholder="Enter Phone Number"></input>
                             </div>
                             <div className="form-group has-feedback">
                               <label for="inputEmail">Email Address*</label>

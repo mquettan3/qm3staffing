@@ -19,6 +19,28 @@ export default class Employers extends Component {
               />
               <div className="container">
                 <div className="row justify-content-center">
+                  <h1 className="text-center mt-4">Areas of Expertise</h1>
+                  <div className="separator"></div>
+                    <p>We at QM3 Solutions pride ourselves on being the experts in providing employers with candidates of ranging skills, including but not limited to the following:
+                      <ul>
+                        <li>Clerical - CSR, Secretarial, Office Management, Data Entry, ect...</li>
+                        <li>Industriral - Light and Regular</li>
+                        <li>Labor - Skilled and general</li>
+                        <li>Warehouse - Scanners, pickers, lift drivers, pallet jack operators, material handler, ect...</li>
+                        <li>Professional - CEO, accountants, VPs, CFO, ect...</li>
+                      </ul>
+                      <br />
+                      We also speacialize in providing each of the following placement options:
+                      <ul>
+                        <li>Temporary</li>
+                        <li>Temp to Perm (500 hours)</li>
+                        <li>Perm Placement / Direct Hire</li>
+                        <li>Contract Talent</li>
+                        <li>Job Training</li>
+                      </ul>
+                    </p>
+                </div>
+                <div className="row justify-content-center">
                   <h1 className="text-center mt-4">Request Staff</h1>
                   <div className="separator"></div>
                   <p>Attention Hiring Managers: If you have a staffing or workforce need, you can trust <span className="text-default">QM3 Solutions</span> to help. After completing the short form below, your request will be routed to a QM3 representative and you will be contacted quickly to discuss your hiring need.</p>
