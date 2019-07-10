@@ -4,30 +4,40 @@ import QM3Logo from "../../assets/images/Logos/QM3_Logo.svg";
 import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
-    // constructor(props){
-    //     super(props);
+    constructor(props){
+        super(props);
 
-    //     this.handleScroll = this.handleScroll.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
 
-    //     this.state = {scrollTop: 0};
-    // }
-    // componentDidMount() {
-    //     window.addEventListener('scroll', this.handleScroll);
-    // }
+        this.state = {scrollTop: 0};
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    }
 
-    // componentWillUnmount() {
-    //     window.removeEventListener('scroll', this.handleScroll);
-    // }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
 
-    // handleScroll(e) {
-    //     this.setState({scrollTop: e.srcElement.body.scrollTop})
-    // }
+    handleScroll(e) {
+        this.setState({scrollTop: e.srcElement.body.scrollTop})
+    }
 
     render() {
-        // let isSloganHidden = "";
-        // if(window.scrollY !== 0) {
-        //     isSloganHidden = "d-none";
-        // }
+        let isSloganHidden = "";
+        if(window.scrollY !== 0) {
+            isSloganHidden = "d-none";
+        }
+
+        let homeLink = <Link to="/" className="nav-link" id="first-dropdown">Home</Link>;
+        if (this.props.location === "Main") {
+            homeLink = <a href="#" className="nav-link" id="first-dropdown">Home</a>;
+        }
+
+        let logoLink = <Link to="/"><img id="logo_img" src={QM3Logo} alt="The Project" /></Link>
+        if (this.props.location === "Main") {
+            logoLink = <a href="#"><img id="logo_img" src={QM3Logo} alt="The Project" /></a>
+        }
 
         return (
         <header className="header fixed fixed-desktop clearfix">
@@ -36,12 +46,10 @@ export default class Navbar extends Component {
                 <div className="col-md-auto hidden-md-down pl-3">
                 <div className="header-first clearfix">
                         <div id="logo" className="logo">
-                            <Link to="/">
-                                <img id="logo_img" src={QM3Logo} alt="The Project" />
-                            </Link>
+                            {logoLink}
                         </div>
 
-                    <div className="site-slogan">
+                    <div className={"site-slogan " + isSloganHidden}>
                     "We Do It Right!"
                     </div>
 
@@ -57,9 +65,7 @@ export default class Navbar extends Component {
                     <div className="navbar-brand clearfix hidden-lg-up">
 
                             <div id="logo-mobile" className="logo">
-                                <Link to="/">
-                                    <img id="logo_img" src={QM3Logo} alt="The Project" />
-                                </Link>
+                                {logoLink}
                             </div>
 
                         <div className="site-slogan">
@@ -76,10 +82,10 @@ export default class Navbar extends Component {
                         <ul className="navbar-nav ml-xl-auto">
 
                         <li className="nav-item dropdown active mega-menu mega-menu--wide">
-                            <Link to="/" className="nav-link" id="first-dropdown">Home</Link>
+                            {homeLink}
                         </li>
                         <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                            <a href="#about" className="nav-link" id="third-dropdown">About Us</a>
+                            <a href="#about" className="nav-link smooth-scroll" id="third-dropdown">About Us</a>
                         </li>
                         <li className="nav-item dropdown ">
                             <a href="#" className="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
@@ -89,10 +95,10 @@ export default class Navbar extends Component {
                             </ul>
                         </li>
                         <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                            <a href="#ourteam" className="nav-link" id="fourth-dropdown">Our Team</a>
+                            <a href="#ourteam" className="nav-link smooth-scroll" id="fourth-dropdown">Our Team</a>
                         </li>
                         <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                            <a href="#footer" className="nav-link" id="fourth-dropdown">Contact Us</a>
+                            <a href="#footer" className="nav-link smooth-scroll" id="fourth-dropdown">Contact Us</a>
                         </li>
                         </ul>
                     </div>
@@ -100,11 +106,6 @@ export default class Navbar extends Component {
                 </div>
                 </div>
 
-                </div>
-                <div className="col-auto hidden-md-down pl-0 pl-md-1">
-                <div className="header-dropdown-buttons">
-                    <a href="mailto:info@qm3us.net" className="btn btn-sm btn-default">Contact Us <i className="fa fa-envelope-o pl-1"></i></a>
-                </div>
                 </div>
             </div>
             </div>

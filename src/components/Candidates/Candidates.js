@@ -14,7 +14,9 @@ export default class Candidates extends Component {
       return (
           <div className="candidates-wrapper">
               <ContactHeader />
-              <Navbar />
+              <Navbar 
+                location="Candidates"
+              />
               <CallToAction 
                 action_name="Subscribe"
                 action_description="Subscribe to our newsletter to be informed when positions open!"

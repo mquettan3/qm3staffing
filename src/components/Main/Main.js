@@ -25,7 +25,9 @@ class Main extends Component {
             <div className="page-wrapper">
               <div className="header-container">
                 <ContactHeader />
-                <Navbar />
+                <Navbar 
+                location="Main"
+                />
               </div>
               {/* <Slideshow /> */}
               <Promo />

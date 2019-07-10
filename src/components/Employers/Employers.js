@@ -14,7 +14,9 @@ export default class Employers extends Component {
       return (
           <div className="employers-wrapper">
               <ContactHeader />
-              <Navbar />
+              <Navbar 
+                location="Employers"
+              />
               <div className="container">
                 <div className="row justify-content-center">
                   <h1 className="text-center mt-4">Request Staff</h1>
