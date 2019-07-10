@@ -4,43 +4,44 @@ import QM3Logo from "../../assets/images/Logos/QM3_Logo.svg";
 import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
-    constructor(props){
-        super(props);
+    // constructor(props){
+    //     super(props);
 
-        this.handleScroll = this.handleScroll.bind(this);
+    //     this.handleScroll = this.handleScroll.bind(this);
 
-        this.state = {scrollTop: 0};
-    }
-    componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll);
-    }
+    //     this.state = {scrollTop: 0};
+    // }
+    // componentDidMount() {
+    //     window.addEventListener('scroll', this.handleScroll);
+    // }
 
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
-    }
+    // componentWillUnmount() {
+    //     window.removeEventListener('scroll', this.handleScroll);
+    // }
 
-    handleScroll(e) {
-        this.setState({scrollTop: e.srcElement.body.scrollTop})
-    }
+    // handleScroll(e) {
+    //     this.setState({scrollTop: e.srcElement.body.scrollTop})
+    // }
 
     render() {
-        let isSloganHidden = "";
-        if(window.scrollY !== 0) {
-            isSloganHidden = "d-none";
-        }
-      return (
+        // let isSloganHidden = "";
+        // if(window.scrollY !== 0) {
+        //     isSloganHidden = "d-none";
+        // }
+
+        return (
         <header className="header fixed fixed-desktop clearfix">
             <div className="container">
             <div className="row">
                 <div className="col-md-auto hidden-md-down pl-3">
                 <div className="header-first clearfix">
-                    <Link to="/">
                         <div id="logo" className="logo">
-                            <img id="logo_img" src={QM3Logo} alt="The Project" />
+                            <Link to="/">
+                                <img id="logo_img" src={QM3Logo} alt="The Project" />
+                            </Link>
                         </div>
-                    </Link>
 
-                    <div className={"site-slogan " + isSloganHidden}>
+                    <div className="site-slogan">
                     "We Do It Right!"
                     </div>
 
@@ -55,11 +56,11 @@ export default class Navbar extends Component {
                     <nav className="navbar navbar-expand-lg navbar-light p-0">
                     <div className="navbar-brand clearfix hidden-lg-up">
 
-                        <Link to="/">
                             <div id="logo-mobile" className="logo">
-                                <img id="logo_img" src={QM3Logo} alt="The Project" />
+                                <Link to="/">
+                                    <img id="logo_img" src={QM3Logo} alt="The Project" />
+                                </Link>
                             </div>
-                        </Link>
 
                         <div className="site-slogan">
                         "We Do It Right!"
