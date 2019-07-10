@@ -7,9 +7,11 @@ import Navbar from "./Navbar.js";
 // import Slideshow from "./Slideshow.js";
 import Promo from "./Promo.js";
 import CallToAction from './CallToAction.js';
-import SectorsAndServices from './SectorsAndServices.js';
+// import SectorsAndServices from './SectorsAndServices.js';
+import WhoWeAre from './WhoWeAre.js';
 import AboutUs from './AboutUs.js';
-import OurPartners from './OurPartners.js';
+// import OurPartners from './OurPartners.js';
+import OurTeam from './OurTeam.js';
 import Footer from './Footer.js';
 
 class Main extends Component {
@@ -25,17 +27,21 @@ class Main extends Component {
                 <ContactHeader />
                 <Navbar />
               </div>
-              <CallToAction
-                action_name="Subscribe"
-                action_description="Subscribe to our newsletter to be informed when positions open!"
-              />
               {/* <Slideshow /> */}
               <Promo />
               <div id="page-start"></div>
+              <CallToAction
+                action_name="Job Seekers"
+                action_description="Looking for a new job?!  Let us help!"
+              />
 
-              <SectorsAndServices />
+              <WhoWeAre />
               <AboutUs />
-              <OurPartners />
+              <CallToAction
+                action_name="Employers"
+                action_description="Inquire about finding candidates for your open positions!"
+              />
+              <OurTeam />
               <Footer />
             </div>
           </div>

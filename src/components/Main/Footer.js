@@ -20,33 +20,29 @@ export default class Footer extends Component {
                   <div className="offset-lg-1 col-lg-4">
                     <div className="footer-content">
                       <div className="logo-footer"><embed id="logo_img" src={QM3Logo} alt=""/></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="#about">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a></p>
+                      <p>QM3 Solutions stands on a foundation of integrity as we aim to make a difference and directly impact the lives of the individuals which we serve...<a href="#about">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a></p>
                       <div className="separator-2"></div>
                       <nav>
                         <ul className="nav flex-column">
-                          <li className="nav-item"><a className="nav-link" href="#">Careers @ QM3</a></li>
-                          <li className="nav-item"><a className="nav-link" href="#">Support</a></li>
-                          <li className="nav-item"><a className="nav-link" href="#">About</a></li>
+                          <li className="nav-item"><a className="nav-link" href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/">Careers @ QM3</a></li>
                         </ul>
                       </nav>
                     </div>
                   </div>
                   <div className="offset-lg-2 col-lg-4">
                     <div className="footer-content">
-                      <h2 className="title">Find Us</h2>
+                      <h2 className="title">Contact Us</h2>
                       <div className="separator-2"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
+                      <p>Please contact us with any questions you may have.  We're here to serve.<br/>Follow us on social media!</p>
                       <ul className="social-links circle animated-effect-1">
-                        <li className="facebook"><a href="#"><i className="fa fa-facebook"></i></a></li>
-                        <li className="twitter"><a href="#"><i className="fa fa-twitter"></i></a></li>
-                        <li className="googleplus"><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                        <li className="linkedin"><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                        <li className="xing"><a href="#"><i className="fa fa-xing"></i></a></li>
+                        <li className="facebook"><a href="https://www.facebook.com/QM3US"><i className="fa fa-facebook"></i></a></li>
+                        <li className="linkedin"><a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/"><i className="fa fa-linkedin"></i></a></li>
+                        <li className="instagram"><a href="#"><i className="fa fa-instagram"></i></a></li>
                       </ul>
                       <div className="separator-2"></div>
                       <ul className="list-icons">
-                        <li><i className="fa fa-map-marker pr-2 text-default"></i> 2260 Lithonia Ind. Blvd. Suite F Lithonia, GA 30058</li>
-                        <li><i className="fa fa-phone pr-2 text-default"></i> (844) 382-1819</li>
+                        <li><i className="fa fa-map-marker pr-2 text-default"></i> 1800 Wilson Way Suite 6 Smyrna, Ga</li>
+                        <li><i className="fa fa-phone pr-2 text-default"></i> (678) 903-6219</li>
                         <li><a href="#"><i className="fa fa-envelope-o pr-2"></i>info@qm3us.net</a></li>
                       </ul>
                     </div>

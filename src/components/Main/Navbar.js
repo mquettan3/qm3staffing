@@ -3,27 +3,51 @@ import '../../assets/css/main.css';
 import QM3Logo from "../../assets/images/Logos/QM3_Logo.svg";
 import { Link } from "react-router-dom";
 
-export default class Navbar extends Component {  
+export default class Navbar extends Component {
+    constructor(props){
+        super(props);
+
+        this.handleScroll = this.handleScroll.bind(this);
+
+        this.state = {scrollTop: 0};
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll(e) {
+        this.setState({scrollTop: e.srcElement.body.scrollTop})
+    }
+
     render() {
+        let isSloganHidden = "";
+        if(window.scrollY !== 0) {
+            isSloganHidden = "d-none";
+        }
       return (
         <header className="header fixed fixed-desktop clearfix">
             <div className="container">
             <div className="row">
                 <div className="col-md-auto hidden-md-down pl-3">
                 <div className="header-first clearfix">
+                    <Link to="/">
+                        <div id="logo" className="logo">
+                            <img id="logo_img" src={QM3Logo} alt="The Project" />
+                        </div>
+                    </Link>
 
-                    <div id="logo" className="logo">
-                    <Link to="/"><embed id="logo_img" src={QM3Logo} alt="The Project" /></Link>
+                    <div className={"site-slogan " + isSloganHidden}>
+                    "We Do It Right!"
                     </div>
 
-                    {/* <div className="site-slogan">
-                    Multipurpose HTML5 Template
-                    </div> */}
-
                 </div>
 
                 </div>
-                <div className="col-lg-8 ml-lg-auto">
+                <div className="col-lg-7 ml-lg-auto">
             
                 <div className="header-second clearfix">
                     
@@ -31,13 +55,15 @@ export default class Navbar extends Component {
                     <nav className="navbar navbar-expand-lg navbar-light p-0">
                     <div className="navbar-brand clearfix hidden-lg-up">
 
-                        <div id="logo-mobile" className="logo">
-                        <Link to="/"><embed id="logo_img" src={QM3Logo} alt="The Project" /></Link>
-                        </div>
+                        <Link to="/">
+                            <div id="logo-mobile" className="logo">
+                                <img id="logo_img" src={QM3Logo} alt="The Project" />
+                            </div>
+                        </Link>
 
-                        {/* <div className="site-slogan">
-                        Multipurpose HTML5 Template
-                        </div> */}
+                        <div className="site-slogan">
+                        "We Do It Right!"
+                        </div>
 
                     </div>
                     
@@ -51,20 +77,21 @@ export default class Navbar extends Component {
                         <li className="nav-item dropdown active mega-menu mega-menu--wide">
                             <Link to="/" className="nav-link" id="first-dropdown">Home</Link>
                         </li>
+                        <li className="nav-item dropdown  mega-menu mega-menu--wide">
+                            <a href="#about" className="nav-link" id="third-dropdown">About Us</a>
+                        </li>
                         <li className="nav-item dropdown ">
                             <a href="#" className="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
                             <ul className="dropdown-menu" aria-labelledby="second-dropdown">
-                            <li ><a href="#">Consulting</a></li>
-                            <li ><a href="#">Temp 1</a></li>
-                            <li ><a href="#">Temp 2</a></li>
-                            <li ><a href="#">Temp 3</a></li>
+                            <li ><Link to="/employers">For Employers</Link></li>
+                            <li ><Link to="/candidates">For Job Seekers</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                            <a href="#about" className="nav-link" id="third-dropdown">About</a>
+                            <a href="#ourteam" className="nav-link" id="fourth-dropdown">Our Team</a>
                         </li>
                         <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                            <a href="#partners" className="nav-link" id="fourth-dropdown">Our Partners</a>
+                            <a href="#footer" className="nav-link" id="fourth-dropdown">Contact Us</a>
                         </li>
                         </ul>
                     </div>
