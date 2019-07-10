@@ -19,7 +19,7 @@ export default class Footer extends Component {
                 <div className="row">
                   <div className="offset-lg-1 col-lg-4">
                     <div className="footer-content">
-                      <div className="logo-footer"><embed id="logo-footer" src={QM3Logo} alt=""/></div>
+                      <div className="logo-footer"><embed id="logo_img" src={QM3Logo} alt=""/></div>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="#about">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a></p>
                       <div className="separator-2"></div>
                       <nav>
