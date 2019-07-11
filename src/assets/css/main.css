@@ -104,3 +104,11 @@
     color: #0c9653ce;
     font-weight: bold;
 }
+
+section.quote {
+    background-color: #0d5ca2ea;
+}
+section.quote h2 {
+    color: white;
+    font-size: 24px;
+}

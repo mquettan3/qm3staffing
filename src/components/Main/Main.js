@@ -10,6 +10,7 @@ import CallToAction from './CallToAction.js';
 // import SectorsAndServices from './SectorsAndServices.js';
 import WhoWeAre from './WhoWeAre.js';
 import AboutUs from './AboutUs.js';
+import QuoteSection from './QuoteSection.js';
 import OurValues from './OurValues.js';
 // import OurPartners from './OurPartners.js';
 import OurTeam from './OurTeam.js';
@@ -58,6 +59,7 @@ class Main extends Component {
 
               <WhoWeAre />
               <AboutUs />
+              <QuoteSection />
               <OurValues />
               <CallToAction
                 action_name="Employers"

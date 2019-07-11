@@ -20,6 +20,9 @@ export default class OurValues extends Component {
                       <p>To be the most evolved and efficient Employment Placement partner in the world, admired for our ability to unite talent with opportunity, technology, customer service and integrity.</p>
                       <h1>Our Mission</h1>
                       <p>We work to help individuals, partners, and communities realize others, as well as their own full potential. Bringing joy to families, by bridging the gap between talent and opportunity.</p>
+                      <h1>Our Promise</h1>
+                      <p>THE BEST CUSTOMER SERVICE IN THE BUSINESS, because everything we do we do with integrity and passion.</p>
+                      <p>Whatever kind of talent you need, we locate and evaluate the most qualified talented candidates, advise our partner managers, facilitate the talent offers and bring the best talent to positions where all parties will succeed. And we stand behind everything and everyone with our unprecedented 100% Guarantee.</p>
                     </div>
                   </div>
                 </div>
