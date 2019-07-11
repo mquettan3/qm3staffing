@@ -119,12 +119,22 @@ export default class Navbar extends Component {
 
         let homeLink = <Link to="/" className="nav-link" id="first-dropdown">Home</Link>;
         if (this.props.location === "Main") {
-            homeLink = <a href="#" className="nav-link" id="first-dropdown">Home</a>;
+            homeLink = <a href="#home" className="nav-link smooth-scroll" id="first-dropdown">Home</a>;
         }
 
         let logoLink = <Link to="/"><img id="logo_img" src={QM3Logo} alt="The Project" /></Link>
         if (this.props.location === "Main") {
-            logoLink = <a href="#"><img id="logo_img" src={QM3Logo} alt="The Project" /></a>
+            logoLink = <a href="#home" className="smooth-scroll"><img id="logo_img" src={QM3Logo} alt="The Project" /></a>
+        }
+
+        let aboutUsLink = "";
+        if (this.props.location === "Main") {
+            aboutUsLink = <a href="#about" className="nav-link smooth-scroll" id="third-dropdown">About Us</a>;
+        }
+
+        let ourTeamLink = "";
+        if (this.props.location === "Main") {
+            ourTeamLink = <a href="#ourteam" className="nav-link smooth-scroll" id="fourth-dropdown">Our Team</a>
         }
 
         return (
@@ -174,7 +184,7 @@ export default class Navbar extends Component {
                                 {homeLink}
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                                <a href="#about" className="nav-link smooth-scroll" id="third-dropdown">About Us</a>
+                                {aboutUsLink}
                             </li>
                             <li className="nav-item dropdown ">
                                 <a href="#" className="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
@@ -184,7 +194,7 @@ export default class Navbar extends Component {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                                <a href="#ourteam" className="nav-link smooth-scroll" id="fourth-dropdown">Our Team</a>
+                                {ourTeamLink}
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
                                 <a href="#footer" className="nav-link smooth-scroll" id="fourth-dropdown">Contact Us</a>
