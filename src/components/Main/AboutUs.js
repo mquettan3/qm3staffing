@@ -4,7 +4,7 @@ import SaurelPortrait from "../../assets/images/AboutUs.png";
 export default class AboutUs extends Component {  
     render() {
       return (              
-        <section className="main-container">
+        <section className="main-container section">
           <div className="container">
             <div className="row">
               <div className="col-lg-6 order-lg-2">

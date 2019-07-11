@@ -7,7 +7,7 @@ import SusanPortrait from '../../assets/images/SusanPortrait.jpg';
 export default class OurTeam extends Component {
     render() {
       return (
-        <div id="ourteam" className="container">
+        <section id="ourteam" className="section container">
           <h1 className="text-center mt-4">Our Team</h1>
           <div className="separator"></div>
           <TeamMember
@@ -29,7 +29,7 @@ export default class OurTeam extends Component {
           portrait={SusanPortrait}
           />
           <br />
-        </div>
+        </section>
       )
     }
 };

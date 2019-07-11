@@ -12,7 +12,7 @@ export default class Footer extends Component {
 
     render() {
       return (
-        <footer id="footer" className="clearfix ">
+        <footer id="footer" className="clearfix section">
           <div className="footer">
             <div className="container">
               <div className="footer-inner">
