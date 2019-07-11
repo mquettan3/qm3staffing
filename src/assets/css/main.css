@@ -79,14 +79,18 @@
     margin-left: -5px;
     font-weight: 500;
     font-family: 'Kaushan Script';
-    transition: height 1s;
+    -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+    overflow: hidden;
+    height: 46px;
 }
 
 .text-default {
     color: #0c9653ce;
 }
 
-/* .slogan-hidden {
+.slogan-hidden {
     height: 0px;
-    transition: height 1s;
-} */
+}

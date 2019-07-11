@@ -18,10 +18,10 @@ export default class Employers extends Component {
                 location="Employers"
               />
               <div className="container">
-                <div className="row justify-content-center">
+                <div className="row">
                   <h1 className="text-center mt-4">Areas of Expertise</h1>
                   <div className="separator"></div>
-                    <p>
+                    <p className="col-12">
                       We at QM3 Solutions pride ourselves on being the experts in providing employers with candidates of ranging skills, including but not limited to the following:
                     </p>
                     <ul>
@@ -31,9 +31,9 @@ export default class Employers extends Component {
                       <li>Warehouse - Scanners, pickers, lift drivers, pallet jack operators, material handler, ect...</li>
                       <li>Professional - CEO, accountants, VPs, CFO, ect...</li>
                     </ul>
-                    <p>
-                      <br />
-                      We also speacialize in providing each of the following placement options:
+                    <p className="col-12">
+                    <br />
+                    We also speacialize in providing each of the following placement options:
                     </p>
                     <ul>
                       <li>Temporary</li>

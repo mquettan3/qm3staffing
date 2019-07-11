@@ -4,6 +4,8 @@ import QM3Logo from "../../assets/images/Logos/QM3_Logo.svg";
 import { Link } from "react-router-dom";
 import $ from 'jquery';
 
+var contact_header_height = 43;
+
 export default class Navbar extends Component {
     constructor(props){
         super(props);
@@ -54,61 +56,6 @@ export default class Navbar extends Component {
 			}
         }
 
-        
-		// Fixed header
-		//-----------------------------------------------
-		if ($(".object-non-visible").length>0) {
-			if (($(".header.fixed.fixed-desktop").length > 0) && ($(window).width() > 1000)) {
-				(function(){
-					var sticky = new window.Waypoint.Sticky({
-						element: $('.header-container .header.fixed'),
-						stuckClass: 'object-visible',
-						handler: function(direction) {
-							$('body').toggleClass('fixed-header-on');
-						},
-						offset: -1
-					});
-				})();
-			};
-			if ($(".header.fixed.fixed-all").length > 0) {
-				(function(){
-					var sticky = new window.Waypoint.Sticky({
-						element: $('.header-container .header.fixed'),
-						stuckClass: 'object-visible',
-						handler: function(direction) {
-							$('body').toggleClass('fixed-header-on');
-						},
-						offset: -1
-					});
-				})();
-			};
-		} else {
-			if (($(".header.fixed.fixed-desktop").length > 0) && ($(window).width() > 1000)) {
-				(function(){
-					var sticky = new window.Waypoint.Sticky({
-						element: $('.header-container .header.fixed'),
-						stuckClass: 'hc-element-visible',
-						handler: function(direction) {
-							$('body').toggleClass('fixed-header-on');
-						},
-						offset: -1
-					});
-				})();
-			};
-			if ($(".header.fixed.fixed-all").length > 0) {
-				(function(){
-					var sticky = new window.Waypoint.Sticky({
-						element: $('.header-container .header.fixed'),
-						stuckClass: 'hc-element-visible',
-						handler: function(direction) {
-							$('body').toggleClass('fixed-header-on');
-						},
-						offset: -1
-					});
-				})();
-			};
-		}        
-
 		//Show dropdown on hover only for desktop devices
 		//-----------------------------------------------
 		if ($(window).width() > 975) {
@@ -135,129 +82,6 @@ export default class Navbar extends Component {
                     $(this).siblings('.dropdown-menu').toggleClass('show');
                 });
             };
-    
-            //Transparent Header Calculations
-            if ($(".transparent-header").length>0) {
-                (function(){
-                    var trHeaderHeight;
-                    $(window).on('load', function (e) {
-                        trHeaderHeight = $("header.header").outerHeight();
-                        $(".transparent-header .tp-bannertimer").css("marginTop", (trHeaderHeight)+"px");
-                    });
-                    var headerTopHeightResize = $(".header-top").outerHeight();
-                    $(window).resize(function() {
-                        if ($(this).scrollTop()  < headerTopHeightResize + trHeaderHeight -5) {
-                            trHeaderHeight = $("header.header").outerHeight();
-                            $(".transparent-header .tp-bannertimer").css("marginTop", (trHeaderHeight)+"px");
-                        }
-                    });
-                })();
-            }
-    
-            if ($(".transparent-header .slideshow").length>0 || $(".transparent-header .hc-slideshow").length>0) {
-                $(".header-container header.header").addClass("transparent-header-on");
-            } else {
-                $(".header-container header.header").removeClass("transparent-header-on");
-            }
-    
-            //Full Width Slider with Transparent Header Calculations
-            if ($(".transparent-header .slider-banner-fullwidth-big-height").length>0) {
-                if ($(window).width() < 991) {
-                    $("body").removeClass("transparent-header");
-                    $(".header-container header.header").removeClass("transparent-header-on");
-                    $(".tp-bannertimer").css("marginTop", "0px");
-                    $("body").addClass("slider-banner-fullwidth-big-height-removed");
-                } else {
-                    $("body").addClass("transparent-header");
-                    $(".header-container header.header").addClass("transparent-header-on");
-                    $("body").removeClass("slider-banner-fullwidth-big-height-removed");
-                }
-            };
-    
-            if ($(".transparent-header .slider-banner-fullwidth-big-height").length>0 || $(".slider-banner-fullwidth-big-height-removed").length>0) {
-                $(window).resize(function() {
-                    if ($(window).width() < 991) {
-                        $("body").removeClass("transparent-header");
-                        $(".header-container header.header").removeClass("transparent-header-on");
-                        $(".tp-bannertimer").css("marginTop", "0px");
-                    } else {
-                        $("body").addClass("transparent-header");
-                        $(".header-container header.header").addClass("transparent-header-on");
-                    }
-                });
-            };
-    
-            //Mega menu fixed width
-            if ($('html[dir="ltr"] .container .mega-menu--wide').length>0 && $(window).width() > 971) {
-                (function(){
-                    var headerSecondLeft = parseInt($('.main-navigation--mega-menu').closest('.header-second').parent().offset().left + 15, 10);
-                    var headerFirstLeft = parseInt($('.header-first').offset().left, 10);
-                    var megaMenuLeftPosition = headerFirstLeft - headerSecondLeft;
-                    $('.mega-menu--wide > .dropdown-menu').css('left', megaMenuLeftPosition + 'px');
-                    $(window).resize(function() {
-                        var headerSecondLeft = parseInt($('.main-navigation--mega-menu').closest('.header-second').parent().offset().left + 15, 10);
-                        headerFirstLeft = parseInt($('.header-first').offset().left, 10);
-                        megaMenuLeftPosition = headerFirstLeft - headerSecondLeft;
-                        $('.mega-menu--wide > .dropdown-menu').css('left', megaMenuLeftPosition + 'px');
-                    });
-                })();
-            }
-            if ($('html[dir="rtl"] .container .mega-menu--wide').length>0 && $(window).width() > 971) {
-                (function(){
-                    var headerSecond = $('.main-navigation--mega-menu').closest('.header-second').parent();
-                    var headerSecondRight = parseInt(headerSecond.offset().left + headerSecond.outerWidth(), 10);
-                    var headerFirstRight = parseInt($('.header-first').offset().left + $('.header-first').outerWidth() + 15, 10);
-                    var megaMenuRightPosition = headerSecondRight - headerFirstRight;
-                    $('.mega-menu--wide > .dropdown-menu').css('right', megaMenuRightPosition + 'px');
-                    $(window).resize(function() {
-                        var headerSecond = $('.main-navigation--mega-menu').closest('.header-second').parent();
-                        var headerSecondRight = parseInt(headerSecond.offset().left + headerSecond.outerWidth(), 10);
-                        var headerFirstRight = parseInt($('.header-first').offset().left + $('.header-first').outerWidth() + 15, 10);
-                        var megaMenuRightPosition = headerSecondRight - headerFirstRight;
-                        $('.mega-menu--wide > .dropdown-menu').css('right', megaMenuRightPosition + 'px');
-                    });
-                })();
-            }
-    
-            //Mega menu full width
-            if ($('html[dir="ltr"] .container-fluid .mega-menu--wide').length>0 && $(window).width() > 971) {
-                (function(){
-                    var headerSecondLeft = parseInt($('.main-navigation--mega-menu').closest('.header-second').parent().offset().left + 15, 10);
-                    var headerFirstLeft = parseInt($('.header-first').offset().left, 10);
-                    var megaMenuLeftPosition = headerFirstLeft - headerSecondLeft;
-                    var megaMenuWidth = parseInt($('.header .container-fluid').width(), 10);
-                    $('.mega-menu--wide > .dropdown-menu').css('left', megaMenuLeftPosition + 'px');
-                    $('.mega-menu--wide > .dropdown-menu').css('width', megaMenuWidth + 'px');
-                    $(window).resize(function() {
-                        var headerSecondLeft = parseInt($('.main-navigation--mega-menu').closest('.header-second').parent().offset().left + 15, 10);
-                        var headerFirstLeft = parseInt($('.header-first').offset().left, 10);
-                        var megaMenuLeftPosition = headerFirstLeft - headerSecondLeft;
-                        var megaMenuWidth = parseInt($('.header .container-fluid').width(), 10);
-                        $('.mega-menu--wide > .dropdown-menu').css('left', megaMenuLeftPosition + 'px');
-                        $('.mega-menu--wide > .dropdown-menu').css('width', megaMenuWidth + 'px');
-                    });
-                })();
-            }
-            if ($('html[dir="rtl"] .container-fluid .mega-menu--wide').length>0 && $(window).width() > 971) {
-                (function(){
-                    var headerSecond = $('.main-navigation--mega-menu').closest('.header-second').parent();
-                    var headerSecondRight = parseInt(headerSecond.offset().left + headerSecond.outerWidth(), 10);
-                    var headerFirstRight = parseInt($('.header-first').offset().left + $('.header-first').outerWidth() + 15, 10);
-                    var megaMenuRightPosition = headerSecondRight - headerFirstRight;
-                    var megaMenuWidth = parseInt($('.header .container-fluid').width(), 10);
-                    $('.mega-menu--wide > .dropdown-menu').css('right', megaMenuRightPosition + 'px');
-                    $('.mega-menu--wide > .dropdown-menu').css('width', megaMenuWidth + 'px');
-                    $(window).resize(function() {
-                        var headerSecond = $('.main-navigation--mega-menu').closest('.header-second').parent();
-                        var headerSecondRight = parseInt(headerSecond.offset().left + headerSecond.outerWidth(), 10);
-                        var headerFirstRight = parseInt($('.header-first').offset().left + $('.header-first').outerWidth() + 15, 10);
-                        var megaMenuRightPosition = headerSecondRight - headerFirstRight;
-                        var megaMenuWidth = parseInt($('.header .container-fluid').width(), 10);
-                        $('.mega-menu--wide > .dropdown-menu').css('right', megaMenuRightPosition + 'px');
-                        $('.mega-menu--wide > .dropdown-menu').css('width', megaMenuWidth + 'px');
-                    });
-                })();
-            }
     }
 
     componentWillUnmount() {
@@ -266,12 +90,27 @@ export default class Navbar extends Component {
 
     handleScroll(e) {
         this.setState({scrollTop: e.srcElement.body.scrollTop})
+
+        let headerElement = $('.header-container .header.fixed')[0].offsetTop;
+        let scrollLength = window.scrollY;
+        if (contact_header_height < window.scrollY) {
+            if(!$('.header-container .header.fixed').hasClass('hc-element-visible')) {
+                $('.header-container .header.fixed').addClass('hc-element-visible');
+                $('body').addClass('fixed-header-on');
+                $('.header-container').css('height', '125px');
+            }
+        } else {
+            if($('.header-container .header.fixed').hasClass('hc-element-visible')) {
+                $('.header-container .header.fixed').removeClass('hc-element-visible');
+                $('body').removeClass('fixed-header-on');
+            }
+        }
     }
 
     render() {
         let isSloganHidden = "";
-        if(window.scrollY !== 0) {
-            isSloganHidden = "d-none";
+        if(window.scrollY > contact_header_height) {
+            isSloganHidden = "slogan-hidden";
         }
 
         let homeLink = <Link to="/" className="nav-link" id="first-dropdown">Home</Link>;
@@ -295,9 +134,9 @@ export default class Navbar extends Component {
                                 {logoLink}
                             </div>
 
-                        <div className={"site-slogan " + isSloganHidden}>
+                        <p className={"site-slogan " + isSloganHidden}>
                         "We Do It Right!"
-                        </div>
+                        </p>
 
                     </div>
 
@@ -314,9 +153,9 @@ export default class Navbar extends Component {
                                     {logoLink}
                                 </div>
 
-                            <div className="site-slogan">
+                            <p className="site-slogan">
                             "We Do It Right!"
-                            </div>
+                            </p>
 
                         </div>
                         
