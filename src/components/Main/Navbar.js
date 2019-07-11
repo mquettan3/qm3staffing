@@ -16,6 +16,10 @@ export default class Navbar extends Component {
     }
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        
+        if($('body').hasClass('fixed-header-on')) {
+            $('body').removeClass('fixed-header-on');
+        }
 
 		//Scroll Spy
 		//-----------------------------------------------
