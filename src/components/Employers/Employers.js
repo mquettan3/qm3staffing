@@ -21,24 +21,27 @@ export default class Employers extends Component {
                 <div className="row justify-content-center">
                   <h1 className="text-center mt-4">Areas of Expertise</h1>
                   <div className="separator"></div>
-                    <p>We at QM3 Solutions pride ourselves on being the experts in providing employers with candidates of ranging skills, including but not limited to the following:
-                      <ul>
-                        <li>Clerical - CSR, Secretarial, Office Management, Data Entry, ect...</li>
-                        <li>Industriral - Light and Regular</li>
-                        <li>Labor - Skilled and general</li>
-                        <li>Warehouse - Scanners, pickers, lift drivers, pallet jack operators, material handler, ect...</li>
-                        <li>Professional - CEO, accountants, VPs, CFO, ect...</li>
-                      </ul>
+                    <p>
+                      We at QM3 Solutions pride ourselves on being the experts in providing employers with candidates of ranging skills, including but not limited to the following:
+                    </p>
+                    <ul>
+                      <li>Clerical - CSR, Secretarial, Office Management, Data Entry, ect...</li>
+                      <li>Industriral - Light and Regular</li>
+                      <li>Labor - Skilled and general</li>
+                      <li>Warehouse - Scanners, pickers, lift drivers, pallet jack operators, material handler, ect...</li>
+                      <li>Professional - CEO, accountants, VPs, CFO, ect...</li>
+                    </ul>
+                    <p>
                       <br />
                       We also speacialize in providing each of the following placement options:
-                      <ul>
-                        <li>Temporary</li>
-                        <li>Temp to Perm (500 hours)</li>
-                        <li>Perm Placement / Direct Hire</li>
-                        <li>Contract Talent</li>
-                        <li>Job Training</li>
-                      </ul>
                     </p>
+                    <ul>
+                      <li>Temporary</li>
+                      <li>Temp to Perm (500 hours)</li>
+                      <li>Perm Placement / Direct Hire</li>
+                      <li>Contract Talent</li>
+                      <li>Job Training</li>
+                    </ul>
                 </div>
                 <div className="row justify-content-center">
                   <h1 className="text-center mt-4">Request Staff</h1>
@@ -47,39 +50,39 @@ export default class Employers extends Component {
                   <p><b>IF YOU ARE LOOKING FOR A JOB, PLEASE DO NOT USE THIS FORM. </b> <Link to="/candidates">CLICK HERE TO SEARCH JOBS!</Link></p>
                 </div>
                 <div className="row">
-                  <fieldset class="form-group col-md-8 offset-md-2 col-sm-12">
-                    <legend class="col-from-legend col-md-5 col-lg-3">Staff Request Form</legend>
+                  <fieldset className="form-group col-md-8 offset-md-2 col-sm-12">
+                    <legend className="col-from-legend col-md-5 col-lg-3">Staff Request Form</legend>
                   <form>
                     <div className="form-group has-feedback">
-                      <label for="firstName">First Name*</label>
+                      <label htmlFor="firstName">First Name*</label>
                       <input type="text" className="form-control" id="firstName" placeholder="Enter your first name"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="lastName">Last Name*</label>
+                      <label htmlFor="lastName">Last Name*</label>
                       <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="title">Title</label>
+                      <label htmlFor="title">Title</label>
                       <input type="text" className="form-control" id="title" placeholder="Enter Title"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputEmail">Email Address*</label>
+                      <label htmlFor="inputEmail">Email Address*</label>
                       <input type="text" className="form-control" id="inputEmail" placeholder="Enter Email"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputPhone">Phone Number*</label>
+                      <label htmlFor="inputPhone">Phone Number*</label>
                       <input type="text" className="form-control" id="inputPhone" placeholder="Enter Phone Number"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputCompanyName">Company Name*</label>
+                      <label htmlFor="inputCompanyName">Company Name*</label>
                       <input type="text" className="form-control" id="inputCompanyName" placeholder="Enter Company Name"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputCity">City*</label>
+                      <label htmlFor="inputCity">City*</label>
                       <input type="text" className="form-control" id="inputCity" placeholder="Enter City"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputState">State*</label>
+                      <label htmlFor="inputState">State*</label>
                       <select type="text" className="form-control" id="inputState">
                         <option>Alabama</option>
                         <option>Alaska</option>
@@ -134,11 +137,11 @@ export default class Employers extends Component {
                       </select>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputZip">Zip Code*</label>
+                      <label htmlFor="inputZip">Zip Code*</label>
                       <input type="text" className="form-control" id="inputZip" placeholder="Enter Zip Code"></input>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputSkillsOfInterest">Hire Types of Interest*</label>
+                      <label htmlFor="inputSkillsOfInterest">Hire Types of Interest*</label>
                       <select multiple className="form-control" id="inputSkillsOfInterest">
                         <option>Clerical</option>
                         <option>Industrial</option>
@@ -148,7 +151,7 @@ export default class Employers extends Component {
                       </select>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputHireTypes">Hire Types of Interest*</label>
+                      <label htmlFor="inputHireTypes">Hire Types of Interest*</label>
                       <select multiple className="form-control" id="inputHireTypes">
                         <option>Temporary</option>
                         <option>Temp to Perm (500 hours)</option>
@@ -158,13 +161,13 @@ export default class Employers extends Component {
                       </select>
                     </div>
                     <div className="form-group has-feedback">
-                      <label for="inputDetails">Details</label>
+                      <label htmlFor="inputDetails">Details</label>
                       <textarea rows="5" className="form-control" id="inputDetails" placeholder="Details of request." />
                     </div>
                     <div className="form-group">
-                      <label for="inputDetails">*Required Fields</label>
+                      <label htmlFor="inputDetails">*Required Fields</label>
                     </div>
-                    <button type="submit" class="btn btn-default">Request Staff</button>
+                    <button type="submit" className="btn btn-default">Request Staff</button>
                   </form>
                   </fieldset>
                 </div>

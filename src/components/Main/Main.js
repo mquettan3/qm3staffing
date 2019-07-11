@@ -14,7 +14,27 @@ import AboutUs from './AboutUs.js';
 import OurTeam from './OurTeam.js';
 import Footer from './Footer.js';
 
+import $ from 'jquery';
+
 class Main extends Component {
+
+  componentDidMount() {
+		//Scroll totop
+		//-----------------------------------------------
+		$(window).scroll(function() {
+			if($(this).scrollTop() != 0) {
+				$(".scrollToTop").addClass("fadeToTop");
+				$(".scrollToTop").removeClass("fadeToBottom");
+			} else {
+				$(".scrollToTop").removeClass("fadeToTop");
+				$(".scrollToTop").addClass("fadeToBottom");
+			}
+		});
+
+		$(".scrollToTop").click(function() {
+			$("body,html").animate({scrollTop:0},800);
+		});
+  }
 
   render() {
     return (
@@ -23,12 +43,10 @@ class Main extends Component {
             <div className="scrollToTop circle"><i className="fa fa-angle-up"></i></div>
         
             <div className="page-wrapper">
-              <div className="header-container">
-                <ContactHeader />
-                <Navbar 
-                location="Main"
-                />
-              </div>
+              <ContactHeader />
+              <Navbar 
+              location="Main"
+              />
               {/* <Slideshow /> */}
               <Promo />
               <div id="page-start"></div>

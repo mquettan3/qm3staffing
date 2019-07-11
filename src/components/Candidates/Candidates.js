@@ -27,15 +27,15 @@ export default class Candidates extends Component {
                     <div className="separator"></div>
                     <p>We at QM3 Solutions provide more than simply a list of open opportunities with our employers to each of our candidates.  We aim to assist you throughout the entire process from beginning to end to assure that you find the best fit possible.  Please fill out the form below if you are interested in any of the following:
                       <br /> <br />
-                      <ul>
-                        <li>Resume Writing Assistance</li>
-                        <li>Mentoring / Coaching</li>
-                        <li>Temporary Positions</li>
-                        <li>Contract Placements</li>
-                        <li>Temp to Perm</li>
-                        <li>Permanent Positions</li>
-                      </ul>
                     </p>
+                    <ul>
+                      <li>Resume Writing Assistance</li>
+                      <li>Mentoring / Coaching</li>
+                      <li>Temporary Positions</li>
+                      <li>Contract Placements</li>
+                      <li>Temp to Perm</li>
+                      <li>Permanent Positions</li>
+                    </ul>
                   </div>
                   <div className="row justify-content-center">
                     <h1 className="text-center mt-4">Open Positions</h1>
@@ -50,54 +50,53 @@ export default class Candidates extends Component {
                   <div className="row justify-content-center">
                     <h1 className="text-center mt-4">Inquire About Future Positions</h1>
                     <div className="separator"></div>
-                    <p>All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
-                      <br /> <br />
-                      <div className="row">
-                        <fieldset class="form-group col-md-8 offset-md-2 col-sm-12">
-                          <legend class="col-from-legend col-md-5 col-lg-3">Position Request Form</legend>
-                          <form>
-                            <div className="form-group has-feedback">
-                              <label for="firstName">First Name*</label>
-                              <input type="text" className="form-control" id="firstName" placeholder="Enter your first name"></input>
-                            </div>
-                            <div className="form-group has-feedback">
-                              <label for="lastName">Last Name*</label>
-                              <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"></input>
-                            </div>
-                            <div className="form-group has-feedback">
-                              <label for="inputPhone">Phone Number*</label>
-                              <input type="text" className="form-control" id="inputPhone" placeholder="Enter Phone Number"></input>
-                            </div>
-                            <div className="form-group has-feedback">
-                              <label for="inputEmail">Email Address*</label>
-                              <input type="text" className="form-control" id="inputEmail" placeholder="Enter Email"></input>
-                            </div>
-                            <div className="form-group has-feedback">
-                              <label for="inputSkillsOfInterest">Fields of Interest*</label>
-                              <select multiple className="form-control" id="inputSkillsOfInterest">
-                                <option>Clerical</option>
-                                <option>Industrial</option>
-                                <option>Labor</option>
-                                <option>Warehouse</option>
-                                <option>Professional</option>
-                              </select>
-                            </div>
-                            <div className="form-group has-feedback">
-                              <label for="inputResume">Resume*</label>
-                              <input type="file" className="form-control" id="inputResume"></input>
-                            </div>
-                            <div className="form-group has-feedback">
-                              <label for="inputDetails">Details</label>
-                              <textarea rows="5" className="form-control" id="inputDetails" placeholder="Details of request." />
-                            </div>
-                            <div className="form-group">
-                              <label for="inputDetails">*Required Fields</label>
-                            </div>
-                            <button type="submit" class="btn btn-default">Request Position</button>
-                          </form>
-                        </fieldset>
-                      </div>
-                    </p>
+                    <p>All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.</p>
+                    <br /> <br />
+                    <div className="row">
+                      <fieldset className="form-group col-md-8 offset-md-2 col-sm-12">
+                        <legend className="col-from-legend col-md-5 col-lg-3">Position Request Form</legend>
+                        <form>
+                          <div className="form-group has-feedback">
+                            <label htmlFor="firstName">First Name*</label>
+                            <input type="text" className="form-control" id="firstName" placeholder="Enter your first name"></input>
+                          </div>
+                          <div className="form-group has-feedback">
+                            <label htmlFor="lastName">Last Name*</label>
+                            <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"></input>
+                          </div>
+                          <div className="form-group has-feedback">
+                            <label htmlFor="inputPhone">Phone Number*</label>
+                            <input type="text" className="form-control" id="inputPhone" placeholder="Enter Phone Number"></input>
+                          </div>
+                          <div className="form-group has-feedback">
+                            <label htmlFor="inputEmail">Email Address*</label>
+                            <input type="text" className="form-control" id="inputEmail" placeholder="Enter Email"></input>
+                          </div>
+                          <div className="form-group has-feedback">
+                            <label htmlFor="inputSkillsOfInterest">Fields of Interest*</label>
+                            <select multiple className="form-control" id="inputSkillsOfInterest">
+                              <option>Clerical</option>
+                              <option>Industrial</option>
+                              <option>Labor</option>
+                              <option>Warehouse</option>
+                              <option>Professional</option>
+                            </select>
+                          </div>
+                          <div className="form-group has-feedback">
+                            <label htmlFor="inputResume">Resume*</label>
+                            <input type="file" className="form-control" id="inputResume"></input>
+                          </div>
+                          <div className="form-group has-feedback">
+                            <label htmlFor="inputDetails">Details</label>
+                            <textarea rows="5" className="form-control" id="inputDetails" placeholder="Details of request." />
+                          </div>
+                          <div className="form-group">
+                            <label htmlFor="inputDetails">*Required Fields</label>
+                          </div>
+                          <button type="submit" className="btn btn-default">Request Position</button>
+                        </form>
+                      </fieldset>
+                    </div>
                   </div>
                 </div>
               <Footer />

@@ -22,23 +22,19 @@ export default class AboutUs extends Component {
                 {/* <h2 className="title">About Us</h2>
                 <div className="separator-2"></div> */}
                 <p className="site-slogan">"We Do It Right!"</p>
-                <p>
-                  <ul>
-                    <li>The <span className="text-default"><b>Right</b></span> One</li>
-                    <li>The <span className="text-default"><b>Right</b></span> Job</li>
-                    <li>The <span className="text-default"><b>Right</b></span> Time</li>
-                    <li>The <span className="text-default"><b>Right</b></span> Way</li>
-                    <li>For all the <span className="text-default"><b>Right</b></span> Reasons</li>
-                  </ul>
-                </p>
+                <ul>
+                  <li>The <span className="text-default"><b>Right</b></span> One</li>
+                  <li>The <span className="text-default"><b>Right</b></span> Job</li>
+                  <li>The <span className="text-default"><b>Right</b></span> Time</li>
+                  <li>The <span className="text-default"><b>Right</b></span> Way</li>
+                  <li>For all the <span className="text-default"><b>Right</b></span> Reasons</li>
+                </ul>
                 <p>There is no talent we cannot find and no opportunity we cannot locate.  We aim to be a bridge to the roadways between talent and opportunity.  We make the choice between what is convenient and what is <span className="text-default"><b>Right</b></span>!  We unite you with the <span className="text-default"><b>Right</b></span> talent; not just a body.</p>
-                <p>
-                  <ul>
-                    <li>We hire the <span className="text-default"><b>Right</b></span> way</li>
-                    <li>We train the <span className="text-default"><b>Right</b></span> way</li>
-                    <li>Allowing you to retain the <span className="text-default"><b>Right</b></span> one!</li>
-                  </ul>
-                </p>
+                <ul>
+                  <li>We hire the <span className="text-default"><b>Right</b></span> way</li>
+                  <li>We train the <span className="text-default"><b>Right</b></span> way</li>
+                  <li>Allowing you to retain the <span className="text-default"><b>Right</b></span> one!</li>
+                </ul>
                 <p>We are timely, supportive, and positive.  Fulfilling the needs of many and bringing joy to all.</p>
               </div>
             </div>

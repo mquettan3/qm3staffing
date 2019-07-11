@@ -4,6 +4,7 @@ import '../../assets/css/main.css';
 export default class ContactHeader extends Component {  
     render() {
       return (
+          <div className="header-container">
             <div className="header-top dark">
                 <div className="container">
                   <div className="row">
@@ -39,6 +40,7 @@ export default class ContactHeader extends Component {
                   </div>
                 </div>
             </div>
+          </div>
         )
     };
 }
