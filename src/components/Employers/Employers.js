@@ -47,9 +47,11 @@ export default class Employers extends Component {
                       <li>Job Training</li>
                     </ul>
                 </div>
-                <div className="row">
-                  <TabbedInformation />
-                </div>
+              </div>
+              
+              <TabbedInformation />
+
+              <div className="container">
                 <div className="row justify-content-center">
                   <h1 className="text-center mt-4">Request Staff</h1>
                   <div className="separator"></div>
