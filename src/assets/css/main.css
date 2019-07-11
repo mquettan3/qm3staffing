@@ -94,3 +94,13 @@
 .slogan-hidden {
     height: 0px;
 }
+
+.about-us ul {
+    list-style: none;
+}
+  
+.about-us ul li:before {
+    content: '✓ ';
+    color: #0c9653ce;
+    font-weight: bold;
+}

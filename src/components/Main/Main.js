@@ -10,6 +10,7 @@ import CallToAction from './CallToAction.js';
 // import SectorsAndServices from './SectorsAndServices.js';
 import WhoWeAre from './WhoWeAre.js';
 import AboutUs from './AboutUs.js';
+import OurValues from './OurValues.js';
 // import OurPartners from './OurPartners.js';
 import OurTeam from './OurTeam.js';
 import Footer from './Footer.js';
@@ -52,14 +53,15 @@ class Main extends Component {
               <div id="page-start"></div>
               <CallToAction
                 action_name="Job Seekers"
-                action_description="Looking for a new job?!  Let us help!"
+                action_description="Looking for a new Opportunity?!  Let us help!"
               />
 
               <WhoWeAre />
               <AboutUs />
+              <OurValues />
               <CallToAction
                 action_name="Employers"
-                action_description="Inquire about finding candidates for your open positions!"
+                action_description="Inquire about finding the Right talent for your open opportunies!"
               />
               <OurTeam />
               <Footer />

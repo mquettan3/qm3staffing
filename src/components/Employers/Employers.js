@@ -4,6 +4,7 @@ import ContactHeader from "../Main/ContactHeader.js"
 import Footer from "../Main/Footer.js"
 import '../../assets/css/main.css';
 import { Link } from "react-router-dom";
+import TabbedInformation from './TabbedInformation.js'
 
 export default class Employers extends Component {
     componentDidMount() {
@@ -31,7 +32,7 @@ export default class Employers extends Component {
                       <li>Industriral - Light and Regular</li>
                       <li>Labor - Skilled and general</li>
                       <li>Warehouse - Scanners, pickers, lift drivers, pallet jack operators, material handler, ect...</li>
-                      <li>Professional - CEO, accountants, VPs, CFO, ect...</li>
+                      <li>Professional - CEO, accountants, VPs, CFO, IT, ect...</li>
                     </ul>
                     <p className="col-12">
                     <br />
@@ -39,11 +40,15 @@ export default class Employers extends Component {
                     </p>
                     <ul>
                       <li>Temporary</li>
-                      <li>Temp to Perm (500 hours)</li>
+                      <li>Temp to Perm (480 hours)</li>
                       <li>Perm Placement / Direct Hire</li>
                       <li>Contract Talent</li>
+                      <li>High Volume Placement and Partnership</li>
                       <li>Job Training</li>
                     </ul>
+                </div>
+                <div className="row">
+                  <TabbedInformation />
                 </div>
                 <div className="row justify-content-center">
                   <h1 className="text-center mt-4">Request Staff</h1>

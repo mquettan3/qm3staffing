@@ -20,7 +20,7 @@ export default class Footer extends Component {
                   <div className="offset-lg-1 col-lg-4">
                     <div className="footer-content">
                       <div className="logo-footer"><embed id="logo_img" src={QM3Logo} alt=""/></div>
-                      <p>QM3 Solutions stands on a foundation of integrity as we aim to make a difference and directly impact the lives of the individuals which we serve...<a href="#about">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a></p>
+                      <p>QM3 Solutions stands on a foundation of integrity as we aim to make a difference and directly impact the lives of the individuals which we serve...<a href="#about" className="smooth-scroll">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a></p>
                       <div className="separator-2"></div>
                       <nav>
                         <ul className="nav flex-column">
@@ -33,7 +33,7 @@ export default class Footer extends Component {
                     <div className="footer-content">
                       <h2 className="title">Contact Us</h2>
                       <div className="separator-2"></div>
-                      <p>Please contact us with any questions you may have.  We're here to serve.<br/>Follow us on social media!</p>
+                      <p>Please contact us with any questions you may have.  We are here to unite you with the bridge the gap, and make the search easier between talent and opportunity..<br/><br/>Follow us on social media!</p>
                       <ul className="social-links circle animated-effect-1">
                         <li className="facebook"><a href="https://www.facebook.com/QM3US"><i className="fa fa-facebook"></i></a></li>
                         <li className="linkedin"><a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/"><i className="fa fa-linkedin"></i></a></li>
