@@ -4,18 +4,21 @@ import QM3Logo from "../../assets/images/Logos/QM3_Logo.svg";
 import { Link } from "react-router-dom";
 import $ from 'jquery';
 
-var contact_header_height = 43;
 
 export default class Navbar extends Component {
     constructor(props){
         super(props);
 
         this.handleScroll = this.handleScroll.bind(this);
+        this.handleResize = this.handleResize.bind(this);
 
         this.state = {scrollTop: 0};
+
+        this.contact_header_height = 43;
     }
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
         
         if($('body').hasClass('fixed-header-on')) {
             $('body').removeClass('fixed-header-on');
@@ -90,30 +93,45 @@ export default class Navbar extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
     }
 
     handleScroll(e) {
         this.setState({scrollTop: e.srcElement.body.scrollTop})
 
-        let headerElement = $('.header-container .header.fixed')[0].offsetTop;
-        let scrollLength = window.scrollY;
-        if (contact_header_height < window.scrollY) {
+        if (this.contact_header_height < window.scrollY) {
             if(!$('.header-container .header.fixed').hasClass('hc-element-visible')) {
                 $('.header-container .header.fixed').addClass('hc-element-visible');
                 $('body').addClass('fixed-header-on');
-                $('.header-container').css('height', '125px');
+                if(window.innerWidth > 991){
+                    $('.header-container').css('margin-top', '125px');
+                } else {
+                    $('.header-container').css('margin-top', '151px');
+                }
             }
         } else {
             if($('.header-container .header.fixed').hasClass('hc-element-visible')) {
                 $('.header-container .header.fixed').removeClass('hc-element-visible');
                 $('body').removeClass('fixed-header-on');
+                $('.header-container').css('margin-top', '0px');
             }
         }
+    }
+    
+    handleResize(e) {
+        if ($('.header-container .header.fixed').hasClass('hc-element-visible')) {
+            if (window.innerWidth > 991) {
+                $('.header-container').css('margin-top', '125px');
+            } else {
+                $('.header-container').css('margin-top', '151px');
+            }
+        }
+
     }
 
     render() {
         let isSloganHidden = "";
-        if(window.scrollY > contact_header_height) {
+        if(window.scrollY > this.contact_header_height) {
             isSloganHidden = "slogan-hidden";
         }
 

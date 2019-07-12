@@ -7,8 +7,8 @@ export default class TeamMember extends Component {
     }
     render() {
       return (
-        <div className="row">
-          <div className="col-md-6 col-lg-4 col-xl-3">
+        <div className="team-member-wrapper row">
+          <div className="bio-image col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <div className="overlay-container overlay-visible">
               <img src={this.props.portrait} alt="" />
               {/* <a href="images/team-member-1.jpg" className="popup-img overlay-link" title="Team Member - CEO"><i className="fa fa-plus"></i></a> */}
@@ -19,7 +19,7 @@ export default class TeamMember extends Component {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-lg-4 col-xl-6">
+          <div className="col-sm-12 col-md-6 col-lg-8 col-xl-9">
             <div className="body">
               <h3 className="title margin-clear">{this.props.fullName} - <small>{this.props.title}</small></h3>
               <div className="separator-2 mt-10"></div>

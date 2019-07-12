@@ -7,7 +7,7 @@ import SusanPortrait from '../../assets/images/SusanPortrait.jpg';
 export default class OurTeam extends Component {
     render() {
       return (
-        <section id="ourteam" className="section container">
+        <section id="ourteam" className="section container row">
           <h1 className="text-center mt-4">Our Team</h1>
           <div className="separator"></div>
           <TeamMember

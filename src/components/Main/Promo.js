@@ -30,11 +30,12 @@ export default class Promo extends Component {
                         <div className="separator light with-icon"><i className="fa fa-handshake-o bordered"></i></div>
                     </div>
                 </div> */}
-                <div className="row">
-                    <div className="promo-caption-subsection col-12">
-                        {/* <div className="promo-caption-subtext">Providing quality candidates with quality positions</div> */}
-                        <Link to="candidates" className="btn radius-50 btn-dark btn-animated" style={{marginRight: "30px"}}>For Job Seekers <i className="fa fa-arrow-right"></i></Link>
-                        <Link to="employers" className="btn radius-50 btn-dark btn-animated" style={{marginBottom: "10px"}}>For Employers <i className="fa fa-arrow-right"></i></Link>
+                <div className="promo-caption-subsection row">
+                    <div className="col-md-6">
+                        <Link to="candidates" className="btn radius-50 btn-dark btn-animated btn-lg">For Job Seekers <i className="fa fa-arrow-right"></i></Link>
+                    </div>
+                    <div className="col-md-6">
+                        <Link to="employers" className="btn radius-50 btn-dark btn-animated btn-lg">For Employers <i className="fa fa-arrow-right"></i></Link>
                     </div>
                 </div>
             </div>
