@@ -185,7 +185,7 @@ export default class Navbar extends Component {
                                     {logoLink}
                                 </div>
 
-                            <p className="site-slogan">
+                            <p className={"site-slogan " + isSloganHidden}>
                             "We Do It Right!"
                             </p>
 
