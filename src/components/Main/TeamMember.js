@@ -7,7 +7,7 @@ export default class TeamMember extends Component {
     }
     render() {
       return (
-        <div className="team-member-wrapper row">
+        <div className="team-member-wrapper row container">
           <div className="bio-image col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <div className="overlay-container overlay-visible">
               <img src={this.props.portrait} alt="" />
