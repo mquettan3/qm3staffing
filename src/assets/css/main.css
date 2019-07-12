@@ -127,3 +127,11 @@ section.quote h2 {
 #values h1 {
     color: #0c9653;
 }
+
+.collapse-style-2 .card-header a.collapsed {
+    background-color: #373737;
+}
+
+.collapse-style-2 .card-header a {
+    background-color: #0d5ca2;
+}

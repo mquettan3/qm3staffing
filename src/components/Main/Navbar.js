@@ -147,12 +147,17 @@ export default class Navbar extends Component {
 
         let aboutUsLink = "";
         if (this.props.location === "Main") {
-            aboutUsLink = <a href="#about" className="nav-link smooth-scroll" id="third-dropdown">About Us</a>;
+            aboutUsLink = <a href="#about" className="nav-link smooth-scroll" id="second-dropdown">About Us</a>;
         }
 
         let ourTeamLink = "";
         if (this.props.location === "Main") {
             ourTeamLink = <a href="#ourteam" className="nav-link smooth-scroll" id="fourth-dropdown">Our Team</a>
+        }
+
+        let ourProcessLink = "";
+        if (this.props.location === "Main") {
+            ourProcessLink = <a href="#process" className="nav-link smooth-scroll" id="fifth-dropdown">Our Process</a>
         }
 
         return (
@@ -173,7 +178,7 @@ export default class Navbar extends Component {
                     </div>
 
                     </div>
-                    <div className="col-lg-7 ml-lg-auto">
+                    <div className="col-lg-8 ml-lg-auto">
                 
                     <div className="header-second clearfix">
                         
@@ -215,7 +220,10 @@ export default class Navbar extends Component {
                                 {ourTeamLink}
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                                <a href="#footer" className="nav-link smooth-scroll" id="fourth-dropdown">Contact Us</a>
+                                {ourProcessLink}
+                            </li>
+                            <li className="nav-item dropdown  mega-menu mega-menu--wide">
+                                <a href="#footer" className="nav-link smooth-scroll" id="sixth-dropdown">Contact Us</a>
                             </li>
                             </ul>
                         </div>

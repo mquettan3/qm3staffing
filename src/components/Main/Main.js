@@ -12,6 +12,7 @@ import WhoWeAre from './WhoWeAre.js';
 import AboutUs from './AboutUs.js';
 import QuoteSection from './QuoteSection.js';
 import OurValues from './OurValues.js';
+import OurProcess from './OurProcess.js';
 // import OurPartners from './OurPartners.js';
 import OurTeam from './OurTeam.js';
 import Footer from './Footer.js';
@@ -62,6 +63,7 @@ class Main extends Component {
               <AboutUs />
               <QuoteSection />
               <OurValues />
+              <OurProcess />
               <CallToAction
                 action_name="Employers"
                 action_description="Inquire about finding the Right talent for your open opportunies!"
