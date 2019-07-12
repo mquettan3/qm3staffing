@@ -6,8 +6,114 @@ import Footer from "../Main/Footer.js"
 import '../../assets/css/main.css';
 
 export default class Candidates extends Component {
+    constructor(props) {
+      super(props);
+
+      this.onFirstNameChange = this.onFirstNameChange.bind(this);
+      this.onLastNameChange = this.onLastNameChange.bind(this);
+      this.onEmailChange = this.onEmailChange.bind(this);
+      this.onPhoneChange = this.onPhoneChange.bind(this);
+      this.onInterestsChange = this.onInterestsChange.bind(this);
+      this.onResumeChange = this.onResumeChange.bind(this);
+      this.onDetailsChange = this.onDetailsChange.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
+
+      this.state = {
+        firstName: {value: "", isValid: false},
+        lastName: {value: "", isValid: false},
+        phone: {value: "", isValid: false},
+        email: {value: "", isValid: false},
+        interests: {value: [], isValid: false},
+        resume: {value: [], isValid: true},
+        details: {value: "", isValid: true}
+
+      }
+    }
     componentDidMount() {
       window.scrollTo(0,0);
+    }
+
+    onFirstNameChange(e) {
+      var valid = false;
+
+      if(e.target.value) {
+        valid = true;
+      }
+
+      this.setState({firstName: {value: e.target.value, isValid: valid}});
+    }
+
+    onLastNameChange(e) {
+      var valid = false;
+
+      if(e.target.value) {
+        valid = true;
+      }
+
+      this.setState({lastName: {value: e.target.value, isValid: valid}});
+    }
+
+    onEmailChange(e) {
+      var valid = false;
+
+      if(e.target.value) {
+        valid = true;
+      }
+
+      this.setState({email: {value: e.target.value, isValid: valid}});
+    }
+
+    onPhoneChange(e) {
+      var valid = false;
+
+      if(e.target.value) {
+        valid = true;
+      }
+
+      this.setState({phone: {value: e.target.value, isValid: valid}});
+    }
+
+    onInterestsChange(e) {
+      var valid = false;
+
+      if(e.target.selectedOptions.length > 0) {
+        valid = true;
+      }
+
+      this.setState({interests: {value: [...e.target.selectedOptions].map(o => o.value), isValid: valid}});
+    }
+
+    onResumeChange(e) {
+      this.setState({resume: {value: e.target.files[0], isValid: true}});
+    }
+
+    onDetailsChange(e) {
+      var valid = false;
+
+      if(e.target.value) {
+        valid = true;
+      }
+
+      this.setState({details: {value: e.target.value, isValid: valid}});
+    }
+
+    onSubmit(e) {
+      // Make sure everything is valid.
+      if (
+        this.state.firstName.isValid &&
+        this.state.lastName.isValid &&
+        this.state.phone.isValid &&
+        this.state.email.isValid &&
+        this.state.interests.isValid &&
+        this.state.resume.isValid &&
+        this.state.details.isValid
+      ) {
+        console.log("Valid Submit!");
+      } else {
+        console.log("Invalid Submit!");
+      }
+
+      e.preventDefault();
     }
     
     render() {

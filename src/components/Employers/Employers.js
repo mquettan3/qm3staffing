@@ -36,7 +36,7 @@ export default class Employers extends Component {
       zip: {value: "", isValid: false},
       skillTypes: {value: [], isValid: true},
       hireTypes: {value: [], isValid: true},
-      details: {value: "", isValid: true},
+      details: {value: "", isValid: true}
     }
   }
     componentDidMount() {
