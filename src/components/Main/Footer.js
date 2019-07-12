@@ -33,7 +33,7 @@ export default class Footer extends Component {
                     <div className="footer-content">
                       <h2 className="title">Contact Us</h2>
                       <div className="separator-2"></div>
-                      <p>Please contact us with any questions you may have.  We are here to bridge the gap and ease connections between talent and opportunity.<br/><br/>Follow us on social media!</p>
+                      <p>Please contact us with any questions you may have.  We are here to bridge the gap and ease the connection between talent and opportunity.<br/><br/>Follow us on social media!</p>
                       <ul className="social-links circle animated-effect-1">
                         <li className="facebook"><a href="https://www.facebook.com/QM3US"><i className="fa fa-facebook"></i></a></li>
                         <li className="linkedin"><a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/"><i className="fa fa-linkedin"></i></a></li>

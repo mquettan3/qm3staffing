@@ -89,7 +89,7 @@
 }
 
 .text-default {
-    color: #0c9653ce;
+    color: #0c9653;
 }
 
 .slogan-hidden {
@@ -102,7 +102,7 @@
   
 .about-us ul li:before {
     content: '✓ ';
-    color: #0c9653ce;
+    color: #0c9653;
     font-weight: bold;
 }
 
@@ -122,4 +122,8 @@ section.quote h2 {
 .promo-caption-subsection .btn-primary {
     background-color: #0d5ca2;
     border-color: #0d5ca2;
+}
+
+#values h1 {
+    color: #0c9653;
 }
