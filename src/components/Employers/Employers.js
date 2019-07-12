@@ -20,7 +20,7 @@ export default class Employers extends Component {
               />
               <div className="container">
                 <div className="row justify-content-center">
-                  <h1 className="text-center mt-4">Areas of Expertise</h1>
+                  <h1 className="col-sm-12 text-center mt-4">Areas of Expertise</h1>
                 </div>
                 <div className="separator"></div>
                 <div className="row">
@@ -53,10 +53,10 @@ export default class Employers extends Component {
 
               <div className="container">
                 <div className="row justify-content-center">
-                  <h1 className="text-center mt-4">Request Staff</h1>
+                  <h1 className="col-sm-12 text-center mt-4">Request Staff</h1>
                   <div className="separator"></div>
-                  <p>Attention Hiring Managers: If you have a staffing or workforce need, you can trust <span className="text-default">QM3 Solutions</span> to help. After completing the short form below, your request will be routed to a QM3 representative and you will be contacted quickly to discuss your hiring need.</p>
-                  <p><b>IF YOU ARE LOOKING FOR A JOB, PLEASE DO NOT USE THIS FORM. </b> <Link to="/candidates">CLICK HERE TO SEARCH JOBS!</Link></p>
+                  <p className="col-sm-12">Attention Hiring Managers: If you have a staffing or workforce need, you can trust <span className="text-default">QM3 Solutions</span> to help. After completing the short form below, your request will be routed to a QM3 representative and you will be contacted quickly to discuss your hiring need.</p>
+                  <p className="col-sm-12"><b>IF YOU ARE LOOKING FOR A JOB, PLEASE DO NOT USE THIS FORM. </b> <Link to="/candidates">CLICK HERE TO SEARCH JOBS!</Link></p>
                 </div>
                 <div className="row">
                   <fieldset className="form-group col-md-8 offset-md-2 col-sm-12">

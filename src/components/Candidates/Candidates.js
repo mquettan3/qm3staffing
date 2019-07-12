@@ -23,11 +23,11 @@ export default class Candidates extends Component {
                 />
                 <div className="container">
                   <div className="row justify-content-center">
-                    <h1 className="text-center mt-4">Services we Provide to YOU!</h1>
+                    <h1 className="col-sm-12 text-center mt-4">Services we Provide to YOU!</h1>
                   </div>
                   <div className="separator"></div>
                   <div className="row">
-                    <p>We at QM3 Solutions provide more than simply a list of open opportunities with our employers to each of our candidates.  We aim to assist you throughout the entire process from beginning to end to assure that you find the best fit possible.  Please fill out the form below if you are interested in any of the following:
+                    <p className="col-sm-12">We at QM3 Solutions provide more than simply a list of open opportunities with our employers to each of our candidates.  We aim to assist you throughout the entire process from beginning to end to assure that you find the best fit possible.  Please fill out the form below if you are interested in any of the following:
                       <br /> <br />
                     </p>
                     <ul>
@@ -40,11 +40,11 @@ export default class Candidates extends Component {
                     </ul>
                   </div>
                   <div className="row justify-content-center">
-                    <h1 className="text-center mt-4">Open Positions</h1>
+                    <h1 className="col-sm-12 text-center mt-4">Open Positions</h1>
                   </div>
                   <div className="separator"></div>
                   <div className="row">
-                    <p>All of our currently open positions with all of our partnered employers will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
+                    <p className="col-sm-12">All of our currently open positions with all of our partnered employers will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
                       <br /> <br />
                       <a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/">View our current open positions on Linked In</a>
                       <br />
@@ -56,7 +56,7 @@ export default class Candidates extends Component {
                   </div>
                   <div className="separator"></div>
                   <div className="row">
-                    <p>All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.</p>
+                    <p className="col-sm-12">All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.</p>
                     <br /> <br />
                     <fieldset className="form-group col-md-8 offset-md-2 col-sm-12">
                       <legend className="col-from-legend col-md-5 col-lg-3">Position Request Form</legend>
