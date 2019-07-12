@@ -13,7 +13,7 @@ export default class TabbedInformation extends Component {
       return (
           <div className="tabbed-info-wrapper row section light-gray-bg justify-content-center">
                 <div className="container">
-                    <div className="col-md-10">
+                    <div className="col-md-10 offset-md-1">
                         <ul class="nav nav-tabs style-1" role="tablist">
                             <li class="nav-item">
                             <a class="nav-link active" href="#htab1" role="tab" data-toggle="tab" aria-selected="true">Temporary</a>

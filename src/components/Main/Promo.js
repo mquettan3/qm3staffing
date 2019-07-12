@@ -31,11 +31,11 @@ export default class Promo extends Component {
                     </div>
                 </div> */}
                 <div className="promo-caption-subsection row">
-                    <div className="col-md-6">
-                        <Link to="candidates" className="btn radius-50 btn-dark btn-animated btn-lg">For Job Seekers <i className="fa fa-arrow-right"></i></Link>
+                    <div className="col-md-5 offset-md-1 col-sm-12">
+                        <Link to="candidates" className="btn radius-50 btn-primary btn-animated btn-lg">For Job Seekers <i className="fa fa-arrow-right"></i></Link>
                     </div>
-                    <div className="col-md-6">
-                        <Link to="employers" className="btn radius-50 btn-dark btn-animated btn-lg">For Employers <i className="fa fa-arrow-right"></i></Link>
+                    <div className="col-md-5  col-sm-12">
+                        <Link to="employers" className="btn radius-50 btn-primary btn-animated btn-lg">For Employers <i className="fa fa-arrow-right"></i></Link>
                     </div>
                 </div>
             </div>

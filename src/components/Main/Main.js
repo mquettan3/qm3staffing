@@ -55,6 +55,7 @@ class Main extends Component {
               <CallToAction
                 action_name="Job Seekers"
                 action_description="Looking for a new Opportunity?!  Let us help!"
+                link="/candidates"
               />
 
               <WhoWeAre />
@@ -64,6 +65,7 @@ class Main extends Component {
               <CallToAction
                 action_name="Employers"
                 action_description="Inquire about finding the Right talent for your open opportunies!"
+                link="/employers"
               />
               <OurTeam />
               <Footer />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/css/main.css';
+import { Link } from "react-router-dom";
 
 export default class CallToAction extends Component {
     render() {
@@ -14,7 +15,7 @@ export default class CallToAction extends Component {
                             <h3 className="mt-10">{this.props.action_description}</h3>
                             </div>
                             <div className="col-md-4 text-right">
-                            <a href="#" className="btn btn-lg btn-default btn-animated">{this.props.action_name}<i className="fa fa-arrow-right pl-20"></i></a>
+                            <Link to={this.props.link} className="btn btn-lg btn-default btn-animated">{this.props.action_name}<i className="fa fa-arrow-right pl-20"></i></Link>
                             </div>
                         </div>
                         </div>
