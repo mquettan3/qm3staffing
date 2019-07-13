@@ -92,7 +92,7 @@ export default class Employers extends Component {
     onPhoneChange(e) {
       var valid = false;
 
-      if(e.target.value) {
+      if(/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(e.target.value)) {
         valid = true;
       }
 
@@ -314,7 +314,7 @@ export default class Employers extends Component {
                       <label htmlFor="inputPhone">Phone Number*</label>
                       <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
                       <div className="invalid-feedback">
-                        Enter a valid phone number!
+                        Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
                       </div>
                     </div>
                     <div className="form-group has-feedback">
