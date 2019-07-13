@@ -5,6 +5,11 @@ import CallToAction from "../Main/CallToAction.js"
 import Footer from "../Main/Footer.js"
 import '../../assets/css/main.css';
 
+// Require Axios for HTTP requests
+const axios = require('axios');
+
+var serverLocation = process.env.REACT_APP_SERVER_LOCATION;
+
 export default class Candidates extends Component {
     constructor(props) {
       super(props);
@@ -98,6 +103,8 @@ export default class Candidates extends Component {
     }
 
     onSubmit(e) {
+      e.preventDefault();
+
       // Make sure everything is valid.
       if (
         this.state.firstName.isValid &&
@@ -108,12 +115,48 @@ export default class Candidates extends Component {
         this.state.resume.isValid &&
         this.state.details.isValid
       ) {
-        console.log("Valid Submit!");
+        const data = new FormData();
+        data.append('file', this.state.resume.value);
+        data.append('name', this.state.resume.value.name);
+        data.append('description', this.state.firstName.value + "_" + this.state.lastName.value + "_resume");
+        
+        axios.post(serverLocation + '/fileUpload', data).then(function(response) {
+          console.log(response);
+        
+          axios.post(serverLocation + '/positionsInquire', {
+            firstName: this.state.firstName.value,
+            lastName: this.state.lastName.value,
+            email: this.state.email.value,
+            interests: this.state.interests.value,
+            resume: this.state.resume.value.name,
+            details: this.state.details.value
+          }).then(function (response) {
+              // handle success   
+              console.log(response);
+  
+              // Pop up a success alert
+  
+            }.bind(this))
+            .catch(function (error) {
+              // handle error
+              console.log(error);
+      
+              // Pop up an error alert
+  
+            }.bind(this))
+            .finally(function () {
+              // always executed
+          
+              // Do nothing
+            });
+        }.bind(this)).catch(function(error) {
+          console.log(error);
+
+          // Popup error alert
+        });
       } else {
         console.log("Invalid Submit!");
       }
-
-      e.preventDefault();
     }
     
     render() {
@@ -169,23 +212,23 @@ export default class Candidates extends Component {
                       <form>
                         <div className="form-group has-feedback">
                           <label htmlFor="firstName">First Name*</label>
-                          <input type="text" className="form-control" id="firstName" placeholder="Enter your first name"></input>
+                          <input type="text" className="form-control" id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="lastName">Last Name*</label>
-                          <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"></input>
+                          <input type="text" className="form-control" id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputPhone">Phone Number*</label>
-                          <input type="text" className="form-control" id="inputPhone" placeholder="Enter Phone Number"></input>
+                          <input type="text" className="form-control" id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputEmail">Email Address*</label>
-                          <input type="text" className="form-control" id="inputEmail" placeholder="Enter Email"></input>
+                          <input type="text" className="form-control" id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputSkillsOfInterest">Fields of Interest*</label>
-                          <select multiple className="form-control" id="inputSkillsOfInterest">
+                          <select multiple className="form-control" id="inputSkillsOfInterest" onChange={this.onInterestsChange}>
                             <option>Clerical</option>
                             <option>Industrial</option>
                             <option>Labor</option>
@@ -195,16 +238,16 @@ export default class Candidates extends Component {
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputResume">Resume*</label>
-                          <input type="file" className="form-control" id="inputResume"></input>
+                          <input type="file" className="form-control" id="inputResume" onChange={this.onResumeChange}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputDetails">Details</label>
-                          <textarea rows="5" className="form-control" id="inputDetails" placeholder="Details of request." />
+                          <textarea rows="5" className="form-control" id="inputDetails" placeholder="Details of request." onChange={this.onDetailsChange} value={this.state.details.value}/>
                         </div>
                         <div className="form-group">
                           <label htmlFor="inputDetails">*Required Fields</label>
                         </div>
-                        <button type="submit" className="btn btn-default">Request Position</button>
+                        <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Position</button>
                       </form>
                     </fieldset>
                   </div>

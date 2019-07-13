@@ -8,9 +8,23 @@ const bodyParser = require('body-parser');
 
 // Used to allow for Cross-origin resource sharing (CORS) allows AJAX requests to skip the Same-origin policy and access resources from remote hosts.
 const cors = require('cors');
+const fs = require('fs');
 
 // Import the emailer
 var nodemailer = require('nodemailer');
+
+// File uploader
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, './uploads');
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.originalname);
+    }
+});
+
+var upload = multer({storage: storage}).any();
 
 // Constants
 var requestStaffEmailTemplate = `
@@ -91,6 +105,16 @@ app.listen(PORT, function() {
     console.log('Server is running on Port: ', PORT);
 });
 
+app.post('/fileUpload', function(req, res) {
+    upload(req, res, function(err) {
+        if(err) {
+            return res.status(400).send("Error uploading file.");
+        } else {
+            return res.status(200).send("File is uploaded.");
+        }
+    })
+});
+
 app.post('/requestStaff', async function (req, res) {
     var requestStaffEmailComplete = requestStaffEmailTemplate;
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{FirstName}}", req.body.firstName);
@@ -146,15 +170,27 @@ app.post('/positionsInquire', async function (req, res) {
         to: req.body.email,
         bcc: "",
         subject: 'IMPORTANT: Automated Future Positions Inquiry from ' + req.body.firstName.value + ' ' + req.body.lastName.value,
-        text: positionsInquireEmailComplete
+        text: positionsInquireEmailComplete,
+        attachments: [
+            {
+                path: "./uploads/" + req.body.resume
+            }
+        ]
     };
 
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
             console.error(error);
+
+            //Remove the file sent from the server file system
+            fs.unlinkSync("./uploads/" + req.body.resume);
+
             return res.status(400).send('Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.');
         } else {
             console.log('Email sent: ' + info.response);
+
+            //Remove the file sent from the server file system
+            fs.unlinkSync("./uploads/" + req.body.resume);
         }
     });
 
