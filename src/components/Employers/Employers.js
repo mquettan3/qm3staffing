@@ -6,6 +6,11 @@ import '../../assets/css/main.css';
 import { Link } from "react-router-dom";
 import TabbedInformation from './TabbedInformation.js'
 
+// Require Axios for HTTP requests
+const axios = require('axios');
+
+var serverLocation = process.env.REACT_APP_SERVER_LOCATION;
+
 export default class Employers extends Component {
   constructor(props){
     super(props);
@@ -180,6 +185,38 @@ export default class Employers extends Component {
         this.state.details.isValid
       ) {
         console.log("Valid Submit!");
+        axios.post(serverLocation + '/requestStaff', {
+          firstName: this.state.firstName.value,
+          lastName: this.state.lastName.value,
+          title: this.state.title.value,
+          email: this.state.email.value,
+          phone: this.state.phone.value,
+          companyName: this.state.companyName.value,
+          city: this.state.city.value,
+          state: this.state.state.value,
+          zip: this.state.zip.value,
+          skillTypes: this.state.skillTypes.value,
+          hireTypes: this.state.hireTypes.value,
+          details: this.state.details.value
+        }).then(function (response) {
+            // handle success   
+            console.log(response);
+
+            // Pop up a success alert
+
+          }.bind(this))
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+    
+            // Pop up an error alert
+
+          }.bind(this))
+          .finally(function () {
+            // always executed
+        
+            // Do nothing
+          });
       } else {
         console.log("Invalid Submit!");
       }
