@@ -61,7 +61,7 @@ export default class Candidates extends Component {
     onEmailChange(e) {
       var valid = false;
 
-      if(e.target.value) {
+      if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value)) {
         valid = true;
       }
 
@@ -71,7 +71,7 @@ export default class Candidates extends Component {
     onPhoneChange(e) {
       var valid = false;
 
-      if(e.target.value) {
+      if(/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(e.target.value)) {
         valid = true;
       }
 
