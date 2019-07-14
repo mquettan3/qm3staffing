@@ -1,2 +1,4 @@
 Navigating directly to */employers gives an internal server error.
+Navigating back to home does not force back to top of scroll.
+
 
