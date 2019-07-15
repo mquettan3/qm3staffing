@@ -22,6 +22,8 @@ import $ from 'jquery';
 class Main extends Component {
 
   componentDidMount() {
+    window.scrollTo(0,0);
+    
 		//Scroll totop
 		//-----------------------------------------------
 		$(window).scroll(function() {
