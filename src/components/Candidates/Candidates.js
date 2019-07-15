@@ -198,110 +198,108 @@ export default class Candidates extends Component {
               <CallToAction 
                 action_name="Subscribe"
                 action_description="Subscribe to our newsletter to be informed when positions open!"
-                />
+              />
+              <div className="row justify-content-center">
                 <div className="container">
-                  <div className="row justify-content-center">
-                    <h1 className="col-sm-12 text-center mt-4">Services we Provide to YOU!</h1>
-                  </div>
-                  <div className="separator"></div>
-                  <div className="row">
-                    <p className="col-sm-12">We at QM3 Solutions provide more than simply a list of open opportunities with our employers to each of our candidates.  We aim to assist you throughout the entire process from beginning to end to assure that you find the best fit possible.  Please fill out the form below if you are interested in any of the following:
-                      <br /> <br />
-                    </p>
-                    <ul>
-                      <li>Resume Writing Assistance</li>
-                      <li>Mentoring / Coaching</li>
-                      <li>Temporary Positions</li>
-                      <li>Contract Placements</li>
-                      <li>Temp to Perm</li>
-                      <li>Permanent Positions</li>
-                    </ul>
-                  </div>
-                  <div className="row justify-content-center">
-                    <h1 className="col-sm-12 text-center mt-4">Open Positions</h1>
-                  </div>
-                  <div className="separator"></div>
-                  <div className="row">
-                    <p className="col-sm-12">All of our currently open positions with all of our partnered employers will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
-                      <br /> <br />
-                      <a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/">View our current open positions on Linked In</a>
-                      <br />
-                      <a href="https://www.indeed.com/cmp/Qm3-Utility-Services,-Inc.">View our current open positions on Indeed</a>
-                    </p>
-                  </div>
-                  <div className="row justify-content-center">
-                    <h1 className="text-center mt-4">Inquire About Future Positions</h1>
-                  </div>
-                  <div className="separator"></div>
-                  <div className="row">
-                    <p className="col-sm-12">All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.</p>
+                  <h1 className="col-sm-12 text-center mt-4">Services we Provide to YOU!</h1>
+                  <div className="col-sm-12 separator"></div>
+                  <p className="col-sm-12">We at QM3 Solutions provide more than simply a list of open opportunities with our employers to each of our candidates.  We aim to assist you throughout the entire process from beginning to end to assure that you find the best fit possible.  Please fill out the form below if you are interested in any of the following:
                     <br /> <br />
-                    <fieldset className="form-group col-md-8 offset-md-2 col-sm-12">
-                      <legend className="col-from-legend col-md-5 col-lg-3">Position Request Form</legend>
-                      <form>
-                        <div className="form-group has-feedback">
-                          <label htmlFor="firstName">First Name*</label>
-                          <input type="text" className={"form-control " + (this.state.firstName.isValid ? valid : invalid)} id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
-                          <div className="invalid-feedback">
-                            Enter your first name!
-                          </div>
-                        </div>
-                        <div className="form-group has-feedback">
-                          <label htmlFor="lastName">Last Name*</label>
-                          <input type="text" className={"form-control " + (this.state.lastName.isValid ? valid : invalid)} id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
-                          <div className="invalid-feedback">
-                            Enter your last name!
-                          </div>
-                        </div>
-                        <div className="form-group has-feedback">
-                          <label htmlFor="inputPhone">Phone Number*</label>
-                          <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
-                          <div className="invalid-feedback">
-                            Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
-                          </div>
-                        </div>
-                        <div className="form-group has-feedback">
-                          <label htmlFor="inputEmail">Email Address*</label>
-                          <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
-                          <div className="invalid-feedback">
-                            Enter a valid Email Address!
-                          </div>
-                        </div>
-                        <div className="form-group has-feedback">
-                          <label htmlFor="inputSkillsOfInterest">Skills of Interest*</label>
-                          <select multiple className={"form-control " + (this.state.interests.isValid ? valid : invalid)} id="inputSkillsOfInterest" onChange={this.onInterestsChange}>
-                            <option>Clerical</option>
-                            <option>Industrial</option>
-                            <option>Labor</option>
-                            <option>Warehouse</option>
-                            <option>Professional</option>
-                          </select>
-                          <div className="invalid-feedback">
-                            You must select at least one Skill of Interest!
-                          </div>
-                        </div>
-                        <div className="form-group has-feedback">
-                          <label htmlFor="inputResume">Resume*</label>
-                          <input type="file" className={"form-control " + (this.state.resume.isValid ? valid : invalid)} id="inputResume" onChange={this.onResumeChange}></input>
-                          <div className="invalid-feedback">
-                            You must provide a resume!  (Preferrably in the following formats: .pdf, .doc, or docx)
-                          </div>
-                        </div>
-                        <div className="form-group has-feedback">
-                          <label htmlFor="inputDetails">Details*</label>
-                          <textarea rows="5" className={"form-control " + (this.state.details.isValid ? valid : invalid)} id="inputDetails" placeholder="Details of request." onChange={this.onDetailsChange} value={this.state.details.value}/>
-                          <div className="invalid-feedback">
-                            You must provide additional details!
-                          </div>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="inputDetails">*Required Fields</label>
-                        </div>
-                        <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Position</button>
-                      </form>
-                    </fieldset>
-                  </div>
+                  </p>
+                  <ul>
+                    <li>Resume Writing Assistance</li>
+                    <li>Mentoring / Coaching</li>
+                    <li>Temporary Positions</li>
+                    <li>Contract Placements</li>
+                    <li>Temp to Perm</li>
+                    <li>Permanent Positions</li>
+                  </ul>
                 </div>
+              </div>
+              <div className="row justify-content-center light-gray-bg">
+                <div className="container">
+                  <h1 className="col-sm-12 text-center mt-4">Open Positions</h1>
+                  <div className="separator"></div>
+                  <p className="col-sm-12">All of our currently open positions with all of our partnered employers will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
+                    <br /> <br />
+                    <a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/">View our current open positions on Linked In</a>
+                    <br />
+                    <a href="https://www.indeed.com/cmp/Qm3-Utility-Services,-Inc.">View our current open positions on Indeed</a>
+                  </p>
+                </div>
+              </div>
+              <div className="row justify-content-center">
+                <div className="container">
+                  <h1 className="text-center mt-4">Inquire About Future Positions</h1>
+                  <div className="separator"></div>
+                  <p className="col-sm-12">All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.</p>
+                  <br /> <br />
+                  <fieldset className="form-group col-md-8 offset-md-2 col-sm-12">
+                    <legend className="col-from-legend col-md-5 col-lg-3">Position Request Form</legend>
+                    <form>
+                      <div className="form-group has-feedback">
+                        <label htmlFor="firstName">First Name*</label>
+                        <input type="text" className={"form-control " + (this.state.firstName.isValid ? valid : invalid)} id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
+                        <div className="invalid-feedback">
+                          Enter your first name!
+                        </div>
+                      </div>
+                      <div className="form-group has-feedback">
+                        <label htmlFor="lastName">Last Name*</label>
+                        <input type="text" className={"form-control " + (this.state.lastName.isValid ? valid : invalid)} id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
+                        <div className="invalid-feedback">
+                          Enter your last name!
+                        </div>
+                      </div>
+                      <div className="form-group has-feedback">
+                        <label htmlFor="inputPhone">Phone Number*</label>
+                        <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
+                        <div className="invalid-feedback">
+                          Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
+                        </div>
+                      </div>
+                      <div className="form-group has-feedback">
+                        <label htmlFor="inputEmail">Email Address*</label>
+                        <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
+                        <div className="invalid-feedback">
+                          Enter a valid Email Address!
+                        </div>
+                      </div>
+                      <div className="form-group has-feedback">
+                        <label htmlFor="inputSkillsOfInterest">Skills of Interest*</label>
+                        <select multiple className={"form-control " + (this.state.interests.isValid ? valid : invalid)} id="inputSkillsOfInterest" onChange={this.onInterestsChange}>
+                          <option>Clerical</option>
+                          <option>Industrial</option>
+                          <option>Labor</option>
+                          <option>Warehouse</option>
+                          <option>Professional</option>
+                        </select>
+                        <div className="invalid-feedback">
+                          You must select at least one Skill of Interest!
+                        </div>
+                      </div>
+                      <div className="form-group has-feedback">
+                        <label htmlFor="inputResume">Resume*</label>
+                        <input type="file" className={"form-control " + (this.state.resume.isValid ? valid : invalid)} id="inputResume" onChange={this.onResumeChange}></input>
+                        <div className="invalid-feedback">
+                          You must provide a resume!  (Preferrably in the following formats: .pdf, .doc, or docx)
+                        </div>
+                      </div>
+                      <div className="form-group has-feedback">
+                        <label htmlFor="inputDetails">Details*</label>
+                        <textarea rows="5" className={"form-control " + (this.state.details.isValid ? valid : invalid)} id="inputDetails" placeholder="Details of request." onChange={this.onDetailsChange} value={this.state.details.value}/>
+                        <div className="invalid-feedback">
+                          You must provide additional details!
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="inputDetails">*Required Fields</label>
+                      </div>
+                      <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Position</button>
+                    </form>
+                  </fieldset>
+                </div>
+              </div>
               <Footer />
               <div className="ToastHolder" style={toastPosition}>
                 <Toast show={this.state.showSuccess} onClose={this.toggleShowSuccess}>
