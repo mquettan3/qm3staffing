@@ -135,3 +135,7 @@ section.quote h2 {
 .collapse-style-2 .card-header a {
     background-color: #0d5ca2;
 }
+
+.toast {
+    display: none;
+}

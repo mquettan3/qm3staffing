@@ -4,8 +4,9 @@ import ContactHeader from "../Main/ContactHeader.js"
 import CallToAction from "../Main/CallToAction.js"
 import Footer from "../Main/Footer.js"
 import '../../assets/css/main.css';
-import $ from 'jquery';
-import '../../assets/plugins/bootstrap/bootstrap.bundle.min.js';
+
+import Toast from 'react-bootstrap/Toast.js';
+
 
 // Require Axios for HTTP requests
 const axios = require('axios');
@@ -24,6 +25,9 @@ export default class Candidates extends Component {
       this.onResumeChange = this.onResumeChange.bind(this);
       this.onDetailsChange = this.onDetailsChange.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
+      this.toggleShowSuccess = this.toggleShowSuccess.bind(this);
+      this.toggleShowFail = this.toggleShowFail.bind(this);
+      this.toggleShowInvalid = this.toggleShowInvalid.bind(this);
 
       this.state = {
         firstName: {value: "", isValid: false},
@@ -31,9 +35,12 @@ export default class Candidates extends Component {
         phone: {value: "", isValid: false},
         email: {value: "", isValid: false},
         interests: {value: [], isValid: false},
-        resume: {value: [], isValid: true},
-        details: {value: "", isValid: true},
-        submitButtonClicked: false
+        resume: {value: [], isValid: false},
+        details: {value: "", isValid: false},
+        submitButtonClicked: false,
+        showSuccess: false,
+        showFail: false,
+        showInvalid: false
       }
     }
     componentDidMount() {
@@ -139,29 +146,37 @@ export default class Candidates extends Component {
               console.log(response);
   
               // Pop up a success alert
-  
+              this.setState({showSuccess: true});
             }.bind(this))
             .catch(function (error) {
               // handle error
               console.log(error);
       
               // Pop up an error alert
-  
-            }.bind(this))
-            .finally(function () {
-              // always executed
-          
-              // Do nothing
-            });
+              this.setState({showFail: true});  
+            }.bind(this));
         }.bind(this)).catch(function(error) {
           console.log(error);
 
           // Popup error alert
-        });
+          this.setState({showFail: true});
+        }.bind(this));
       } else {
         console.log("Invalid Submit!");
-        $('#toast').toast('show');
+        this.setState({showInvalid: true});
       }
+    }
+
+    toggleShowSuccess() {
+      this.setState({ showSuccess: !this.state.showSuccess });
+    }
+
+    toggleShowFail() {
+      this.setState({ showFail: !this.state.showFail });
+    }
+
+    toggleShowInvalid() {
+      this.setState({ showInvalid: !this.state.showInvalid });
     }
     
     render() {
@@ -172,6 +187,8 @@ export default class Candidates extends Component {
         valid = "is-valid";
         invalid = "is-invalid";
       }
+
+      var toastPosition = {position: 'fixed', bottom: '50px', right: '50px'}
 
       return (
           <div className="candidates-wrapper">
@@ -226,21 +243,33 @@ export default class Candidates extends Component {
                         <div className="form-group has-feedback">
                           <label htmlFor="firstName">First Name*</label>
                           <input type="text" className={"form-control " + (this.state.firstName.isValid ? valid : invalid)} id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
+                          <div className="invalid-feedback">
+                            Enter your first name!
+                          </div>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="lastName">Last Name*</label>
                           <input type="text" className={"form-control " + (this.state.lastName.isValid ? valid : invalid)} id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
+                          <div className="invalid-feedback">
+                            Enter your last name!
+                          </div>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputPhone">Phone Number*</label>
                           <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
+                          <div className="invalid-feedback">
+                            Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
+                          </div>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputEmail">Email Address*</label>
                           <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
+                          <div className="invalid-feedback">
+                            Enter a valid Email Address!
+                          </div>
                         </div>
                         <div className="form-group has-feedback">
-                          <label htmlFor="inputSkillsOfInterest">Fields of Interest*</label>
+                          <label htmlFor="inputSkillsOfInterest">Skills of Interest*</label>
                           <select multiple className={"form-control " + (this.state.interests.isValid ? valid : invalid)} id="inputSkillsOfInterest" onChange={this.onInterestsChange}>
                             <option>Clerical</option>
                             <option>Industrial</option>
@@ -248,14 +277,23 @@ export default class Candidates extends Component {
                             <option>Warehouse</option>
                             <option>Professional</option>
                           </select>
+                          <div className="invalid-feedback">
+                            You must select at least one Skill of Interest!
+                          </div>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputResume">Resume*</label>
                           <input type="file" className={"form-control " + (this.state.resume.isValid ? valid : invalid)} id="inputResume" onChange={this.onResumeChange}></input>
+                          <div className="invalid-feedback">
+                            You must provide a resume!  (Preferrably in the following formats: .pdf, .doc, or docx)
+                          </div>
                         </div>
                         <div className="form-group has-feedback">
-                          <label htmlFor="inputDetails">Details</label>
+                          <label htmlFor="inputDetails">Details*</label>
                           <textarea rows="5" className={"form-control " + (this.state.details.isValid ? valid : invalid)} id="inputDetails" placeholder="Details of request." onChange={this.onDetailsChange} value={this.state.details.value}/>
+                          <div className="invalid-feedback">
+                            You must provide additional details!
+                          </div>
                         </div>
                         <div className="form-group">
                           <label htmlFor="inputDetails">*Required Fields</label>
@@ -266,16 +304,31 @@ export default class Candidates extends Component {
                   </div>
                 </div>
               <Footer />
-              <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                  <strong class="mr-auto">Success!</strong>
-                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="toast-body">
-                  Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.
-                </div>
+              <div className="ToastHolder" style={toastPosition}>
+                <Toast show={this.state.showSuccess} onClose={this.toggleShowSuccess}>
+                  <Toast.Header>
+                    <strong className="mr-auto">Position Request Success!</strong>
+                  </Toast.Header>
+                  <Toast.Body>
+                    Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.
+                  </Toast.Body>
+                </Toast>
+                <Toast show={this.state.showFail} onClose={this.toggleShowFail}>
+                  <Toast.Header>
+                    <strong className="mr-auto">Position Request Failed!</strong>
+                  </Toast.Header>
+                  <Toast.Body>
+                    Unfortunately, there was a server-side error causing your request to fail.  Please try again later.  If this issue persists, please contact QM3 Solutions support at support@qm3solutions.com.
+                  </Toast.Body>
+                </Toast>
+                <Toast show={this.state.showInvalid} onClose={this.toggleShowInvalid}>
+                  <Toast.Header>
+                    <strong className="mr-auto">Invalid Position Request!</strong>
+                  </Toast.Header>
+                  <Toast.Body>
+                    Please resolve the errors and try again!
+                  </Toast.Body>
+                </Toast>
               </div>
           </div>
       )
