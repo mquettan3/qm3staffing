@@ -4,7 +4,8 @@ import ContactHeader from "../Main/ContactHeader.js"
 import Footer from "../Main/Footer.js"
 import '../../assets/css/main.css';
 import { Link } from "react-router-dom";
-import TabbedInformation from './TabbedInformation.js'
+import TabbedInformation from './TabbedInformation.js';
+import Toast from 'react-bootstrap/Toast.js';
 
 // Require Axios for HTTP requests
 const axios = require('axios');
@@ -28,6 +29,9 @@ export default class Employers extends Component {
     this.onHireTypesChange = this.onHireTypesChange.bind(this);
     this.onDetailsChange = this.onDetailsChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.toggleShowSuccess = this.toggleShowSuccess.bind(this);
+    this.toggleShowFail = this.toggleShowFail.bind(this);
+    this.toggleShowInvalid = this.toggleShowInvalid.bind(this);
 
     this.state = { 
       firstName: {value: "", isValid: false},
@@ -42,7 +46,10 @@ export default class Employers extends Component {
       skillTypes: {value: [], isValid: false},
       hireTypes: {value: [], isValid: false},
       details: {value: "", isValid: false},
-      submitButtonClicked: false
+      submitButtonClicked: false,
+      showSuccess: false,
+      showFail: false,
+      showInvalid: false
     }
   }
     componentDidMount() {
@@ -205,25 +212,33 @@ export default class Employers extends Component {
             console.log(response);
 
             // Pop up a success alert
-
+            this.setState({showSuccess: true});
           }.bind(this))
           .catch(function (error) {
             // handle error
             console.log(error);
     
             // Pop up an error alert
-
-          }.bind(this))
-          .finally(function () {
-            // always executed
-        
-            // Do nothing
-          });
+            this.setState({showFail: true});
+          }.bind(this));
       } else {
         console.log("Invalid Submit!");
+        this.setState({showInvalid: true});
       }
 
       e.preventDefault();
+    }
+
+    toggleShowSuccess() {
+      this.setState({ showSuccess: !this.state.showSuccess });
+    }
+
+    toggleShowFail() {
+      this.setState({ showFail: !this.state.showFail });
+    }
+
+    toggleShowInvalid() {
+      this.setState({ showInvalid: !this.state.showInvalid });
     }
 
     render() {
@@ -234,6 +249,8 @@ export default class Employers extends Component {
         valid = "is-valid";
         invalid = "is-invalid";
       }
+
+      var toastPosition = {position: 'fixed', bottom: '50px', right: '50px'}
 
       return (
           <div className="employers-wrapper">
@@ -439,6 +456,32 @@ export default class Employers extends Component {
                 </div>
               </div>
               <Footer />
+              <div className="ToastHolder" style={toastPosition}>
+                <Toast show={this.state.showSuccess} onClose={this.toggleShowSuccess}>
+                  <Toast.Header>
+                    <strong className="mr-auto">Position Request Success!</strong>
+                  </Toast.Header>
+                  <Toast.Body>
+                    Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.
+                  </Toast.Body>
+                </Toast>
+                <Toast show={this.state.showFail} onClose={this.toggleShowFail}>
+                  <Toast.Header>
+                    <strong className="mr-auto">Position Request Failed!</strong>
+                  </Toast.Header>
+                  <Toast.Body>
+                    Unfortunately, there was a server-side error causing your request to fail.  Please try again later.  If this issue persists, please contact QM3 Solutions support at support@qm3solutions.com.
+                  </Toast.Body>
+                </Toast>
+                <Toast show={this.state.showInvalid} onClose={this.toggleShowInvalid}>
+                  <Toast.Header>
+                    <strong className="mr-auto">Invalid Position Request!</strong>
+                  </Toast.Header>
+                  <Toast.Body>
+                    Please resolve the errors and try again!
+                  </Toast.Body>
+                </Toast>
+              </div>
           </div>
       )
     }
