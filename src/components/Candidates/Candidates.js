@@ -4,6 +4,8 @@ import ContactHeader from "../Main/ContactHeader.js"
 import CallToAction from "../Main/CallToAction.js"
 import Footer from "../Main/Footer.js"
 import '../../assets/css/main.css';
+import $ from 'jquery';
+import '../../assets/plugins/bootstrap/bootstrap.bundle.min.js';
 
 // Require Axios for HTTP requests
 const axios = require('axios');
@@ -30,8 +32,8 @@ export default class Candidates extends Component {
         email: {value: "", isValid: false},
         interests: {value: [], isValid: false},
         resume: {value: [], isValid: true},
-        details: {value: "", isValid: true}
-
+        details: {value: "", isValid: true},
+        submitButtonClicked: false
       }
     }
     componentDidMount() {
@@ -103,6 +105,8 @@ export default class Candidates extends Component {
     }
 
     onSubmit(e) {
+      this.setState({submitButtonClicked: true});
+
       e.preventDefault();
 
       // Make sure everything is valid.
@@ -156,10 +160,19 @@ export default class Candidates extends Component {
         });
       } else {
         console.log("Invalid Submit!");
+        $('#toast').toast('show');
       }
     }
     
     render() {
+      var valid = "";
+      var invalid = "";
+
+      if(this.state.submitButtonClicked) {
+        valid = "is-valid";
+        invalid = "is-invalid";
+      }
+
       return (
           <div className="candidates-wrapper">
               <ContactHeader />
@@ -212,23 +225,23 @@ export default class Candidates extends Component {
                       <form>
                         <div className="form-group has-feedback">
                           <label htmlFor="firstName">First Name*</label>
-                          <input type="text" className="form-control" id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
+                          <input type="text" className={"form-control " + (this.state.firstName.isValid ? valid : invalid)} id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="lastName">Last Name*</label>
-                          <input type="text" className="form-control" id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
+                          <input type="text" className={"form-control " + (this.state.lastName.isValid ? valid : invalid)} id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputPhone">Phone Number*</label>
-                          <input type="text" className="form-control" id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
+                          <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputEmail">Email Address*</label>
-                          <input type="text" className="form-control" id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
+                          <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputSkillsOfInterest">Fields of Interest*</label>
-                          <select multiple className="form-control" id="inputSkillsOfInterest" onChange={this.onInterestsChange}>
+                          <select multiple className={"form-control " + (this.state.interests.isValid ? valid : invalid)} id="inputSkillsOfInterest" onChange={this.onInterestsChange}>
                             <option>Clerical</option>
                             <option>Industrial</option>
                             <option>Labor</option>
@@ -238,11 +251,11 @@ export default class Candidates extends Component {
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputResume">Resume*</label>
-                          <input type="file" className="form-control" id="inputResume" onChange={this.onResumeChange}></input>
+                          <input type="file" className={"form-control " + (this.state.resume.isValid ? valid : invalid)} id="inputResume" onChange={this.onResumeChange}></input>
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputDetails">Details</label>
-                          <textarea rows="5" className="form-control" id="inputDetails" placeholder="Details of request." onChange={this.onDetailsChange} value={this.state.details.value}/>
+                          <textarea rows="5" className={"form-control " + (this.state.details.isValid ? valid : invalid)} id="inputDetails" placeholder="Details of request." onChange={this.onDetailsChange} value={this.state.details.value}/>
                         </div>
                         <div className="form-group">
                           <label htmlFor="inputDetails">*Required Fields</label>
@@ -253,6 +266,17 @@ export default class Candidates extends Component {
                   </div>
                 </div>
               <Footer />
+              <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  <strong class="mr-auto">Success!</strong>
+                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="toast-body">
+                  Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.
+                </div>
+              </div>
           </div>
       )
     }
