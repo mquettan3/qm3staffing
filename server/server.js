@@ -1,6 +1,12 @@
 // Using express to simplify node.js routing and server creation
 const express = require('express');
 
+// Including react to render on server
+const React = require('react');
+
+// Custom React App Render
+import serverRenderer from './middleware/renderer';
+
 // Adding body-parser to simplify obtaining the body of POST HTTP requests
 // To handle HTTP POST request in Express.js version 4 and above, you need to install middleware module called body-parser.
 // body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
@@ -25,6 +31,9 @@ const storage = multer.diskStorage({
 });
 
 var upload = multer({storage: storage}).any();
+
+// React components with server routes
+const EmployersApp = React.createFactory(require('../src/components/Employers/Employers.js'));
 
 // Constants
 var requestStaffEmailTemplate = `
@@ -204,8 +213,15 @@ if(process.env.NODE_ENV === 'production') {
     app.use('*', express.static('../build'));
   
     // If we hit any paths that aren't otherwise specified - serve the index.html built by react npm build
-    app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-    });
+    app.get('*', serverRenderer);
+
+    
+    app.get('/employers', (req, res) => {
+        // React.renderToString takes your component and generates the markup
+        var reactHtml = React.renderToString(EmployersApp({}));
+
+        // Output html rendered by react into .ejs file. Can be any template
+        res.render('index.ejs', {reactOutput: reactHtml});
+      });
 }
 
