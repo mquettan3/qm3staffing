@@ -5,7 +5,8 @@ const express = require('express');
 const React = require('react');
 
 // Custom React App Render
-import serverRenderer from './middleware/renderer';
+import serverRenderer from './middleware/renderer.js';
+import employerRenderer from './middleware/employer_renderer.js';
 
 // Adding body-parser to simplify obtaining the body of POST HTTP requests
 // To handle HTTP POST request in Express.js version 4 and above, you need to install middleware module called body-parser.
@@ -208,20 +209,13 @@ app.post('/positionsInquire', async function (req, res) {
 });
 
   // Serve static assets if in productions
-if(process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'development') {
     app.use(express.static('../build'));
-    app.use('*', express.static('../build'));
+    // app.use('*', express.static('../build'));
+
+    app.get('/employers', employerRenderer);
   
     // If we hit any paths that aren't otherwise specified - serve the index.html built by react npm build
-    app.get('*', serverRenderer);
-
-    
-    app.get('/employers', (req, res) => {
-        // React.renderToString takes your component and generates the markup
-        var reactHtml = React.renderToString(EmployersApp({}));
-
-        // Output html rendered by react into .ejs file. Can be any template
-        res.render('index.ejs', {reactOutput: reactHtml});
-      });
+    app.get('/', serverRenderer);
 }
 
