@@ -69,10 +69,14 @@ The robot who runs the QM3 Solutions website!
 `
 
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.office365.com',
+    port: 587,
     auth: {
         user: process.env.EMAIL_NAME,
         pass: process.env.EMAIL_PASSWORD
+    },
+    tls: {
+        ciphers: 'SSLv3'
     }
 });
   
@@ -93,8 +97,10 @@ app.listen(PORT, function() {
 app.post('/fileUpload', function(req, res) {
     upload(req, res, function(err) {
         if(err) {
+            console.error(err);
             return res.status(400).send("Error uploading file.");
         } else {
+            console.log("File Uploaded!");
             return res.status(200).send("File is uploaded.");
         }
     })
@@ -169,7 +175,7 @@ app.post('/positionsInquire', async function (req, res) {
 
             //Remove the file sent from the server file system
             fs.unlinkSync("./uploads/" + req.body.resume);
-
+            console.error(error);
             return res.status(400).send('Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.');
         } else {
             console.log('Email sent: ' + info.response);
