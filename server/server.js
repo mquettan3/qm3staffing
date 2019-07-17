@@ -1,13 +1,6 @@
 // Using express to simplify node.js routing and server creation
 const express = require('express');
 
-// Including react to render on server
-const React = require('react');
-
-// Custom React App Render
-import serverRenderer from './middleware/renderer.js';
-import employerRenderer from './middleware/employer_renderer.js';
-
 // Adding body-parser to simplify obtaining the body of POST HTTP requests
 // To handle HTTP POST request in Express.js version 4 and above, you need to install middleware module called body-parser.
 // body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
@@ -33,17 +26,11 @@ const storage = multer.diskStorage({
 
 var upload = multer({storage: storage}).any();
 
-// React components with server routes
-const EmployersApp = React.createFactory(require('../src/components/Employers/Employers.js'));
-
 // Constants
 var requestStaffEmailTemplate = `
 To QM3 Solutions,
-
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted a request for staff!  Details for their request can be seen below:
-
 Request For Staff Form Information:
-
 First Name:  {{FirstName}}
 Last Name:  {{LastName}}
 Title: {{Title}}
@@ -55,40 +42,28 @@ State: {{State}}
 Zip Code: {{ZipCode}}
 Skills of Interest: {{Skills}}
 Hire Types of  Interest: {{HireTypes}}
-
 Details:
 {{Details}}
-
 -----
-
 Please respond to the requestor as soon as possible!
-
 Sincerely,
 The robot who runs the QM3 Solutions website!
 `
 
 var positionsInquireEmailTemplate = `
 To QM3 Solutions,
-
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted an inquiry about future positions!  Details for their request can be seen below:
-
 Inquire about Future Positions Form Information:
-
 First Name:  {{FirstName}}
 Last Name:  {{LastName}}
 Email Address: {{Email}}
 Phone Number: {{PhoneNumber}}
 Fields of Interest: {{Interests}}
-
 Details:
 {{Details}}
-
 -----
-
 ** Resume Attached
-
 Please respond to the requestor as soon as possible!
-
 Sincerely,
 The robot who runs the QM3 Solutions website!
 `
@@ -209,13 +184,12 @@ app.post('/positionsInquire', async function (req, res) {
 });
 
   // Serve static assets if in productions
-if(process.env.NODE_ENV === 'development') {
+if(process.env.NODE_ENV === 'production') {
     app.use(express.static('../build'));
-    // app.use('*', express.static('../build'));
-
-    app.get('/employers', employerRenderer);
+    app.use('*', express.static('../build'));
   
     // If we hit any paths that aren't otherwise specified - serve the index.html built by react npm build
-    app.get('/', serverRenderer);
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+    });
 }
-
