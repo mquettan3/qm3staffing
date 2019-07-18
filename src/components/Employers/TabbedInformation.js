@@ -40,7 +40,7 @@ export default class TabbedInformation extends Component {
                             <h3 className="mt-4">Temporary</h3>
                             <div className="row">
                                 <div className="col-md-9">
-                                <p>For seasonal work, family medical leaves, and those special short-term or long-term opportunities you may have, temporary placements are the best platform. Our reputation is built on our services, and the quality along with integrity we use to unite an opportunity with the Right talent. We have a large talent pool of individuals ready to join your team at the right time.</p>
+                                <p>For seasonal work, family medical leaves, and those special short-term or long-term opportunities you may have, temporary placements are the best platform. We have a large talent pool of individuals ready to join your team at the right time. Our reputation is built on our services and the integrity we use to unite an opportunity with the Right talent.</p>
                                 </div>
                                 <div className="col-md-3">
                                     <ul className="list-icons">
@@ -72,7 +72,7 @@ export default class TabbedInformation extends Component {
                             <h3 className="mt-4">Direct Hire</h3>
                             <div className="row">
                                 <div className="col-md-12">
-                                <p>Our Direct Hire platform is similar to our Temp-to-Hire platform, except the talent is placed immediately on your payroll. Our proactive approach of coaching  and mentoring along with knack for finding hidden talents (looking out side the box) lets us find the best match for our partners and their opportunities at the right time. You can use our Direct Hire platform on a fee-for-placement or as a retained search.</p>
+                                <p>Our Direct Hire platform is similar to our Temp-to-Hire platform, except that the talent is placed immediately on your payroll. Our proactive approach of coaching and mentoring, along with a knack for looking outside the box to find hidden talents, lets us find the best match for our partners. You can use our Direct Hire platform on a fee-for-placement or as a retained search.</p>
                                 </div>
                             </div>
                             </div>
@@ -88,7 +88,7 @@ export default class TabbedInformation extends Component {
                             <h3 className="mt-4">High Volume Placement</h3>
                             <div className="row">
                                 <div className="col-md-12">
-                                <p>When it comes to high-volume placement,  there's no such thing as one-size-fits-all. Instead of talking about it we build a talent infrastructure that's designed to meet your most ambitious opportunities and goals. Having an dedicated talent partner to manage your high-volume workforce frees your team to focus on moving your business operations forward.</p>
+                                <p>When it comes to high-volume placement,  there's no such thing as one-size-fits-all. Instead of talking about it, we build a talent infrastructure that's designed to meet your most ambitious opportunities and goals. Having a dedicated talent partner to manage your high-volume workforce frees your team to focus on moving your business operations forward.</p>
                                 </div>
                             </div>
                             </div>

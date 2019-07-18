@@ -146,6 +146,16 @@ export default class Navbar extends Component {
             ourTeamLink = <a href="#ourteam" className="nav-link smooth-scroll" id="fifth-dropdown">Our Team</a>
         }
 
+        let employerLink = <Link to="/employers">For Employers</Link>;
+        if (this.props.location === "Employers") {
+            employerLink = <a href="#home" className="smooth-scroll">For Employers</a>
+        }
+
+        let candidateLink = <Link to="/candidates">For Job Seekers</Link>;
+        if (this.props.location === "Candidates") {
+            candidateLink = <a href="#home" className="smooth-scroll">Job Seekers</a>
+        }
+
         return (
         <div className="header-container">
             <header className="header fixed fixed-desktop clearfix">
@@ -198,8 +208,8 @@ export default class Navbar extends Component {
                             <li className="nav-item dropdown ">
                                 <a href="#" className="nav-link dropdown-toggle" id="second-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
                                 <ul className="dropdown-menu" aria-labelledby="second-dropdown">
-                                <li ><Link to="/employers">For Employers</Link></li>
-                                <li ><Link to="/candidates">For Job Seekers</Link></li>
+                                <li >{employerLink}</li>
+                                <li >{candidateLink}</li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
