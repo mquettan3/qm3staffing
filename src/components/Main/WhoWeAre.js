@@ -7,7 +7,7 @@ export default class WhoWeAre extends Component {
             <section id="about" className="section light-gray-bg clearfix">
                 <div className="container">
                   <div className="row justify-content-lg-center">
-                    <div className="col-lg-8">
+                    <div className="col-lg-10">
                       <h1 className="text-center mt-4">Who We Are</h1>
                       <div className="separator"></div>
                       <p><span className="text-default">QM3 Solutions</span> stands on a foundation of integrity as we aim to make a difference and directly impact the lives of the individuals which we serve.  We strive to give individuals a new view and a new way to see life through with every placement we facilitate.</p>

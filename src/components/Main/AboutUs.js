@@ -29,7 +29,7 @@ export default class AboutUs extends Component {
                   <li>At the <span className="text-default"><b>Right</b></span> Time</li>
                   <li>For all the <span className="text-default"><b>Right</b></span> Reasons</li>
                 </ul>
-                <p>There is no talent we cannot find and no opportunity we cannot locate.  We aim to be the bridge to the between talent and opportunity.  We do <b>NOT</b> simply provide anyone with a heartbeat to any position with any companay willing to hire.  We make the difficult choices between what is convenient and what is <span className="text-default"><b>Right</b></span>!  We unite you with the <span className="text-default"><b>Right</b></span> talent or the <span className="text-default"><b>Right</b></span> opportunity; not just any body, and not just any job.</p>
+                <p>There is no talent we cannot find and no opportunity we cannot locate.  We aim to be the bridge to the between talent and opportunity.  We do <b>NOT</b> simply provide anyone with a heartbeat to any position with any companay willing to hire.  We make the difficult choices between what is convenient and what is <span className="text-default"><b>Right</b></span>!  We unite you with the <span className="text-default"><b>Right</b></span> talent or the <span className="text-default"><b>Right</b></span> opportunity; not just anybody, and not just any job.</p>
                 <ul>
                   <li>We hire the <span className="text-default"><b>Right</b></span> way</li>
                   <li>We train the <span className="text-default"><b>Right</b></span> way</li>

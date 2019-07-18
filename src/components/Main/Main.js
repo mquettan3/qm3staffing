@@ -64,7 +64,7 @@ class Main extends Component {
               <WhoWeAre />
               <AboutUs />
               <QuoteSection />
-              <OurValues />
+              {/* <OurValues /> */}
               <OurProcess />
               <CallToAction
                 action_name="Employers"

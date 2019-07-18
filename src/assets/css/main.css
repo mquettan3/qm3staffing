@@ -72,6 +72,10 @@
     color: white;
 }
 
+.fixed-header-on .header-first {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
 
 .site-slogan {
     color: #0c9653;
@@ -94,6 +98,7 @@
 
 .slogan-hidden {
     height: 0px;
+    margin: 0px;
 }
 
 .about-us ul {
@@ -138,4 +143,11 @@ section.quote h2 {
 
 .toast {
     display: none;
+}
+
+@media (min-width: 992px) {
+    .fixed-header-on .main-navigation .navbar-nav > li > a {
+        padding-top: 23px;
+        padding-bottom: 23px;
+    }
 }

@@ -10,7 +10,6 @@ export default class Navbar extends Component {
         super(props);
 
         this.handleScroll = this.handleScroll.bind(this);
-        this.handleResize = this.handleResize.bind(this);
 
         this.state = {scrollTop: 0};
 
@@ -18,7 +17,6 @@ export default class Navbar extends Component {
     }
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
-        window.addEventListener('resize', this.handleResize);
         
         if($('body').hasClass('fixed-header-on')) {
             $('body').removeClass('fixed-header-on');
@@ -31,7 +29,7 @@ export default class Navbar extends Component {
 			if($(".fixed.header").length>0) {
 				$('body').scrollspy({
 					target: '.scrollspy',
-					offset: 85
+					offset: 70
 				});
 			} else {
 				$('body').scrollspy({
@@ -49,7 +47,7 @@ export default class Navbar extends Component {
 					var destination = $(this.hash);
 					e.preventDefault();
 					$('html,body').animate({
-						scrollTop: destination.offset().top-66
+						scrollTop: destination.offset().top-70
 					}, 1000);
 				});
 			} else {
@@ -93,7 +91,6 @@ export default class Navbar extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
-        window.removeEventListener('resize', this.handleResize);
     }
 
     handleScroll(e) {
@@ -103,30 +100,19 @@ export default class Navbar extends Component {
             if(!$('.header-container .header.fixed').hasClass('hc-element-visible')) {
                 $('.header-container .header.fixed').addClass('hc-element-visible');
                 $('body').addClass('fixed-header-on');
-                if(window.innerWidth > 991){
-                    $('.header-container').css('margin-top', '125px');
-                } else {
-                    $('.header-container').css('margin-top', '151px');
-                }
+                $('.header-container').css('height', '137px');
             }
         } else {
             if($('.header-container .header.fixed').hasClass('hc-element-visible')) {
                 $('.header-container .header.fixed').removeClass('hc-element-visible');
                 $('body').removeClass('fixed-header-on');
-                $('.header-container').css('margin-top', '0px');
+                if(window.innerWidth > 991){
+                    $('.header-container').css('height', '137px');
+                } else {
+                    $('.header-container').css('height', '');
+                }
             }
         }
-    }
-    
-    handleResize(e) {
-        if ($('.header-container .header.fixed').hasClass('hc-element-visible')) {
-            if (window.innerWidth > 991) {
-                $('.header-container').css('margin-top', '125px');
-            } else {
-                $('.header-container').css('margin-top', '151px');
-            }
-        }
-
     }
 
     render() {
@@ -150,14 +136,14 @@ export default class Navbar extends Component {
             aboutUsLink = <a href="#about" className="nav-link smooth-scroll" id="second-dropdown">About Us</a>;
         }
 
-        let ourTeamLink = "";
-        if (this.props.location === "Main") {
-            ourTeamLink = <a href="#ourteam" className="nav-link smooth-scroll" id="fourth-dropdown">Our Team</a>
-        }
-
         let ourProcessLink = "";
         if (this.props.location === "Main") {
-            ourProcessLink = <a href="#process" className="nav-link smooth-scroll" id="fifth-dropdown">Our Process</a>
+            ourProcessLink = <a href="#process" className="nav-link smooth-scroll" id="fourth-dropdown">Our Process</a>
+        }
+
+        let ourTeamLink = "";
+        if (this.props.location === "Main") {
+            ourTeamLink = <a href="#ourteam" className="nav-link smooth-scroll" id="fifth-dropdown">Our Team</a>
         }
 
         return (
@@ -217,10 +203,10 @@ export default class Navbar extends Component {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                                {ourTeamLink}
+                                {ourProcessLink}
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
-                                {ourProcessLink}
+                                {ourTeamLink}
                             </li>
                             <li className="nav-item dropdown  mega-menu mega-menu--wide">
                                 <a href="#footer" className="nav-link smooth-scroll" id="sixth-dropdown">Contact Us</a>

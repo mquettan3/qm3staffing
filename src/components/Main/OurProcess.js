@@ -9,7 +9,7 @@ export default class OurProcess extends Component {
                     <div className="col-lg-12">
                       <h1 className="text-center mt-4">Our Process</h1>
                       <div className="separator"></div>
-                      <p>What makes our recruitment process generate more Talent, that in-turn allows us to unite the  right talent with the Right opportunity, is our 5 step process. This process generates more successful candidates becoming a win win for all...</p>
+                      <p>What allows QM3 Solutions to attract talent and opportunities, that in-turn allows us to unite the right talent with the Right opportunity, is our 5 step process. This process attracts successful candidates as well as wonderful businesses with lucrative opportunities and becomes a true win win for all...</p>
 
                       <div id="accordion" className="collapse-style-2" role="tablist" aria-multiselectable="true">
                         <div className="card">
