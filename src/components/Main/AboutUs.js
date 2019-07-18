@@ -13,7 +13,7 @@ export default class AboutUs extends Component {
                   {/* <a href="#" className="overlay-link"><i className="fa fa-link"></i></a> */}
                   <div className="overlay-bottom hidden-sm-down" style={{opacity: 1}}>
                     <div className="text">
-                      Hiring and Uniting Great, Talented, Individuals with Great Companies.
+                      Hiring and Uniting Talented Individuals with Fabulous Companies.
                     </div>
                   </div>
                 </div>
@@ -23,19 +23,19 @@ export default class AboutUs extends Component {
                 <div className="separator-2"></div> */}
                 <p className="site-slogan">"We Do It Right!"</p>
                 <ul>
-                  <li>The <span className="text-default"><b>Right</b></span> One</li>
-                  <li>The <span className="text-default"><b>Right</b></span> Job</li>
-                  <li>The <span className="text-default"><b>Right</b></span> Time</li>
+                  <li>The <span className="text-default"><b>Right</b></span> Individual</li>
+                  <li>The <span className="text-default"><b>Right</b></span> Company</li>
                   <li>The <span className="text-default"><b>Right</b></span> Way</li>
+                  <li>At the <span className="text-default"><b>Right</b></span> Time</li>
                   <li>For all the <span className="text-default"><b>Right</b></span> Reasons</li>
                 </ul>
-                <p>There is no talent we cannot find and no opportunity we cannot locate.  We aim to be a bridge to the roadways between talent and opportunity.  We make the choice between what is convenient and what is <span className="text-default"><b>Right</b></span>!  We unite you with the <span className="text-default"><b>Right</b></span> talent; not just a body.</p>
+                <p>There is no talent we cannot find and no opportunity we cannot locate.  We aim to be the bridge to the between talent and opportunity.  We do <b>NOT</b> simply provide anyone with a heartbeat to any position with any companay willing to hire.  We make the difficult choices between what is convenient and what is <span className="text-default"><b>Right</b></span>!  We unite you with the <span className="text-default"><b>Right</b></span> talent or the <span className="text-default"><b>Right</b></span> opportunity; not just any body, and not just any job.</p>
                 <ul>
                   <li>We hire the <span className="text-default"><b>Right</b></span> way</li>
                   <li>We train the <span className="text-default"><b>Right</b></span> way</li>
                   <li>Allowing you to retain the <span className="text-default"><b>Right</b></span> one!</li>
                 </ul>
-                <p>We are timely, supportive, and positive.  Fulfilling the needs of many and bringing joy to all.</p>
+                <p>We are timely, supportive, and positive.  Fulfilling the needs of many by bringing joy to all.</p>
               </div>
             </div>
           </div>
