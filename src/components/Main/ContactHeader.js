@@ -31,7 +31,7 @@ export default class ContactHeader extends Component {
                     <div id="header-top-second"  className="clearfix text-right">
                       <ul className="list-inline">
                         <li className="list-inline-item"><i className="fa fa-phone pr-1 pl-10"></i> (678) 903-6219</li>
-                        <li className="list-inline-item"><i className="fa fa-envelope-o pr-1 pl-10"></i> info@qm3us.net</li>
+                        <li className="list-inline-item"><i className="fa fa-envelope-o pr-1 pl-10"></i> info@qm3solutions.com</li>
                       </ul>
                     </div>
     

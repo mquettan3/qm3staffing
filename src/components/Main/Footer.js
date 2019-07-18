@@ -43,7 +43,7 @@ export default class Footer extends Component {
                       <ul className="list-icons">
                         <li><i className="fa fa-map-marker pr-2 text-default"></i> 1800 Wilson Way Suite 6 Smyrna, Ga</li>
                         <li><i className="fa fa-phone pr-2 text-default"></i> (678) 903-6219</li>
-                        <li><a href="#"><i className="fa fa-envelope-o pr-2"></i>info@qm3us.net</a></li>
+                        <li><a href="mailto:info@qm3solutions.com"><i className="fa fa-envelope-o pr-2"></i>info@qm3solutions.com</a></li>
                       </ul>
                     </div>
                   </div>

@@ -1,4 +1,6 @@
-Navigating directly to */employers gives an internal server error.
-Navigating back to home does not force back to top of scroll.
-
+Warehouse image on home page needs to be updated.  People, less busy background.
+Our Team Bios and Headshots
+Update LinkedIn, Facebook, and Instagram Links
+Forward info@qm3solutions.com to an email list that is all the service reps
+Structure the Candidate and Employer email to most definitely send an email to the submitter as a confirmation AS WELL as sending an email to the appropriate QM3 email list.
 
