@@ -161,5 +161,10 @@ section.quote h2 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-attachment: fixed;
+}
+
+@media (min-width: 992px) {
+    .fixed-bg {
+        background-attachment: fixed;
+    }
 }
