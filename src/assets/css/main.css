@@ -207,3 +207,9 @@ section.quote h2 {
         background-attachment: fixed;
     }
 }
+
+@media (max-width: 991px) {
+    #logo-mobile img:hover {
+        opacity: 1;
+    }
+}
