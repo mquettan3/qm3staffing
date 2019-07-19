@@ -258,8 +258,8 @@ export default class Employers extends Component {
               <Navbar 
                 location="Employers"
               />
-              <div className="row justify-content-center">
-                <div className="container">
+              <div className="container justify-content-center">
+                <div className="row">
                   <h1 className="col-sm-12 text-center mt-4">Areas of Expertise</h1>
                   <div className="col-sm-12 separator"></div>
                     <p className="col-sm-12">
@@ -289,8 +289,8 @@ export default class Employers extends Component {
               
               <TabbedInformation />
 
-              <div className="row justify-content-center">
-                <div className="container">
+              <div className="container justify-content-center">
+                <div className="row">
                   <h1 className="col-sm-12 text-center mt-4">Request Staff</h1>
                   <div className="separator"></div>
                   <p className="col-sm-12">Attention Hiring Managers: If you have a staffing or workforce need, you can trust <span className="text-default">QM3 Solutions</span> to help. After completing the short form below, your request will be routed to a QM3 representative and you will be contacted quickly to discuss your hiring need.</p>
