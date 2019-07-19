@@ -89,6 +89,12 @@ export default class Navbar extends Component {
                     $(this).siblings('.dropdown-menu').toggleClass('show');
                 });
             };
+
+            if (window.innerWidth < 991) {
+                $('body').addClass('fixed-header-on');
+                $('.header-container .header.fixed').addClass('hc-element-visible');
+                $('.header-container').css('height', '90px');
+            }
     }
 
     componentWillUnmount() {
@@ -98,7 +104,9 @@ export default class Navbar extends Component {
 
     handleScroll(e) {
         this.setState({scrollTop: e.srcElement.body.scrollTop})
-
+        if(window.innerWidth < 991) {
+            return;
+        }
         if (this.contact_header_height < window.scrollY) {
             if(!$('.header-container .header.fixed').hasClass('hc-element-visible')) {
                 $('.header-container .header.fixed').addClass('hc-element-visible');
@@ -127,10 +135,16 @@ export default class Navbar extends Component {
             if(window.innerWidth > 991){
                 $('.header-container').css('height', '80px');
             } else {
+                $('.header-container').css('height', '');
+            }
+
+        } else {
+            if(window.innerWidth > 991){
+                $('.header-container').css('height', '80px');
+            } else {
                 $('.header-container').css('height', '90px');
             }
         }
-
     }
 
     render() {
