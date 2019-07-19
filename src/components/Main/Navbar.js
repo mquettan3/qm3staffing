@@ -10,6 +10,7 @@ export default class Navbar extends Component {
         super(props);
 
         this.handleScroll = this.handleScroll.bind(this);
+        this.handleResize = this.handleResize.bind(this);
 
         this.state = {scrollTop: 0};
 
@@ -17,6 +18,7 @@ export default class Navbar extends Component {
     }
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
         
         if($('body').hasClass('fixed-header-on')) {
             $('body').removeClass('fixed-header-on');
@@ -91,6 +93,7 @@ export default class Navbar extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
     }
 
     handleScroll(e) {
@@ -100,19 +103,34 @@ export default class Navbar extends Component {
             if(!$('.header-container .header.fixed').hasClass('hc-element-visible')) {
                 $('.header-container .header.fixed').addClass('hc-element-visible');
                 $('body').addClass('fixed-header-on');
-                $('.header-container').css('height', '137px');
+                if(window.innerWidth > 991){
+                    $('.header-container').css('height', '80px');
+                } else {
+                    $('.header-container').css('height', '90px');
+                }
             }
         } else {
             if($('.header-container .header.fixed').hasClass('hc-element-visible')) {
                 $('.header-container .header.fixed').removeClass('hc-element-visible');
                 $('body').removeClass('fixed-header-on');
                 if(window.innerWidth > 991){
-                    $('.header-container').css('height', '137px');
+                    $('.header-container').css('height', '80px');
                 } else {
                     $('.header-container').css('height', '');
                 }
             }
         }
+    }
+    
+    handleResize(e) {
+        if (!$('.header-container .header.fixed').hasClass('hc-element-visible')) {
+            if(window.innerWidth > 991){
+                $('.header-container').css('height', '80px');
+            } else {
+                $('.header-container').css('height', '90px');
+            }
+        }
+
     }
 
     render() {
@@ -163,14 +181,13 @@ export default class Navbar extends Component {
                 <div className="row">
                     <div className="col-md-auto hidden-md-down pl-3">
                     <div className="header-first clearfix">
-                            <div id="logo" className="logo">
-                                {logoLink}
-                            </div>
+                        <div id="logo" className="logo">
+                            {logoLink}
+                        </div>
 
-                        <p className={"site-slogan " + isSloganHidden}>
+                        {/* <p className={"site-slogan " + isSloganHidden}>
                         "We Do It Right!"
-                        </p>
-
+                        </p> */}
                     </div>
 
                     </div>
@@ -181,15 +198,9 @@ export default class Navbar extends Component {
                     <div className="main-navigation main-navigation--mega-menu  animated">
                         <nav className="navbar navbar-expand-lg navbar-light p-0">
                         <div className="navbar-brand clearfix hidden-lg-up">
-
-                                <div id="logo-mobile" className="logo">
-                                    {logoLink}
-                                </div>
-
-                            <p className={"site-slogan " + isSloganHidden}>
-                            "We Do It Right!"
-                            </p>
-
+                            <div id="logo-mobile" className="logo">
+                                {logoLink}
+                            </div>
                         </div>
                         
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">

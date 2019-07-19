@@ -35,15 +35,40 @@
 .promo-caption-title {
     line-height:  50px;
     margin: 0px;
-    padding: 0px;
     letter-spacing: 0px;
-    font-weight: 300;
+    font-weight: bold;
     font-size: 42px;
     color: white;
     position: relative;
-    font-family: "Raleway", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
+    text-align: left;
+    text-align: center;
+}
+
+.promo-caption-subtitle {
+    font-weight: 200;
+    font-size: 32px;
+    font-style: normal;
+    color: white;
+    position: relative;
+    font-family: "Nunito Sans", sans-serif;
     text-align: left;
     margin-bottom: 20px;
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+    .promo-caption-subtitle {
+        display: none;
+    }
+
+    .promo-caption .separator {
+        display: none;
+    }
+    
+    .promo-caption-title {
+        margin-bottom: 20px;
+    }
 }
 
 .promo-caption {
@@ -70,6 +95,10 @@
 
 .promo-caption-spacer {
     color: white;
+}
+
+.header-first {
+    padding-top: 9px;
 }
 
 .fixed-header-on .header-first {

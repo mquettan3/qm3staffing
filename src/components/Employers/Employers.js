@@ -295,160 +295,162 @@ export default class Employers extends Component {
                   <div className="separator"></div>
                   <p className="col-sm-12">Attention Hiring Managers: If you have a staffing or workforce need, you can trust <span className="text-default">QM3 Solutions</span> to help. After completing the short form below, your request will be routed to a QM3 representative and you will be contacted quickly to discuss your hiring need.</p>
                   <p className="col-sm-12"><b>IF YOU ARE LOOKING FOR A JOB, PLEASE DO NOT USE THIS FORM. </b> <Link to="/candidates">CLICK HERE TO SEARCH JOBS!</Link></p>
-                  <fieldset className="form-group col-md-8 offset-md-2 col-sm-12">
-                    <legend className="col-from-legend col-md-5 col-lg-3">Staff Request Form</legend>
-                    <form>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="firstName">First Name*</label>
-                        <input type="text" className={"form-control " + (this.state.firstName.isValid ? valid : invalid)} id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
-                        <div className="invalid-feedback">
-                          Enter your first name!
+                  <div className="col-md-8 offset-md-2 col-sm-12">
+                    <fieldset className="form-group">
+                      <legend className="col-from-legend col-md-5 col-lg-3">Staff Request Form</legend>
+                      <form>
+                        <div className="form-group has-feedback">
+                          <label htmlFor="firstName">First Name*</label>
+                          <input type="text" className={"form-control " + (this.state.firstName.isValid ? valid : invalid)} id="firstName" placeholder="Enter your first name" onChange={this.onFirstNameChange} value={this.state.firstName.value}></input>
+                          <div className="invalid-feedback">
+                            Enter your first name!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="lastName">Last Name*</label>
-                        <input type="text" className={"form-control " + (this.state.lastName.isValid ? valid : invalid)} id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
-                        <div className="invalid-feedback">
-                          Enter your last name!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="lastName">Last Name*</label>
+                          <input type="text" className={"form-control " + (this.state.lastName.isValid ? valid : invalid)} id="lastName" placeholder="Enter your last name" onChange={this.onLastNameChange} value={this.state.lastName.value}></input>
+                          <div className="invalid-feedback">
+                            Enter your last name!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="title">Title</label>
-                        <input type="text" className={"form-control " + (this.state.title.isValid ? valid : invalid)} id="title" placeholder="Enter Title" onChange={this.onTitleChange} value={this.state.title.value}></input>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputEmail">Email Address*</label>
-                        <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
-                        <div className="invalid-feedback">
-                          Enter a valid Email Address!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="title">Title</label>
+                          <input type="text" className={"form-control " + (this.state.title.isValid ? valid : invalid)} id="title" placeholder="Enter Title" onChange={this.onTitleChange} value={this.state.title.value}></input>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputPhone">Phone Number*</label>
-                        <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
-                        <div className="invalid-feedback">
-                          Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputEmail">Email Address*</label>
+                          <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
+                          <div className="invalid-feedback">
+                            Enter a valid Email Address!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputCompanyName">Company Name*</label>
-                        <input type="text" className={"form-control " + (this.state.companyName.isValid ? valid : invalid)} id="inputCompanyName" placeholder="Enter Company Name" onChange={this.onCompanyNameChange} value={this.state.companyName.value}></input>
-                        <div className="invalid-feedback">
-                          Enter your company name!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputPhone">Phone Number*</label>
+                          <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
+                          <div className="invalid-feedback">
+                            Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputCity">City*</label>
-                        <input type="text" className={"form-control " + (this.state.city.isValid ? valid : invalid)} id="inputCity" placeholder="Enter City" onChange={this.onCityChange} value={this.state.city.value}></input>
-                        <div className="invalid-feedback">
-                          Enter your city name!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputCompanyName">Company Name*</label>
+                          <input type="text" className={"form-control " + (this.state.companyName.isValid ? valid : invalid)} id="inputCompanyName" placeholder="Enter Company Name" onChange={this.onCompanyNameChange} value={this.state.companyName.value}></input>
+                          <div className="invalid-feedback">
+                            Enter your company name!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputState">State*</label>
-                        <select type="text" className={"form-control " + (this.state.state.isValid ? valid : invalid)} id="inputState" onChange={this.onStateChange} value={this.state.state.value}>
-                          <option>Select Your State</option>
-                          <option>Alabama</option>
-                          <option>Alaska</option>
-                          <option>Arizona</option>
-                          <option>Arkansas</option>
-                          <option>California</option>
-                          <option>Colorado</option>
-                          <option>Connecticut</option>
-                          <option>Delaware</option>
-                          <option>Florida</option>
-                          <option>Georgia</option>
-                          <option>Hawaii</option>
-                          <option>Idaho</option>
-                          <option>Illinois</option>
-                          <option>Indiana</option>
-                          <option>Iowa</option>
-                          <option>Kansas</option>
-                          <option>Kentucky</option>
-                          <option>Louisiana</option>
-                          <option>Maine</option>
-                          <option>Maryland</option>
-                          <option>Massachusetts</option>
-                          <option>Michigan</option>
-                          <option>Minnesota</option>
-                          <option>Mississippi</option>
-                          <option>Missouri</option>
-                          <option>Montana</option>
-                          <option>Nebraska</option>
-                          <option>Nevada</option>
-                          <option>New Hampshire</option>
-                          <option>New Jersey</option>
-                          <option>New Mexico</option>
-                          <option>New York</option>
-                          <option>North Carolina</option>
-                          <option>North Dakota</option>
-                          <option>Ohio</option>
-                          <option>Oklahoma</option>
-                          <option>Oregon</option>
-                          <option>Pennsylvania</option>
-                          <option>Rhode Island</option>
-                          <option>South Carolina</option>
-                          <option>South Dakota</option>
-                          <option>Tennessee</option>
-                          <option>Texas</option>
-                          <option>Utah</option>
-                          <option>Vermont</option>
-                          <option>Virginia</option>
-                          <option>Washington</option>
-                          <option>West Virginia</option>
-                          <option>Wisconsin</option>
-                          <option>Wyoming</option>
-                        </select>
-                        <div className="invalid-feedback">
-                          Select your State!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputCity">City*</label>
+                          <input type="text" className={"form-control " + (this.state.city.isValid ? valid : invalid)} id="inputCity" placeholder="Enter City" onChange={this.onCityChange} value={this.state.city.value}></input>
+                          <div className="invalid-feedback">
+                            Enter your city name!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputZip">Zip Code*</label>
-                        <input type="text" className={"form-control " + (this.state.zip.isValid ? valid : invalid)} id="inputZip" placeholder="Enter Zip Code" onChange={this.onZipChange} value={this.state.zip.value}></input>
-                        <div className="invalid-feedback">
-                          Enter your Zip Code!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputState">State*</label>
+                          <select type="text" className={"form-control " + (this.state.state.isValid ? valid : invalid)} id="inputState" onChange={this.onStateChange} value={this.state.state.value}>
+                            <option>Select Your State</option>
+                            <option>Alabama</option>
+                            <option>Alaska</option>
+                            <option>Arizona</option>
+                            <option>Arkansas</option>
+                            <option>California</option>
+                            <option>Colorado</option>
+                            <option>Connecticut</option>
+                            <option>Delaware</option>
+                            <option>Florida</option>
+                            <option>Georgia</option>
+                            <option>Hawaii</option>
+                            <option>Idaho</option>
+                            <option>Illinois</option>
+                            <option>Indiana</option>
+                            <option>Iowa</option>
+                            <option>Kansas</option>
+                            <option>Kentucky</option>
+                            <option>Louisiana</option>
+                            <option>Maine</option>
+                            <option>Maryland</option>
+                            <option>Massachusetts</option>
+                            <option>Michigan</option>
+                            <option>Minnesota</option>
+                            <option>Mississippi</option>
+                            <option>Missouri</option>
+                            <option>Montana</option>
+                            <option>Nebraska</option>
+                            <option>Nevada</option>
+                            <option>New Hampshire</option>
+                            <option>New Jersey</option>
+                            <option>New Mexico</option>
+                            <option>New York</option>
+                            <option>North Carolina</option>
+                            <option>North Dakota</option>
+                            <option>Ohio</option>
+                            <option>Oklahoma</option>
+                            <option>Oregon</option>
+                            <option>Pennsylvania</option>
+                            <option>Rhode Island</option>
+                            <option>South Carolina</option>
+                            <option>South Dakota</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Utah</option>
+                            <option>Vermont</option>
+                            <option>Virginia</option>
+                            <option>Washington</option>
+                            <option>West Virginia</option>
+                            <option>Wisconsin</option>
+                            <option>Wyoming</option>
+                          </select>
+                          <div className="invalid-feedback">
+                            Select your State!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputSkillsOfInterest">Skills of Interest*</label>
-                        <select multiple className={"form-control " + (this.state.skillTypes.isValid ? valid : invalid)} id="inputSkillsOfInterest" onChange={this.onSkillTypesChange}>
-                          <option>Clerical</option>
-                          <option>Industrial</option>
-                          <option>Labor</option>
-                          <option>Warehouse</option>
-                          <option>Professional</option>
-                        </select>
-                        <div className="invalid-feedback">
-                          You must select at least one Skill of Interest!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputZip">Zip Code*</label>
+                          <input type="text" className={"form-control " + (this.state.zip.isValid ? valid : invalid)} id="inputZip" placeholder="Enter Zip Code" onChange={this.onZipChange} value={this.state.zip.value}></input>
+                          <div className="invalid-feedback">
+                            Enter your Zip Code!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputHireTypes">Hire Types of Interest*</label>
-                        <select multiple className={"form-control " + (this.state.hireTypes.isValid ? valid : invalid)} id="inputHireTypes" onChange={this.onHireTypesChange}>
-                          <option>Temporary</option>
-                          <option>Temp to Perm (480 hours)</option>
-                          <option>Perm Palcement / Direct Hire</option>
-                          <option>Contract Talent</option>
-                          <option>Job Training</option>
-                        </select>
-                        <div className="invalid-feedback">
-                          You must select at least one Hire Type of Interest!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputSkillsOfInterest">Skills of Interest*</label>
+                          <select multiple className={"form-control " + (this.state.skillTypes.isValid ? valid : invalid)} id="inputSkillsOfInterest" onChange={this.onSkillTypesChange}>
+                            <option>Clerical</option>
+                            <option>Industrial</option>
+                            <option>Labor</option>
+                            <option>Warehouse</option>
+                            <option>Professional</option>
+                          </select>
+                          <div className="invalid-feedback">
+                            You must select at least one Skill of Interest!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group has-feedback">
-                        <label htmlFor="inputDetails">Details*</label>
-                        <textarea rows="5" className={"form-control " + (this.state.details.isValid ? valid : invalid)} id="inputDetails" placeholder="Details of request."  onChange={this.onDetailsChange} value={this.state.details.value}/>
-                        <div className="invalid-feedback">
-                          You must provide additional details!
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputHireTypes">Hire Types of Interest*</label>
+                          <select multiple className={"form-control " + (this.state.hireTypes.isValid ? valid : invalid)} id="inputHireTypes" onChange={this.onHireTypesChange}>
+                            <option>Temporary</option>
+                            <option>Temp to Perm (480 hours)</option>
+                            <option>Perm Palcement / Direct Hire</option>
+                            <option>Contract Talent</option>
+                            <option>Job Training</option>
+                          </select>
+                          <div className="invalid-feedback">
+                            You must select at least one Hire Type of Interest!
+                          </div>
                         </div>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="inputDetails">*Required Fields</label>
-                      </div>
-                      <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Staff</button>
-                    </form>
-                  </fieldset>
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputDetails">Details*</label>
+                          <textarea rows="5" className={"form-control " + (this.state.details.isValid ? valid : invalid)} id="inputDetails" placeholder="Details of request."  onChange={this.onDetailsChange} value={this.state.details.value}/>
+                          <div className="invalid-feedback">
+                            You must provide additional details!
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label htmlFor="inputDetails">*Required Fields</label>
+                        </div>
+                        <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Staff</button>
+                      </form>
+                    </fieldset>
+                  </div>
                 </div>
               </div>
               <Footer />

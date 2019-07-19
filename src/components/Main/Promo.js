@@ -13,29 +13,40 @@ export default class Promo extends Component {
         <section className="promo-banner">
             <div className="promo-background-image" style={backgroundStyle}></div>
             <div className="promo-overlay"></div>
-            <div className="promo-caption container">
-                <div className="row">
-                    <div className="promo-caption-title col-12">Right Job.</div>
-                </div>
-                <div className="row">
-                    <div className="promo-caption-title col-12">Right Candidate.</div>
-                </div>
-                <div className="row">
-                    <div className="promo-caption-title col-12">Right Now.</div>
-                </div>
-                {/* <div className="promo-separator"></div>
-                <div className="promo-separator"></div> */}
-                {/* <div className="row hidden-md-down">
-                    <div className="promo-caption-spacer col-12">
-                        <div className="separator light with-icon"><i className="fa fa-handshake-o bordered"></i></div>
+            <div className="promo-caption">
+                <div className="container">
+                    <div className="row">
+                        <h1 className="promo-caption-title col-12">Uniting Talent with Opportunity,<br />the RIGHT way.</h1>
+                        <div className="separator light"></div> 
                     </div>
-                </div> */}
-                <div className="promo-caption-subsection row">
-                    <div className="col-md-5 offset-md-1 col-sm-12">
-                        <Link to="candidates" className="btn radius-50 btn-primary btn-animated btn-lg">For Job Seekers <i className="fa fa-arrow-right"></i></Link>
+                    <div className="row">
+                        <div className="col-12 text-center">
+                            <p className="promo-caption-subtitle pr-20">Right Candidate.</p>
+                            <p className="promo-caption-subtitle pr-20">Right Job.</p>
+                            <p className="promo-caption-subtitle">Right Now.</p>
+                        </div>
+                        {/* <h2 className="promo-caption-subtitle col-4">Right Candidate.</h2>
+                        <h2 className="promo-caption-subtitle col-4">Right Job.</h2>
+                        <h2 className="promo-caption-subtitle col-4">Right Now.</h2> */}
                     </div>
-                    <div className="col-md-5  col-sm-12">
-                        <Link to="employers" className="btn radius-50 btn-primary btn-animated btn-lg">For Employers <i className="fa fa-arrow-right"></i></Link>
+                    <div className="row">
+                    </div>
+                    <div className="row">
+                    </div>
+                    {/* <div className="promo-separator"></div>
+                    <div className="promo-separator"></div> */}
+                    {/* <div className="row hidden-md-down">
+                        <div className="promo-caption-spacer col-12">
+                            <div className="separator light with-icon"><i className="fa fa-handshake-o bordered"></i></div>
+                        </div>
+                    </div> */}
+                    <div className="promo-caption-subsection row">
+                        <div className="col-md-5 offset-md-1 col-sm-12">
+                            <Link to="candidates" className="btn radius-50 btn-primary btn-animated btn-lg">For Job Seekers <i className="fa fa-arrow-right"></i></Link>
+                        </div>
+                        <div className="col-md-5  col-sm-12">
+                            <Link to="employers" className="btn radius-50 btn-primary btn-animated btn-lg">For Employers <i className="fa fa-arrow-right"></i></Link>
+                        </div>
                     </div>
                 </div>
             </div>
