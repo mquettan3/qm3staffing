@@ -31,7 +31,7 @@ export default class OurValues extends Component {
       //       </div>
       //     </div>
       //   </section>
-      <section id="values" className="row dark-translucent-bg fixed-bg pv-30" style={backgroundStyle}>
+      <section id="values" className="dark-translucent-bg fixed-bg pv-30" style={backgroundStyle}>
           <div className="container">
             <div className="row justify-content-lg-center">
                 <div className="col-lg-8">
