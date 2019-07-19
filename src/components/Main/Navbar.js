@@ -11,6 +11,7 @@ export default class Navbar extends Component {
 
         this.handleScroll = this.handleScroll.bind(this);
         this.handleResize = this.handleResize.bind(this);
+        this.handleClick = this.handleClick.bind(this);
 
         this.state = {scrollTop: 0};
 
@@ -19,6 +20,7 @@ export default class Navbar extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('resize', this.handleResize);
+        window.addEventListener('click', this.handleClick);
         
         if($('body').hasClass('fixed-header-on')) {
             $('body').removeClass('fixed-header-on');
@@ -100,6 +102,7 @@ export default class Navbar extends Component {
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
         window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('click', this.handleClick);
     }
 
     handleScroll(e) {
@@ -143,6 +146,17 @@ export default class Navbar extends Component {
                 $('.header-container').css('height', '80px');
             } else {
                 $('.header-container').css('height', '90px');
+            }
+        }
+    }
+
+    handleClick(e) {
+        // Find if the user has clicked outside of the header
+        let target = e.target.closest('.header-container .header.fixed');
+        if (!e.target.closest('.header-container .header.fixed')) {
+            //Remove show if it exists
+            if ($('#navbar-collapse-1').hasClass('show')) {
+                $('#navbar-collapse-1').removeClass('show');
             }
         }
     }
