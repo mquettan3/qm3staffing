@@ -21,6 +21,7 @@ export default class Employers extends Component {
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPhoneChange = this.onPhoneChange.bind(this);
+    this.onContactMethodChange = this.onContactMethodChange.bind(this);
     this.onCompanyNameChange = this.onCompanyNameChange.bind(this);
     this.onCityChange = this.onCityChange.bind(this);
     this.onStateChange = this.onStateChange.bind(this);
@@ -39,6 +40,7 @@ export default class Employers extends Component {
       title: {value: "", isValid: true},
       email: {value: "", isValid: false},
       phone: {value: "", isValid: false},
+      contactMethod: {value: "Any", isValid: true},
       companyName: {value: "", isValid: false},
       city: {value: "", isValid: false},
       state: {value: "", isValid: false},
@@ -99,11 +101,17 @@ export default class Employers extends Component {
     onPhoneChange(e) {
       var valid = false;
 
-      if(/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(e.target.value)) {
+      if(/^(1\s|1|)?((\(\d{3}\))|\d{3})(-|\s)?(\d{3})(-|\s)?(\d{4})$/.test(e.target.value)) {
         valid = true;
       }
 
       this.setState({phone: {value: e.target.value, isValid: valid}});
+    }
+
+    onContactMethodChange(e) {
+      // Always valid
+
+      this.setState({contactMethod: {value: e.target.value, isValid: true}});
     }
 
     onCompanyNameChange(e) {
@@ -129,7 +137,7 @@ export default class Employers extends Component {
     onStateChange(e) {
       var valid = false;
 
-      if(e.target.value != "Select Your State") {
+      if(e.target.value !== "Select Your State") {
         valid = true;
       }
 
@@ -185,6 +193,7 @@ export default class Employers extends Component {
         this.state.title.isValid &&
         this.state.email.isValid &&
         this.state.phone.isValid &&
+        this.state.contactMethod.isValid &&
         this.state.companyName.isValid &&
         this.state.city.isValid &&
         this.state.state.isValid &&
@@ -200,6 +209,7 @@ export default class Employers extends Component {
           title: this.state.title.value,
           email: this.state.email.value,
           phone: this.state.phone.value,
+          contactMethod: this.state.contactMethod.value,
           companyName: this.state.companyName.value,
           city: this.state.city.value,
           state: this.state.state.value,
@@ -329,6 +339,17 @@ export default class Employers extends Component {
                           <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
                           <div className="invalid-feedback">
                             Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
+                          </div>
+                        </div>
+                        <div className="form-group has-feedback">
+                          <label htmlFor="inputContactMethod">Preferred Contact Method*</label>
+                          <select className={"form-control " + (this.state.contactMethod.isValid ? valid : invalid)} id="inputContactMethod" onChange={this.onContactMethodChange}>
+                            <option>Any</option>
+                            <option>Phone</option>
+                            <option>Email</option>
+                          </select>
+                          <div className="invalid-feedback">
+                            You must select a preferred contact method!
                           </div>
                         </div>
                         <div className="form-group has-feedback">

@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import '../../assets/css/main.css';
 
 export default class TabbedInformation extends Component {
-    constructor(props){
-        super(props);
-
-    }
-    componentDidMount() {
-    }
-
     render() {
       return (
           <div className="tabbed-info-wrapper row section light-gray-bg justify-content-center">

@@ -11,7 +11,7 @@ const cors = require('cors');
 const fs = require('fs');
 
 // Import the emailer
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 // File uploader
 const multer = require('multer');
@@ -24,10 +24,10 @@ const storage = multer.diskStorage({
     }
 });
 
-var upload = multer({storage: storage}).any();
+const upload = multer({storage: storage}).any();
 
 // Constants
-var requestStaffEmailTemplate = `
+const requestStaffEmailTemplate = `
 To QM3 Solutions,
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted a request for staff!  Details for their request can be seen below:
 Request For Staff Form Information:
@@ -36,6 +36,7 @@ Last Name:  {{LastName}}
 Title: {{Title}}
 Email Address: {{Email}}
 Phone Number: {{PhoneNumber}}
+Preferred Contact Method: {{ContactMethod}}
 Company Name: {{CompanyName}}
 City: {{City}}
 State: {{State}}
@@ -50,7 +51,7 @@ Sincerely,
 The robot who runs the QM3 Solutions website!
 `
 
-var positionsInquireEmailTemplate = `
+const positionsInquireEmailTemplate = `
 To QM3 Solutions,
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted an inquiry about future positions!  Details for their request can be seen below:
 Inquire about Future Positions Form Information:
@@ -58,6 +59,7 @@ First Name:  {{FirstName}}
 Last Name:  {{LastName}}
 Email Address: {{Email}}
 Phone Number: {{PhoneNumber}}
+Preferred Contact Method: {{ContactMethod}}
 Fields of Interest: {{Interests}}
 Details:
 {{Details}}
@@ -68,17 +70,41 @@ Sincerely,
 The robot who runs the QM3 Solutions website!
 `
 
-var transporter = nodemailer.createTransport({
-    host: 'smtp.office365.com',
-    port: 587,
-    auth: {
-        user: process.env.EMAIL_NAME,
-        pass: process.env.EMAIL_PASSWORD
-    },
-    tls: {
-        ciphers: 'SSLv3'
-    }
-});
+const genericConfirmationEmailTemplate = `
+{{FirstName}}, thank you for your interest!
+
+Your {{RequestType}} has successfully been received by QM3 Solutions.  Please allow for ~1 business day for a QM3 Solutions representative to contact you at your preferred constact method.
+
+We look forward to working with you!
+
+Sincerely,
+QM3 Solutions
+
+Note:  This is an automated response.  Do not reply to this email!
+`
+async function wrappedSendMail(mailOptions, emailType) {
+    return new Promise((resolve, reject)=> {
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.office365.com',
+            port: 587,
+            auth: {
+                user: process.env.EMAIL_NAME,
+                pass: process.env.EMAIL_PASSWORD
+            },
+            tls: {
+                ciphers: 'SSLv3'
+            }
+        });
+
+        transporter.sendMail(mailOptions, function(error, info) {
+            if (error) {
+                reject(Error("Failed to send " + emailType + " email to " + mailOptions.to));
+            } else {
+                resolve("Successfully sent " + emailType + " email to " + mailOptions.to);
+            }
+        });
+    })
+}
   
 // Define configuration variables
 const PORT = process.env.PORT || 4000;
@@ -107,12 +133,15 @@ app.post('/fileUpload', function(req, res) {
 });
 
 app.post('/requestStaff', async function (req, res) {
+    let returnStatus = 200;
+    let returnMessage = 'OK';
     var requestStaffEmailComplete = requestStaffEmailTemplate;
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{FirstName}}", req.body.firstName);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{LastName}}", req.body.lastName);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{Title}}", req.body.title);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{Email}}", req.body.email);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{PhoneNumber}}", req.body.phone);
+    requestStaffEmailComplete = requestStaffEmailComplete.replace("{{ContactMethod}}", req.body.contactMethod);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{CompanyName}}", req.body.companyName);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{City}}", req.body.city);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{State}}", req.body.state);
@@ -120,45 +149,75 @@ app.post('/requestStaff', async function (req, res) {
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{Skills}}", req.body.skillTypes.join(",  "));
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{HireTypes}}", req.body.hireTypes.join(",  "));
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{Details}}", req.body.details);
-
     console.log(requestStaffEmailComplete);
+
+    var confirmationEmailComplete = genericConfirmationEmailTemplate;
+    confirmationEmailComplete = confirmationEmailComplete.replace("{{FirstName}}", req.body.firstName);
+    confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestType}}", "request for staff");
+    console.log(confirmationEmailComplete);
 
     var mailOptions = {
         from: process.env.EMAIL_NAME,
-        to: req.body.email,
+        to: process.env.EMAIL_NAME,
         bcc: "",
         subject: 'IMPORTANT: Automated Staff Request from ' + req.body.firstName.value + ' ' + req.body.lastName.value,
         text: requestStaffEmailComplete
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.error(error);
-            return res.status(400).send('Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.');
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
+    await wrappedSendMail(mailOptions, "Staff Request")
+    .then(function(info) {
+        console.log(info);
+        //Remove the file sent from the server file system
+        fs.unlinkSync("./uploads/" + req.body.resume);
+    })
+    .catch(function(err){
+        console.error(err);
+        returnStatus = 400;
+        returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
+    });
+    
+    mailOptions = {
+        from: process.env.EMAIL_NAME,
+        to: req.body.email,
+        subject: 'QM3 Solutions: Confirmation Email',
+        text: confirmationEmailComplete
+    };
+
+    await wrappedSendMail(mailOptions, "Staff Request Confirmation")
+    .then(function(info){
+        console.log(info);
+    })
+    .catch(function(err) {
+        console.error(err);
+        returnStatus = 400;
+        returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
     });
 
     // 7. Return a successful response to the client
-    return res.sendStatus(200);
+    return res.status(returnStatus).send(returnMessage);
 });
 
 app.post('/positionsInquire', async function (req, res) {
+    let returnStatus = 200;
+    let returnMessage = 'OK';
     var positionsInquireEmailComplete = positionsInquireEmailTemplate;
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{FirstName}}", req.body.firstName);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{LastName}}", req.body.lastName);
-    positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Title}}", req.body.title);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Email}}", req.body.email);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{PhoneNumber}}", req.body.phone);
+    positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{ContactMethod}}", req.body.contactMethod);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Interests}}", req.body.interests.join(",  "));
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Details}}", req.body.details);
-
     console.log(positionsInquireEmailComplete);
+
+    var confirmationEmailComplete = genericConfirmationEmailTemplate;
+    confirmationEmailComplete = confirmationEmailComplete.replace("{{FirstName}}", req.body.firstName);
+    confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestType}}", "inquiry for positions");
+    console.log(confirmationEmailComplete);
 
     var mailOptions = {
         from: process.env.EMAIL_NAME,
-        to: req.body.email,
+        to: process.env.EMAIL_NAME,
         bcc: "",
         subject: 'IMPORTANT: Automated Future Positions Inquiry from ' + req.body.firstName.value + ' ' + req.body.lastName.value,
         text: positionsInquireEmailComplete,
@@ -169,24 +228,37 @@ app.post('/positionsInquire', async function (req, res) {
         ]
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.error(error);
+    await wrappedSendMail(mailOptions, "Position Inquiry")
+    .then(function(info) {
+        console.log(info);
+        //Remove the file sent from the server file system
+        fs.unlinkSync("./uploads/" + req.body.resume);
+    })
+    .catch(function(err){
+        console.error(err);
+        returnStatus = 400;
+        returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
+    });
+    
+    mailOptions = {
+        from: process.env.EMAIL_NAME,
+        to: req.body.email,
+        subject: 'QM3 Solutions: Confirmation Email',
+        text: confirmationEmailComplete
+    };
 
-            //Remove the file sent from the server file system
-            fs.unlinkSync("./uploads/" + req.body.resume);
-            console.error(error);
-            return res.status(400).send('Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.');
-        } else {
-            console.log('Email sent: ' + info.response);
-
-            //Remove the file sent from the server file system
-            fs.unlinkSync("./uploads/" + req.body.resume);
-        }
+    await wrappedSendMail(mailOptions, "Position Inquiry Confirmation")
+    .then(function(info){
+        console.log(info);
+    })
+    .catch(function(err) {
+        console.error(err);
+        returnStatus = 400;
+        returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
     });
 
     // 7. Return a successful response to the client
-    return res.sendStatus(200);
+    return res.status(returnStatus).send(returnMessage);
 });
 
   // Serve static assets if in productions

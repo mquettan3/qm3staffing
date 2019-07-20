@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import '../../assets/css/main.css';
 
 export default class TeamMember extends Component {
-    constructor(props){
-        super(props);
-    }
     render() {
       return (
         <div className="team-member-wrapper row container">

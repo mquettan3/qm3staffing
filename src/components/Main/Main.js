@@ -13,7 +13,7 @@ import AboutUs from './AboutUs.js';
 import QuoteSection from './QuoteSection.js';
 import OurValues from './OurValues.js';
 import OurProcess from './OurProcess.js';
-import OurPartners from './OurPartners.js';
+// import OurPartners from './OurPartners.js';
 import OurTeam from './OurTeam.js';
 import Footer from './Footer.js';
 
@@ -27,7 +27,7 @@ class Main extends Component {
 		//Scroll totop
 		//-----------------------------------------------
 		$(window).scroll(function() {
-			if($(this).scrollTop() != 0) {
+			if($(this).scrollTop() !== 0) {
 				$(".scrollToTop").addClass("fadeToTop");
 				$(".scrollToTop").removeClass("fadeToBottom");
 			} else {

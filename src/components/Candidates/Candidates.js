@@ -27,12 +27,14 @@ export default class Candidates extends Component {
       this.toggleShowSuccess = this.toggleShowSuccess.bind(this);
       this.toggleShowFail = this.toggleShowFail.bind(this);
       this.toggleShowInvalid = this.toggleShowInvalid.bind(this);
+      this.onContactMethodChange = this.onContactMethodChange.bind(this);
 
       this.state = {
         firstName: {value: "", isValid: false},
         lastName: {value: "", isValid: false},
         phone: {value: "", isValid: false},
         email: {value: "", isValid: false},
+        contactMethod: {value: "Any", isValid: true},
         interests: {value: [], isValid: false},
         resume: {value: [], isValid: false},
         details: {value: "", isValid: false},
@@ -79,11 +81,17 @@ export default class Candidates extends Component {
     onPhoneChange(e) {
       var valid = false;
 
-      if(/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(e.target.value)) {
+      if(/^(1\s|1|)?((\(\d{3}\))|\d{3})(-|\s)?(\d{3})(-|\s)?(\d{4})$/.test(e.target.value)) {
         valid = true;
       }
 
       this.setState({phone: {value: e.target.value, isValid: valid}});
+    }
+
+    onContactMethodChange(e) {
+      // Always valid
+
+      this.setState({contactMethod: {value: e.target.value, isValid: true}});
     }
 
     onInterestsChange(e) {
@@ -121,6 +129,7 @@ export default class Candidates extends Component {
         this.state.lastName.isValid &&
         this.state.phone.isValid &&
         this.state.email.isValid &&
+        this.state.contactMethod.isValid &&
         this.state.interests.isValid &&
         this.state.resume.isValid &&
         this.state.details.isValid
@@ -137,6 +146,8 @@ export default class Candidates extends Component {
             firstName: this.state.firstName.value,
             lastName: this.state.lastName.value,
             email: this.state.email.value,
+            phone: this.state.phone.value,
+            contactMethod: this.state.contactMethod.value,
             interests: this.state.interests.value,
             resume: this.state.resume.value.name,
             details: this.state.details.value
@@ -253,17 +264,28 @@ export default class Candidates extends Component {
                           </div>
                         </div>
                         <div className="form-group has-feedback">
+                          <label htmlFor="inputEmail">Email Address*</label>
+                          <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email: _@_._" onChange={this.onEmailChange} value={this.state.email.value}></input>
+                          <div className="invalid-feedback">
+                            Enter a valid Email Address!
+                          </div>
+                        </div>
+                        <div className="form-group has-feedback">
                           <label htmlFor="inputPhone">Phone Number*</label>
-                          <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
+                          <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="###-###-####" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
                           <div className="invalid-feedback">
                             Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
                           </div>
                         </div>
                         <div className="form-group has-feedback">
-                          <label htmlFor="inputEmail">Email Address*</label>
-                          <input type="text" className={"form-control " + (this.state.email.isValid ? valid : invalid)} id="inputEmail" placeholder="Enter Email" onChange={this.onEmailChange} value={this.state.email.value}></input>
+                          <label htmlFor="inputContactMethod">Preferred Contact Method*</label>
+                          <select className={"form-control " + (this.state.contactMethod.isValid ? valid : invalid)} id="inputContactMethod" onChange={this.onContactMethodChange}>
+                            <option>Any</option>
+                            <option>Phone</option>
+                            <option>Email</option>
+                          </select>
                           <div className="invalid-feedback">
-                            Enter a valid Email Address!
+                            You must select a preferred contact method!
                           </div>
                         </div>
                         <div className="form-group has-feedback">

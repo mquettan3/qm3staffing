@@ -152,7 +152,6 @@ export default class Navbar extends Component {
 
     handleClick(e) {
         // Find if the user has clicked outside of the header
-        let target = e.target.closest('.header-container .header.fixed');
         if (!e.target.closest('.header-container .header.fixed')) {
             //Remove show if it exists
             if ($('#navbar-collapse-1').hasClass('show')) {
@@ -162,10 +161,10 @@ export default class Navbar extends Component {
     }
 
     render() {
-        let isSloganHidden = "";
-        if(window.scrollY > this.contact_header_height) {
-            isSloganHidden = "slogan-hidden";
-        }
+        // let isSloganHidden = "";
+        // if(window.scrollY > this.contact_header_height) {
+        //     isSloganHidden = "slogan-hidden";
+        // }
 
         let homeLink = <Link to="/" className="nav-link" id="first-dropdown">Home</Link>;
         if (this.props.location === "Main") {

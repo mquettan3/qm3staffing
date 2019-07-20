@@ -25,13 +25,6 @@ export default class Promo extends Component {
                             <p className="promo-caption-subtitle pr-20">Right Job.</p>
                             <p className="promo-caption-subtitle">Right Now.</p>
                         </div>
-                        {/* <h2 className="promo-caption-subtitle col-4">Right Candidate.</h2>
-                        <h2 className="promo-caption-subtitle col-4">Right Job.</h2>
-                        <h2 className="promo-caption-subtitle col-4">Right Now.</h2> */}
-                    </div>
-                    <div className="row">
-                    </div>
-                    <div className="row">
                     </div>
                     {/* <div className="promo-separator"></div>
                     <div className="promo-separator"></div> */}
