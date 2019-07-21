@@ -272,7 +272,7 @@ export default class Candidates extends Component {
                         </div>
                         <div className="form-group has-feedback">
                           <label htmlFor="inputPhone">Phone Number*</label>
-                          <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="###-###-####" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
+                          <input type="text" className={"form-control " + (this.state.phone.isValid ? valid : invalid)} id="inputPhone" placeholder="Enter Phone Number: ###-###-####" onChange={this.onPhoneChange} value={this.state.phone.value}></input>
                           <div className="invalid-feedback">
                             Enter a valid United States phone number Ex. (###) ###-#### or ###-###-#### or ##########!
                           </div>
