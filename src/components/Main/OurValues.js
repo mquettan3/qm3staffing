@@ -41,38 +41,38 @@ export default class OurValues extends Component {
                 </div>
             </div>
             <div className="row">
-              <div class="col-md-3">
-                <div class="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                  <span class="icon without-bg"><i class="fa text-muted fa-shield"></i></span>
-                  <div class="body">
-                    <h3 class="title">Safety</h3>
+              <div className="col-md-3">
+                <div className="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
+                  <span className="icon without-bg"><i className="fa text-muted fa-shield"></i></span>
+                  <div className="body">
+                    <h3 className="title">Safety</h3>
                     <p>We pursue the highest degree of safety at all times.</p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
-                <div class="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                  <span class="icon without-bg"><i class="fa text-muted fa-trophy"></i></span>
-                  <div class="body">
-                    <h3 class="title">Quality</h3>
+              <div className="col-md-3">
+                <div className="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
+                  <span className="icon without-bg"><i className="fa text-muted fa-trophy"></i></span>
+                  <div className="body">
+                    <h3 className="title">Quality</h3>
                     <p>We unite the Right Talent every time, with Integrity.</p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
-                <div class="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                  <span class="icon without-bg"><i class="fa text-muted fa-handshake-o"></i></span>
-                  <div class="body">
-                    <h3 class="title">Respect</h3>
+              <div className="col-md-3">
+                <div className="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
+                  <span className="icon without-bg"><i className="fa text-muted fa-handshake-o"></i></span>
+                  <div className="body">
+                    <h3 className="title">Respect</h3>
                     <p>Our basic belief is respect for everyone. Leaving no one behind.</p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
-                <div class="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                  <span class="icon without-bg"><i class="fa text-muted fa-heart-o"></i></span>
-                  <div class="body">
-                    <h3 class="title">Honesty</h3>
+              <div className="col-md-3">
+                <div className="hc-item-box-2 hc-element-invisible animated hc-element-visible fadeInDownSmall" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
+                  <span className="icon without-bg"><i className="fa text-muted fa-heart-o"></i></span>
+                  <div className="body">
+                    <h3 className="title">Honesty</h3>
                     <p>We do what we say we are going to do, and do not make promise we cannot deliver on.</p>
                   </div>
                 </div>

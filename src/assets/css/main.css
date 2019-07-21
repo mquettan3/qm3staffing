@@ -73,6 +73,12 @@
     }
 }
 
+@media (max-width: 448px) {
+    .promo-caption-title {
+        font-size: 28px;
+    }
+}
+
 .promo-caption {
     position: relative;
     top: 50px;
