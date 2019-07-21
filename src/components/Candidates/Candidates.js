@@ -209,6 +209,8 @@ export default class Candidates extends Component {
               <CallToAction 
                 action_name="Subscribe"
                 action_description="Subscribe to our newsletter to be informed when positions open!"
+                link='https://www.google.com/'
+                location="Candidates"
               />
               <div className="container justify-content-center">
                 <div className="row">
