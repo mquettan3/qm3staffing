@@ -4,3 +4,5 @@ Update LinkedIn, Facebook, and Instagram Links
 Forward info@qm3solutions.com to an email list that is all the service reps
 Make the subscribe button on the candidates page actually do something useful
 
+Figure out a way to link to each of the accordian entries from a URL for the flyer. - this.location.hash should work.  Pull it from main, pass it to navbar, then have navbar on mount smooth scroll to it and set the location to active.
+

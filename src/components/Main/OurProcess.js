@@ -11,7 +11,7 @@ export default class OurProcess extends Component {
                       <div className="separator"></div>
                       <p>What allows QM3 Solutions to attract talent and opportunities, that in-turn allows us to unite the right talent with the Right opportunity, is our 5 step process. This process attracts successful candidates as well as wonderful businesses with lucrative opportunities and becomes a true win win for all...</p>
                       <div id="accordion" className="collapse-style-2" role="tablist" aria-multiselectable="true">
-                        <div className="card">
+                        <div id="cardOne" className="card">
                           <div className="card-header" role="tab" id="headingOne">
                             <h4 className="mb-0">
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" className="">
