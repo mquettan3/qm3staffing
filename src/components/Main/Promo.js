@@ -21,8 +21,8 @@ export default class Promo extends Component {
                     </div>
                     <div className="row">
                         <div className="col-12 text-center">
-                            <p className="promo-caption-subtitle pr-20">Right Candidate.</p>
                             <p className="promo-caption-subtitle pr-20">Right Job.</p>
+                            <p className="promo-caption-subtitle pr-20">Right Candidate.</p>
                             <p className="promo-caption-subtitle">Right Now.</p>
                         </div>
                     </div>
