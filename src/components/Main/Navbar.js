@@ -237,10 +237,10 @@ export default class Navbar extends Component {
                         <div className="collapse navbar-collapse" id="navbar-collapse-1">
                             <ul className="navbar-nav ml-xl-auto">
 
-                            <li className="nav-item dropdown active mega-menu mega-menu--wide">
+                            <li className="nav-item dropdown mega-menu mega-menu--wide">
                                 {homeLink}
                             </li>
-                            <li className="nav-item dropdown  mega-menu mega-menu--wide">
+                            <li className="nav-item dropdown mega-menu mega-menu--wide">
                                 {aboutUsLink}
                             </li>
                             <li className="nav-item dropdown ">
