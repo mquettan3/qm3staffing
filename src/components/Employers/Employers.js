@@ -267,6 +267,7 @@ export default class Employers extends Component {
               <ContactHeader />
               <Navbar 
                 location="Employers"
+                hash={this.props.location.hash}
               />
               <div className="container justify-content-center">
                 <div className="row">

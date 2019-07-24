@@ -205,6 +205,7 @@ export default class Candidates extends Component {
               <ContactHeader />
               <Navbar 
                 location="Candidates"
+                hash={this.props.location.hash}
               />
               <CallToAction 
                 action_name="Subscribe"

@@ -21,6 +21,17 @@ export default class Navbar extends Component {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('resize', this.handleResize);
         window.addEventListener('click', this.handleClick);
+
+        // If we recieved a hash location in the route:  Scroll to it!
+        
+        if(this.props.hash !== "") {
+            var destination = $(this.props.hash);
+            if(destination.length) {
+                $('html,body').animate({
+                    scrollTop: destination.offset().top-70
+                }, 1000);
+            }
+        }
         
         if($('body').hasClass('fixed-header-on')) {
             $('body').removeClass('fixed-header-on');

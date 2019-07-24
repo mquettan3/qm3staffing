@@ -51,6 +51,7 @@ class Main extends Component {
               <ContactHeader />
               <Navbar 
               location="Main"
+              hash={this.props.location.hash}
               />
               {/* <Slideshow /> */}
               <Promo />
