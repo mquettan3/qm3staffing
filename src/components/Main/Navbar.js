@@ -30,6 +30,10 @@ export default class Navbar extends Component {
                 $('html,body').animate({
                     scrollTop: destination.offset().top-70
                 }, 1000);
+
+                $(this.props.hash + " .collapsed").addClass('collapse');
+                $(this.props.hash + " .collapsed").removeClass('collapsed');
+                $(this.props.hash + " .accordianLinkHook").addClass('show');
             }
         }
         
