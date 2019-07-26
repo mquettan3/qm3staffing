@@ -188,7 +188,7 @@ export default class Navbar extends Component {
 
         let logoLink = <Link to="/"><img id="logo_img" src={QM3Logo} alt="The Project" /></Link>
         if (this.props.location === "Main") {
-            logoLink = <a href="#home" className="smooth-scroll"><img id="logo_img" src={QM3Logo} alt="The Project" /></a>
+            logoLink = <a href="#home" className="smooth-scroll"><img id="logo_img" src={QM3Logo} alt="QM3 Solutions" /></a>
         }
 
         let aboutUsLink = "";
