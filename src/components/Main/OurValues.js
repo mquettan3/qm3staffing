@@ -55,7 +55,7 @@ export default class OurValues extends Component {
                   <span className="icon without-bg"><i className="fa text-muted fa-trophy"></i></span>
                   <div className="body">
                     <h3 className="title">Quality</h3>
-                    <p>We unite the Right Talent every time, with Integrity.</p>
+                    <p>We unite the Right talent every time, with integrity.</p>
                   </div>
                 </div>
               </div>
