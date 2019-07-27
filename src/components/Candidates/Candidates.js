@@ -207,12 +207,6 @@ export default class Candidates extends Component {
                 location="Candidates"
                 hash={this.props.location.hash}
               />
-              <CallToAction 
-                action_name="Subscribe"
-                action_description="Subscribe to our newsletter to be informed when positions open!"
-                link='https://www.google.com/'
-                location="Candidates"
-              />
               <div className="container justify-content-center">
                 <div className="row">
                   <h1 className="col-sm-12 text-center mt-4">Services we Provide to YOU!</h1>
