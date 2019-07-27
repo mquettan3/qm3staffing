@@ -132,7 +132,7 @@ export default class Navbar extends Component {
                 if(window.innerWidth > 991){
                     $('.header-container').css('height', '80px');
                 } else {
-                    $('.header-container').css('height', '90px');
+                    $('.header-container').css('height', '85px');
                 }
             }
         } else {
