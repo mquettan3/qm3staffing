@@ -161,6 +161,10 @@ export default class Navbar extends Component {
         } else {
             if(window.innerWidth > 991){
                 $('.header-container').css('height', '80px');
+                if (this.contact_header_height > window.scrollY) {
+                    $('.header-container .header.fixed').removeClass('hc-element-visible');
+                    $('body').removeClass('fixed-header-on');
+                }
             } else {
                 $('.header-container').css('height', '85px');
             }
