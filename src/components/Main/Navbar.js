@@ -21,6 +21,21 @@ export default class Navbar extends Component {
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('resize', this.handleResize);
         window.addEventListener('click', this.handleClick);
+
+        // If we recieved a hash location in the route:  Scroll to it!
+        
+        if(this.props.hash !== "") {
+            var destination = $(this.props.hash);
+            if(destination.length) {
+                $('html,body').animate({
+                    scrollTop: destination.offset().top-70
+                }, 1000);
+
+                $(this.props.hash + " .collapsed").addClass('collapse');
+                $(this.props.hash + " .collapsed").removeClass('collapsed');
+                $(this.props.hash + " .accordianLinkHook").addClass('show');
+            }
+        }
         
         if($('body').hasClass('fixed-header-on')) {
             $('body').removeClass('fixed-header-on');
@@ -173,7 +188,7 @@ export default class Navbar extends Component {
 
         let logoLink = <Link to="/"><img id="logo_img" src={QM3Logo} alt="The Project" /></Link>
         if (this.props.location === "Main") {
-            logoLink = <a href="#home" className="smooth-scroll"><img id="logo_img" src={QM3Logo} alt="The Project" /></a>
+            logoLink = <a href="#home" className="smooth-scroll"><img id="logo_img" src={QM3Logo} alt="QM3 Solutions" /></a>
         }
 
         let aboutUsLink = "";
@@ -237,10 +252,10 @@ export default class Navbar extends Component {
                         <div className="collapse navbar-collapse" id="navbar-collapse-1">
                             <ul className="navbar-nav ml-xl-auto">
 
-                            <li className="nav-item dropdown active mega-menu mega-menu--wide">
+                            <li className="nav-item dropdown mega-menu mega-menu--wide">
                                 {homeLink}
                             </li>
-                            <li className="nav-item dropdown  mega-menu mega-menu--wide">
+                            <li className="nav-item dropdown mega-menu mega-menu--wide">
                                 {aboutUsLink}
                             </li>
                             <li className="nav-item dropdown ">

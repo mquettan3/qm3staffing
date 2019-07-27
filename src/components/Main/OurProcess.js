@@ -11,7 +11,7 @@ export default class OurProcess extends Component {
                       <div className="separator"></div>
                       <p>What allows QM3 Solutions to attract talent and opportunities, that in-turn allows us to unite the right talent with the Right opportunity, is our 5 step process. This process attracts successful candidates as well as wonderful businesses with lucrative opportunities and becomes a true win win for all...</p>
                       <div id="accordion" className="collapse-style-2" role="tablist" aria-multiselectable="true">
-                        <div className="card">
+                        <div id="cardOne" className="card">
                           <div className="card-header" role="tab" id="headingOne">
                             <h4 className="mb-0">
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" className="">
@@ -19,7 +19,7 @@ export default class OurProcess extends Component {
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                          <div id="collapseOne" className="collapse accordianLinkHook show" role="tabpanel" aria-labelledby="headingOne">
                             <div className="card-block light-gray-bg">
                               The talent success of our candidates is the motivation behind our passion. Actually, it is the motivation behind everything we do. After all, when they succeed, so do our partners. 
                               <br/> <br/>
@@ -27,7 +27,7 @@ export default class OurProcess extends Component {
                             </div>
                           </div>
                         </div>
-                        <div className="card">
+                        <div id="cardTwo" className="card">
                           <div className="card-header" role="tab" id="headingTwo">
                             <h4 className="mb-0">
                               <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -35,13 +35,13 @@ export default class OurProcess extends Component {
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseTwo" className="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div id="collapseTwo" className="collapse accordianLinkHook" role="tabpanel" aria-labelledby="headingTwo">
                             <div className="card-block light-gray-bg">
                               We develop marketing strategies based on our comprehensive knowledge and put BIG ideas into even the smallest marketing campaigns.  We attract the right individual through extensive coaching and mentoring even unforeseen potential talent.
                             </div>
                           </div>
                         </div>
-                        <div className="card">
+                        <div id="cardThree" className="card">
                           <div className="card-header" role="tab" id="headingThree">
                             <h4 className="mb-0">
                               <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -49,13 +49,13 @@ export default class OurProcess extends Component {
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseThree" className="collapse" role="tabpanel" aria-labelledby="headingThree">
+                          <div id="collapseThree" className="collapse accordianLinkHook" role="tabpanel" aria-labelledby="headingThree">
                             <div className="card-block light-gray-bg">
                               We look beyond the surface and the fundamental job skills to find a person's true talents. Behavioral exploration helps us understand personalities, not just abilities. We seek to bring out the core values of an individual and guide them into success.
                             </div>
                           </div>
                         </div>
-                        <div className="card">
+                        <div id="cardFour" className="card">
                           <div className="card-header" role="tab" id="headingFour">
                             <h4 className="mb-0">
                               <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -63,13 +63,13 @@ export default class OurProcess extends Component {
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseFour" className="collapse" role="tabpanel" aria-labelledby="headingFour">
+                          <div id="collapseFour" className="collapse accordianLinkHook" role="tabpanel" aria-labelledby="headingFour">
                             <div className="card-block light-gray-bg">
                               We perform behavioral, psychographic, fundamental skill, drug, and background testing on each individual we connect with. Our proprietary process allows the Right talent to rise to the top and succeed.
                             </div>
                           </div>
                         </div>
-                        <div className="card">
+                        <div id="cardFive" className="card">
                           <div className="card-header" role="tab" id="headingFive">
                             <h4 className="mb-0">
                               <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -77,7 +77,7 @@ export default class OurProcess extends Component {
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseFive" className="collapse" role="tabpanel" aria-labelledby="headingFive">
+                          <div id="collapseFive" className="collapse accordianLinkHook" role="tabpanel" aria-labelledby="headingFive">
                             <div className="card-block light-gray-bg">
                               Whether one of our partners has 1 or 100 opportunities, our proprietary talent search strategies deliver the right people primed to succeed. Our 100% guarantee ensures that you have the right candidate for all the right reasons on the job from day one. We make the process easy.
                             </div>

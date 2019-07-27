@@ -30,6 +30,7 @@ const upload = multer({storage: storage}).any();
 const requestStaffEmailTemplate = `
 To QM3 Solutions,
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted a request for staff!  Details for their request can be seen below:
+
 Request For Staff Form Information:
 First Name:  {{FirstName}}
 Last Name:  {{LastName}}
@@ -46,7 +47,9 @@ Hire Types of  Interest: {{HireTypes}}
 Details:
 {{Details}}
 -----
+
 Please respond to the requestor as soon as possible!
+
 Sincerely,
 The robot who runs the QM3 Solutions website!
 `
@@ -54,7 +57,8 @@ The robot who runs the QM3 Solutions website!
 const positionsInquireEmailTemplate = `
 To QM3 Solutions,
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted an inquiry about future positions!  Details for their request can be seen below:
-Inquire about Future Positions Form Information:
+
+Inquiry about Future Positions Form Information:
 First Name:  {{FirstName}}
 Last Name:  {{LastName}}
 Email Address: {{Email}}
@@ -64,8 +68,11 @@ Fields of Interest: {{Interests}}
 Details:
 {{Details}}
 -----
+
 ** Resume Attached
+
 Please respond to the requestor as soon as possible!
+
 Sincerely,
 The robot who runs the QM3 Solutions website!
 `
@@ -73,7 +80,7 @@ The robot who runs the QM3 Solutions website!
 const genericConfirmationEmailTemplate = `
 {{FirstName}}, thank you for your interest!
 
-Your {{RequestType}} has successfully been received by QM3 Solutions.  Please allow for ~1 business day for a QM3 Solutions representative to contact you at your preferred constact method.
+Your {{RequestType}} has successfully been received by QM3 Solutions.  Please allow for ~1 business day for a QM3 Solutions representative to contact you at your preferred contact method.
 
 We look forward to working with you!
 

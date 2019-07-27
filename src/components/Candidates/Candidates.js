@@ -205,6 +205,7 @@ export default class Candidates extends Component {
               <ContactHeader />
               <Navbar 
                 location="Candidates"
+                hash={this.props.location.hash}
               />
               <CallToAction 
                 action_name="Subscribe"
@@ -229,16 +230,18 @@ export default class Candidates extends Component {
                   </ul>
                 </div>
               </div>
-              <div className="container justify-content-center light-gray-bg">
-                <div className="row">
-                  <h1 className="col-sm-12 text-center mt-4">Open Positions</h1>
-                  <div className="separator"></div>
-                  <p className="col-sm-12">All of our currently open positions with all of our partnered employers will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
-                    <br /> <br />
-                    <a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/">View our current open positions on Linked In</a>
-                    <br />
-                    <a href="https://www.indeed.com/cmp/Qm3-Utility-Services,-Inc.">View our current open positions on Indeed</a>
-                  </p>
+              <div className="justify-content-center light-gray-bg">
+                <div className="container">
+                  <div className="row">
+                    <h1 className="col-sm-12 text-center mt-4">Open Positions</h1>
+                    <div className="separator"></div>
+                    <p className="col-sm-12">All of our currently open positions with all of our partnered employers will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.
+                      <br /> <br />
+                      <a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/">View our current open positions on Linked In</a>
+                      <br />
+                      <a href="https://www.indeed.com/cmp/Qm3-Utility-Services,-Inc.">View our current open positions on Indeed</a>
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="container justify-content-center">
