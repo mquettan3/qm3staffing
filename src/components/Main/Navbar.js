@@ -153,6 +153,8 @@ export default class Navbar extends Component {
             if(window.innerWidth > 991){
                 $('.header-container').css('height', '80px');
             } else {
+                $('.header-container .header.fixed').addClass('hc-element-visible');
+                $('body').addClass('fixed-header-on');
                 $('.header-container').css('height', '');
             }
 
