@@ -183,11 +183,15 @@ app.post('/requestStaff', async function (req, res) {
         returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
     });
     
+    let date = new Date();
+    let htmlString = fs.readFileSync("confirmationTemplate.html", 'utf8');
+    htmlString = htmlString.replace("{{CURRENT_YEAR}}", date.getFullYear());
+
     mailOptions = {
         from: process.env.EMAIL_NAME,
         to: req.body.email,
         subject: 'QM3 Solutions: Confirmation Email',
-        text: confirmationEmailComplete
+        html: htmlString
     };
 
     await wrappedSendMail(mailOptions, "Staff Request Confirmation")
@@ -245,13 +249,17 @@ app.post('/positionsInquire', async function (req, res) {
         console.error(err);
         returnStatus = 400;
         returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
-    });
+    });        
     
+    let date = new Date();
+    let htmlString = fs.readFileSync("confirmationTemplate.html", 'utf8');
+    htmlString = htmlString.replace("{{CURRENT_YEAR}}", date.getFullYear());
+
     mailOptions = {
         from: process.env.EMAIL_NAME,
         to: req.body.email,
         subject: 'QM3 Solutions: Confirmation Email',
-        text: confirmationEmailComplete
+        html: htmlString
     };
 
     await wrappedSendMail(mailOptions, "Position Inquiry Confirmation")
