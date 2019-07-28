@@ -91,20 +91,26 @@ Note:  This is an automated response.  Do not reply to this email!
 `
 async function wrappedSendMail(mailOptions, emailType) {
     return new Promise((resolve, reject)=> {
+
+        console.error("EMAIL CREDENTIALS = " + process.env.EMAIL_NAME + " " + process.env.EMAIL_PASSWORD);
         let transporter = nodemailer.createTransport({
+            serivce: 'Outlook365',
             host: 'smtp.office365.com',
-            port: 587,
+            // port: 587,
+            // secure: false,
+            // requireTLS: true,
             auth: {
                 user: process.env.EMAIL_NAME,
                 pass: process.env.EMAIL_PASSWORD
-            },
-            tls: {
-                ciphers: 'SSLv3'
             }
+            // tls: {
+            //     ciphers: 'SSLv3'
+            // }
         });
 
         transporter.sendMail(mailOptions, function(error, info) {
             if (error) {
+                console.error(error);
                 reject(Error("Failed to send " + emailType + " email to " + mailOptions.to));
             } else {
                 resolve("Successfully sent " + emailType + " email to " + mailOptions.to);

@@ -4,3 +4,6 @@ Update LinkedIn, Facebook, and Instagram Links
 Forward info@qm3solutions.com to an email list that is all the service reps
 Make the subscribe button on the candidates page actually do something useful - On click show mailchimp modal?
 Define the 100% garantee in our promise or remove it.
+Determine maximum email file size
+Add unique ID to confirmation email.  Add form contents into the confirmation email.
+
