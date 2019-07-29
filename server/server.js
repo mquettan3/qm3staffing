@@ -13,6 +13,9 @@ const fs = require('fs');
 // Import the emailer
 const nodemailer = require('nodemailer');
 
+// Unique ID Generator
+const uniqid = require('uniqid');
+
 // File uploader
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -30,6 +33,8 @@ const upload = multer({storage: storage}).any();
 const requestStaffEmailTemplate = `
 To QM3 Solutions,
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted a request for staff!  Details for their request can be seen below:
+
+Request ID: {{RequestID}}
 
 Request For Staff Form Information:
 First Name:  {{FirstName}}
@@ -58,6 +63,8 @@ const positionsInquireEmailTemplate = `
 To QM3 Solutions,
 IMPORTANT:  This is an automated message sent to you because someone on the website submitted an inquiry about future positions!  Details for their request can be seen below:
 
+Request ID: {{RequestID}}
+
 Inquiry about Future Positions Form Information:
 First Name:  {{FirstName}}
 Last Name:  {{LastName}}
@@ -77,35 +84,23 @@ Sincerely,
 The robot who runs the QM3 Solutions website!
 `
 
-const genericConfirmationEmailTemplate = `
-{{FirstName}}, thank you for your interest!
+const genericConfirmationEmailTemplate = "\
+<h1>{{FirstName}}, thank you for submitting your {{RequestType}}!</h1>\
+<p>A QM3 Solutions representative will be reaching out to you shortly to help you bridge the gap between talent and opportunity!<br>\
+<br>\
+If you are experiencing any issues, or need to provide additional updates; please feel free to respond to this email to continue the conversation!</p><br>\
+For reference only, your request ID is: {{RequestID}}\
+"
 
-Your {{RequestType}} has successfully been received by QM3 Solutions.  Please allow for ~1 business day for a QM3 Solutions representative to contact you at your preferred contact method.
-
-We look forward to working with you!
-
-Sincerely,
-QM3 Solutions
-
-Note:  This is an automated response.  Do not reply to this email!
-`
 async function wrappedSendMail(mailOptions, emailType) {
     return new Promise((resolve, reject)=> {
-
-        console.error("EMAIL CREDENTIALS = " + process.env.EMAIL_NAME + " " + process.env.EMAIL_PASSWORD);
         let transporter = nodemailer.createTransport({
             serivce: 'Outlook365',
             host: 'smtp.office365.com',
-            // port: 587,
-            // secure: false,
-            // requireTLS: true,
             auth: {
                 user: process.env.EMAIL_NAME,
                 pass: process.env.EMAIL_PASSWORD
             }
-            // tls: {
-            //     ciphers: 'SSLv3'
-            // }
         });
 
         transporter.sendMail(mailOptions, function(error, info) {
@@ -148,6 +143,7 @@ app.post('/fileUpload', function(req, res) {
 app.post('/requestStaff', async function (req, res) {
     let returnStatus = 200;
     let returnMessage = 'OK';
+    const uniqueID = uniqid();
     var requestStaffEmailComplete = requestStaffEmailTemplate;
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{FirstName}}", req.body.firstName);
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{LastName}}", req.body.lastName);
@@ -162,11 +158,13 @@ app.post('/requestStaff', async function (req, res) {
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{Skills}}", req.body.skillTypes.join(",  "));
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{HireTypes}}", req.body.hireTypes.join(",  "));
     requestStaffEmailComplete = requestStaffEmailComplete.replace("{{Details}}", req.body.details);
+    requestStaffEmailComplete = requestStaffEmailComplete.replace("{{RequestID}}", uniqueID);
     console.log(requestStaffEmailComplete);
 
     var confirmationEmailComplete = genericConfirmationEmailTemplate;
     confirmationEmailComplete = confirmationEmailComplete.replace("{{FirstName}}", req.body.firstName);
     confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestType}}", "request for staff");
+    confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestID}}", uniqueID);
     console.log(confirmationEmailComplete);
 
     var mailOptions = {
@@ -192,6 +190,7 @@ app.post('/requestStaff', async function (req, res) {
     let date = new Date();
     let htmlString = fs.readFileSync("confirmationTemplate.html", 'utf8');
     htmlString = htmlString.replace("{{CURRENT_YEAR}}", date.getFullYear());
+    htmlString = htmlString.replace("{{EMAIL_TEXT}}", confirmationEmailComplete);
 
     mailOptions = {
         from: process.env.EMAIL_NAME,
@@ -217,6 +216,7 @@ app.post('/requestStaff', async function (req, res) {
 app.post('/positionsInquire', async function (req, res) {
     let returnStatus = 200;
     let returnMessage = 'OK';
+    const uniqueID = uniqid();
     var positionsInquireEmailComplete = positionsInquireEmailTemplate;
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{FirstName}}", req.body.firstName);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{LastName}}", req.body.lastName);
@@ -225,11 +225,13 @@ app.post('/positionsInquire', async function (req, res) {
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{ContactMethod}}", req.body.contactMethod);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Interests}}", req.body.interests.join(",  "));
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Details}}", req.body.details);
+    positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{RequestID}}", uniqueID);
     console.log(positionsInquireEmailComplete);
 
     var confirmationEmailComplete = genericConfirmationEmailTemplate;
     confirmationEmailComplete = confirmationEmailComplete.replace("{{FirstName}}", req.body.firstName);
     confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestType}}", "inquiry for positions");
+    confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestID}}", uniqueID);
     console.log(confirmationEmailComplete);
 
     var mailOptions = {
@@ -260,6 +262,7 @@ app.post('/positionsInquire', async function (req, res) {
     let date = new Date();
     let htmlString = fs.readFileSync("confirmationTemplate.html", 'utf8');
     htmlString = htmlString.replace("{{CURRENT_YEAR}}", date.getFullYear());
+    htmlString = htmlString.replace("{{EMAIL_TEXT}}", confirmationEmailComplete);
 
     mailOptions = {
         from: process.env.EMAIL_NAME,
