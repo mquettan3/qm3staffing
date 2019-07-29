@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage: storage}).any();
+const upload = multer({storage: storage, limits: {fileSize: 25 * 1024 * 1024, fieldSize: 25 * 1024 * 1024}}).any();
 
 // Constants
 const requestStaffEmailTemplate = `

@@ -49,7 +49,7 @@ export default class Candidates extends Component {
     }
 
     onFirstNameChange(e) {
-      var valid = false;
+      let valid = false;
 
       if(e.target.value) {
         valid = true;
@@ -59,7 +59,7 @@ export default class Candidates extends Component {
     }
 
     onLastNameChange(e) {
-      var valid = false;
+      let valid = false;
 
       if(e.target.value) {
         valid = true;
@@ -69,7 +69,7 @@ export default class Candidates extends Component {
     }
 
     onEmailChange(e) {
-      var valid = false;
+      let valid = false;
 
       if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value)) {
         valid = true;
@@ -79,7 +79,7 @@ export default class Candidates extends Component {
     }
 
     onPhoneChange(e) {
-      var valid = false;
+      let valid = false;
 
       if(/^(1\s|1|)?((\(\d{3}\))|\d{3})(-|\s)?(\d{3})(-|\s)?(\d{4})$/.test(e.target.value)) {
         valid = true;
@@ -95,7 +95,7 @@ export default class Candidates extends Component {
     }
 
     onInterestsChange(e) {
-      var valid = false;
+      let valid = false;
 
       if(e.target.selectedOptions.length > 0) {
         valid = true;
@@ -105,11 +105,15 @@ export default class Candidates extends Component {
     }
 
     onResumeChange(e) {
-      this.setState({resume: {value: e.target.files[0], isValid: true}});
+      let valid = true;
+      if(e.target.files[0].size > (25 * 1024 * 1024)) {
+        valid = false;
+      }
+      this.setState({resume: {value: e.target.files[0], isValid: valid}});
     }
 
     onDetailsChange(e) {
-      var valid = false;
+      let valid = false;
 
       if(e.target.value) {
         valid = true;
@@ -190,15 +194,15 @@ export default class Candidates extends Component {
     }
     
     render() {
-      var valid = "";
-      var invalid = "";
+      let valid = "";
+      let invalid = "";
 
       if(this.state.submitButtonClicked) {
         valid = "is-valid";
         invalid = "is-invalid";
       }
 
-      var toastPosition = {position: 'fixed', bottom: '50px', right: '50px'}
+      let toastPosition = {position: 'fixed', bottom: '50px', right: '50px'}
 
       return (
           <div className="candidates-wrapper">
@@ -304,7 +308,7 @@ export default class Candidates extends Component {
                           <label htmlFor="inputResume">Resume*</label>
                           <input type="file" className={"form-control " + (this.state.resume.isValid ? valid : invalid)} id="inputResume" onChange={this.onResumeChange}></input>
                           <div className="invalid-feedback">
-                            You must provide a resume!  (Preferrably in the following formats: .pdf, .doc, or docx)
+                            You must provide a resume with a file size below 25MB!  (Preferrably in the following formats: .pdf, .doc, or docx)
                           </div>
                         </div>
                         <div className="form-group has-feedback">
