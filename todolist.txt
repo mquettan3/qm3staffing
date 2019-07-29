@@ -2,8 +2,7 @@ Warehouse image on home page needs to be updated.  People, less busy background.
 Our Team Bios and Headshots
 Update LinkedIn, Facebook, and Instagram Links
 Forward info@qm3solutions.com to an email list that is all the service reps
-Make the subscribe button on the candidates page actually do something useful - On click show mailchimp modal?
 Define the 100% garantee in our promise or remove it.
-Determine maximum email file size (25MB - Implement validation)
 Add form contents into the confirmation email.
+Replace the submit button on both forms with a spinner while the server is performing.
 
