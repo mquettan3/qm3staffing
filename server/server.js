@@ -178,8 +178,6 @@ app.post('/requestStaff', async function (req, res) {
     await wrappedSendMail(mailOptions, "Staff Request")
     .then(function(info) {
         console.log(info);
-        //Remove the file sent from the server file system
-        fs.unlinkSync("./uploads/" + req.body.resume);
     })
     .catch(function(err){
         console.error(err);
