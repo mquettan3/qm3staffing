@@ -105,9 +105,9 @@ export default class Candidates extends Component {
     }
 
     onResumeChange(e) {
-      let valid = true;
-      if(e.target.files[0].size > (25 * 1024 * 1024)) {
-        valid = false;
+      let valid = false;
+      if(e.target.files[0].size < (25 * 1024 * 1024)) {
+        valid = true;
       }
       this.setState({resume: {value: e.target.files[0], isValid: valid}});
     }
