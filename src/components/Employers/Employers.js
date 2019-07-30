@@ -51,7 +51,8 @@ export default class Employers extends Component {
       submitButtonClicked: false,
       showSuccess: false,
       showFail: false,
-      showInvalid: false
+      showInvalid: false,
+      serverThinking: false
     }
   }
     componentDidMount() {
@@ -185,7 +186,7 @@ export default class Employers extends Component {
     }
 
     onSubmit(e) {
-      this.setState({submitButtonClicked: true});
+      this.setState({submitButtonClicked: true, serverThinking: true});
       // Make sure everything is valid.
       if (
         this.state.firstName.isValid &&
@@ -222,18 +223,18 @@ export default class Employers extends Component {
             console.log(response);
 
             // Pop up a success alert
-            this.setState({showSuccess: true});
+            this.setState({showSuccess: true, serverThinking: false);
           }.bind(this))
           .catch(function (error) {
             // handle error
             console.log(error);
     
             // Pop up an error alert
-            this.setState({showFail: true});
+            this.setState({showFail: true, serverThinking: false});
           }.bind(this));
       } else {
         console.log("Invalid Submit!");
-        this.setState({showInvalid: true});
+        this.setState({showInvalid: true, serverThinking: false});
       }
 
       e.preventDefault();
@@ -261,6 +262,11 @@ export default class Employers extends Component {
       }
 
       var toastPosition = {position: 'fixed', bottom: '50px', right: '50px'}
+
+      let submitButton = <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Staff</button>
+      if(this.state.serverThinking) {
+        submitButton = <button disabled type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Staff</button>
+      }
 
       return (
           <div className="employers-wrapper">
@@ -469,7 +475,7 @@ export default class Employers extends Component {
                         <div className="form-group">
                           <label htmlFor="inputDetails">*Required Fields</label>
                         </div>
-                        <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Staff</button>
+                        {submitButton}
                       </form>
                     </fieldset>
                   </div>
