@@ -3,6 +3,5 @@ Our Team Bios and Headshots
 Update LinkedIn, Facebook, and Instagram Links
 Forward info@qm3solutions.com to an email list that is all the service reps
 Define the 100% garantee in our promise or remove it.
-Add form contents into the confirmation email.
 Replace the submit button on both forms with a spinner while the server is performing.
 
