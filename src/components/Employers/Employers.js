@@ -223,7 +223,7 @@ export default class Employers extends Component {
             console.log(response);
 
             // Pop up a success alert
-            this.setState({showSuccess: true, serverThinking: false);
+            this.setState({showSuccess: true, serverThinking: false});
           }.bind(this))
           .catch(function (error) {
             // handle error
