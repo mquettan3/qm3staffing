@@ -207,7 +207,14 @@ export default class Candidates extends Component {
 
       let submitButton = <button type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Position</button>
       if(this.state.serverThinking) {
-        submitButton = <button disabled type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Position</button>
+        submitButton = <button disabled type="submit" className="btn btn-default" onClick={this.onSubmit}>Request Position 
+          <div className="loading">
+            <div className="loading-bar"></div>
+            <div className="loading-bar"></div>
+            <div className="loading-bar"></div>
+            <div className="loading-bar"></div>
+          </div>
+        </button>
       }
       return (
           <div className="candidates-wrapper">
