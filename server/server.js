@@ -228,7 +228,7 @@ app.post('/positionsInquire', async function (req, res) {
 
     var confirmationEmailComplete = genericConfirmationEmailTemplate;
     confirmationEmailComplete = confirmationEmailComplete.replace("{{FirstName}}", req.body.firstName);
-    confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestType}}", "inquiry for positions");
+    confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestType}}", "request for a new position");
     confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestID}}", uniqueID);
     console.log(confirmationEmailComplete);
 
