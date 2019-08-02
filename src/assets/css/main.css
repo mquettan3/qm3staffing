@@ -234,6 +234,10 @@ section.quote h2 {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+.ToastHolder {
+    z-index: 2;
+}
+
 /* Loading Spinner */
 
 .loading {
