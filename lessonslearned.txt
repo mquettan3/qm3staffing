@@ -1,0 +1,2 @@
+The way that I'm implementing forms isn't ideal.  I should have ONE on-change function and then just update an object based on the target selected instead of having a separate on change for each element.
+
