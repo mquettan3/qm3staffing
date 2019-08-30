@@ -171,7 +171,7 @@ app.post('/requestStaff', async function (req, res) {
         from: process.env.EMAIL_NAME,
         to: process.env.EMAIL_NAME,
         bcc: "",
-        subject: 'IMPORTANT: Automated Staff Request from ' + req.body.firstName.value + ' ' + req.body.lastName.value,
+        subject: 'IMPORTANT: Automated Staff Request from ' + req.body.firstName + ' ' + req.body.lastName,
         text: requestStaffEmailComplete
     };
 
@@ -236,7 +236,7 @@ app.post('/positionsInquire', async function (req, res) {
         from: process.env.EMAIL_NAME,
         to: process.env.EMAIL_NAME,
         bcc: "",
-        subject: 'IMPORTANT: Automated Future Positions Inquiry from ' + req.body.firstName.value + ' ' + req.body.lastName.value,
+        subject: 'IMPORTANT: Automated Future Positions Inquiry from ' + req.body.firstName + ' ' + req.body.lastName,
         text: positionsInquireEmailComplete,
         attachments: [
             {
