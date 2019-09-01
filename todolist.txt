@@ -1,8 +1,12 @@
 Warehouse image on home page needs to be updated.  People, less busy background.
 Our Team Bios and Headshots
 Update LinkedIn, Facebook, and Instagram Links
-Forward info@qm3solutions.com to an email list that is all the service reps
+Forward info@qm3solutions.com to an email list that is all the service reps (Currently only forwarded to lisa)
 Define the 100% garantee in our promise or remove it.
+
+Implement option to subscribe in the job seeker form
+remove mailchimp subscribe pop up
 
 Future:
 Implement database for all requests to allow for easier searching of past requests - Email does this for now
+
