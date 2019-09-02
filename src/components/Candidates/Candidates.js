@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from "../Main/Navbar.js"
 import ContactHeader from "../Main/ContactHeader.js"
 import Footer from "../Main/Footer.js"
+import CallToAction from "../Main/CallToAction.js"
 import '../../assets/css/main.css';
 import Toast from 'react-bootstrap/Toast.js';
 
@@ -229,6 +230,12 @@ export default class Candidates extends Component {
                 location="Candidates"
                 hash={this.props.location.hash}
               />
+              <CallToAction 
+              link="http://10.0.0.134:3000/candidates/#candidateForm"
+              location="Candidates"
+              action_name="Subscribe"
+              action_description="Subscribe to our open positions mailing list!"
+              />
               <div className="container justify-content-center">
                 <div className="row">
                   <h1 className="col-sm-12 text-center mt-4">Services we Provide to YOU!</h1>
@@ -260,11 +267,11 @@ export default class Candidates extends Component {
                   </div>
                 </div>
               </div>
-              <div className="container justify-content-center">
+              <div id="candidateForm" className="container justify-content-center">
                 <div className="row">
                   <h1 className="text-center mt-4">Inquire About Future Positions</h1>
                   <div className="separator"></div>
-                  <p className="col-sm-12">All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.</p>
+                  <p className="col-sm-12">Please fill out the form below if you'd like to begin the conversation with QM3 Solutions so that we may assist you in finding a new position!  We'd love if you subscribed to our mailing list as well!</p>
                   <br /> <br />
                   <div className="col-md-8 offset-md-2 col-sm-12">
                     <fieldset className="form-group">
@@ -358,7 +365,7 @@ export default class Candidates extends Component {
                     <strong className="mr-auto">Position Request Success!</strong>
                   </Toast.Header>
                   <Toast.Body>
-                    Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.
+                    Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.  If you chose to subscribe to our mailing list, please confirm your subscription by following the directions in the email sent to the email address you provided.
                   </Toast.Body>
                 </Toast>
                 <Toast show={this.state.showFail} onClose={this.toggleShowFail}>
@@ -366,7 +373,7 @@ export default class Candidates extends Component {
                     <strong className="mr-auto">Position Request Failed!</strong>
                   </Toast.Header>
                   <Toast.Body>
-                    Unfortunately, there was a server-side error causing your request to fail.  Please try again later.  If this issue persists, please contact QM3 Solutions support at support@qm3solutions.com.
+                    Unfortunately, there was a server-side error causing your request to fail.  Please try again later.  If this issue persists, please contact QM3 Solutions support at info@qm3solutions.com.
                   </Toast.Body>
                 </Toast>
                 <Toast show={this.state.showInvalid} onClose={this.toggleShowInvalid}>
