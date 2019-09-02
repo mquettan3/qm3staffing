@@ -337,8 +337,10 @@ export default class Candidates extends Component {
                           </div>
                         </div>
                         <div className="form-group has-feedback">
-                          <input type="checkbox" name="subscription" id="subscriptionCheckbox" checked={this.state.isSubscription} onChange={this.onIsSubscriptionChange}></input>
-                          <label htmlFor="subscriptionCheckbox">I would like to subscribe to the QM3 Solutions mailing list in order to receive customized open position notifications.</label>
+                          <div className="subscription-checkbox-wrapper">
+                            <input className="subscription-checkbox" type="checkbox" name="subscription" id="subscriptionCheckbox" checked={this.state.isSubscription} onChange={this.onIsSubscriptionChange}></input>
+                          </div>
+                          <label className="checkbox-label" htmlFor="subscriptionCheckbox">I would like to subscribe to the QM3 Solutions mailing list in order to receive customized open position notifications.</label>
                         </div>
                         <div className="form-group">
                           <label htmlFor="inputDetails">*Required Fields</label>
