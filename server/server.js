@@ -300,30 +300,43 @@ app.post('/positionsInquire', async function (req, res) {
     const encryptedEmail = crypto.createHash('md5').update(req.body.email.toLowerCase()).digest("hex");
 
     // If the user chose to subscribe to the email list, add their information to the Mailchimp audience.
-    // Attempt to update first, if update fails, attempt to create.  If create fails, invalid input.
-    await mailchimp.request({
-        method: 'patch',
-        path: '/lists/' + list_id + "/members/" + encryptedEmail,
-        body: {
-            "email_address": req.body.email,
-            "status": "pending",
-            "merge_fields": {
-                "FNAME": req.body.firstName,
-                "LNAME": req.body.lastName,
-                "ADDRESS": req.body.lastName,
-                "PHONE": req.body.lastName,
-                "ID": uniqueID
+    if (req.body.isSubscription) {
+        // Attempt to update first, if update fails, attempt to create.  If create fails, invalid input.
+        await mailchimp.request({
+            method: 'put',
+            path: '/lists/' + list_id + "/members/" + encryptedEmail,
+            body: {
+                "email_address": req.body.email,
+                "status": "pending",
+                "interests": {
+                    "a1d3fc5a73": req.body.interests.includes("Clerical"), // Clerical
+                    "122d5d08ad": req.body.interests.includes("Industrial"), // Industrial
+                    "2c3127049d": req.body.interests.includes("Labor"), // Labor
+                    "6af78a599d": req.body.interests.includes("Warehouse"), // Warehouse
+                    "6109fac32c": req.body.interests.includes("Professional") // Professional
+                },
+                "merge_fields": {
+                    "FNAME": req.body.firstName,
+                    "LNAME": req.body.lastName,
+                    // "LOCATION": req.body.lastName,
+                    "PHONE": req.body.phone,
+                    "METHOD": req.body.contactMethod,
+                    "INTERESTS": req.body.interests.join(",  "),
+                    "DETAILS": req.body.details,
+                    "ID": uniqueID
+                }
             }
-        }
-    })
-    .then(function(info){
-        console.log(info);
-    })
-    .catch(function(err) {
-        console.error(err);
-        returnStatus = 400;
-        returnMessage = 'Bad Request: Invalid Request to Mailchimp API - Failed to subscribe to mailing list failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending requests to Mailchimp.';
-    });
+        })
+        .then(function(info){
+            console.log(info);
+            returnStatus = info.statusCode;
+        })
+        .catch(function(err) {
+            returnStatus = err.statusCode;
+            console.error(err);
+            returnMessage = 'Bad Request: Invalid Request to Mailchimp API - Failed to subscribe to mailing list failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending requests to Mailchimp.';
+        });
+    }
 
     // 7. Return a successful response to the client
     return res.status(returnStatus).send(returnMessage);
