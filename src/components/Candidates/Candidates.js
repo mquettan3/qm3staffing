@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from "../Main/Navbar.js"
 import ContactHeader from "../Main/ContactHeader.js"
-import CallToAction from "../Main/CallToAction.js"
 import Footer from "../Main/Footer.js"
 import '../../assets/css/main.css';
 import Toast from 'react-bootstrap/Toast.js';
@@ -28,6 +27,7 @@ export default class Candidates extends Component {
       this.toggleShowFail = this.toggleShowFail.bind(this);
       this.toggleShowInvalid = this.toggleShowInvalid.bind(this);
       this.onContactMethodChange = this.onContactMethodChange.bind(this);
+      this.onIsSubscriptionChange = this.onIsSubscriptionChange.bind(this);
 
       this.state = {
         firstName: {value: "", isValid: false},
@@ -38,6 +38,7 @@ export default class Candidates extends Component {
         interests: {value: [], isValid: false},
         resume: {value: [], isValid: false},
         details: {value: "", isValid: false},
+        isSubscription: false,
         submitButtonClicked: false,
         showSuccess: false,
         showFail: false,
@@ -47,6 +48,10 @@ export default class Candidates extends Component {
     }
     componentDidMount() {
       window.scrollTo(0,0);
+    }
+
+    onIsSubscriptionChange(e) {
+      this.setState({isSubscription: e.target.checked});
     }
 
     onFirstNameChange(e) {
@@ -155,7 +160,8 @@ export default class Candidates extends Component {
             contactMethod: this.state.contactMethod.value,
             interests: this.state.interests.value,
             resume: this.state.resume.value.name,
-            details: this.state.details.value
+            details: this.state.details.value,
+            isSubscription: this.state.isSubscription
           }).then(function (response) {
               // handle success   
               console.log(response);
@@ -329,6 +335,10 @@ export default class Candidates extends Component {
                           <div className="invalid-feedback">
                             You must provide additional details!
                           </div>
+                        </div>
+                        <div className="form-group has-feedback">
+                          <input type="checkbox" name="subscription" id="subscriptionCheckbox" checked={this.state.isSubscription} onChange={this.onIsSubscriptionChange}></input>
+                          <label htmlFor="subscriptionCheckbox">I would like to subscribe to the QM3 Solutions mailing list in order to receive customized open position notifications.</label>
                         </div>
                         <div className="form-group">
                           <label htmlFor="inputDetails">*Required Fields</label>
