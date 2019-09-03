@@ -6,7 +6,7 @@ export default class CallToAction extends Component {
     render() {
         let actionLink = <Link to={this.props.link} className="btn btn-lg btn-default btn-animated">{this.props.action_name}<i className="fa fa-arrow-right pl-20"></i></Link>;
         if (this.props.location === "Candidates") {
-            actionLink = <a href={this.props.link} className="btn btn-lg btn-default btn-animated">{this.props.action_name}<i className="fa fa-arrow-right pl-20"></i></a>;
+            actionLink = <a href={this.props.link} className="btn btn-lg btn-default btn-animated smooth-scroll">{this.props.action_name}<i className="fa fa-arrow-right pl-20"></i></a>;
         }
         return (
             <section className="section dark-bg clearfix">

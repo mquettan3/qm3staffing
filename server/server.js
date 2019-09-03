@@ -16,6 +16,13 @@ const nodemailer = require('nodemailer');
 // Unique ID Generator
 const uniqid = require('uniqid');
 
+// Mailchimp API Wrapper: https://github.com/thorning/node-mailchimp
+const Mailchimp = require('mailchimp-api-v3');
+const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
+// Cyrpto needed for Mailchimp.  All emails are to be sent as MD5 hashes instead of plain text.
+const crypto = require('crypto');
+const list_id = "b7fb7971b3";
+
 // File uploader
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -212,9 +219,14 @@ app.post('/requestStaff', async function (req, res) {
 });
 
 app.post('/positionsInquire', async function (req, res) {
+    // Intialize the return message
     let returnStatus = 200;
     let returnMessage = 'OK';
+
+    // Generate a unique ID so that the user can reference their request.
     const uniqueID = uniqid();
+
+    // Populate the template email which gets sent to QM3 Solutions with the user data
     var positionsInquireEmailComplete = positionsInquireEmailTemplate;
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{FirstName}}", req.body.firstName);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{LastName}}", req.body.lastName);
@@ -226,12 +238,14 @@ app.post('/positionsInquire', async function (req, res) {
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{RequestID}}", uniqueID);
     console.log(positionsInquireEmailComplete);
 
+    // Ppopualte the confirmation email which gets sent to the user with the user data
     var confirmationEmailComplete = genericConfirmationEmailTemplate;
     confirmationEmailComplete = confirmationEmailComplete.replace("{{FirstName}}", req.body.firstName);
     confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestType}}", "request for a new position");
     confirmationEmailComplete = confirmationEmailComplete.replace("{{RequestID}}", uniqueID);
     console.log(confirmationEmailComplete);
 
+    // Initialize the mailer object for the inquiry email to QM3
     var mailOptions = {
         from: process.env.EMAIL_NAME,
         to: process.env.EMAIL_NAME,
@@ -245,6 +259,7 @@ app.post('/positionsInquire', async function (req, res) {
         ]
     };
 
+    // Send the inquiry email.  Wait for the resposne from the promise
     await wrappedSendMail(mailOptions, "Position Inquiry")
     .then(function(info) {
         console.log(info);
@@ -257,11 +272,13 @@ app.post('/positionsInquire', async function (req, res) {
         returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
     });        
     
+    // Add the date to the confirmation email
     let date = new Date();
     let htmlString = fs.readFileSync("confirmationTemplate.html", 'utf8');
     htmlString = htmlString.replace("{{CURRENT_YEAR}}", date.getFullYear());
     htmlString = htmlString.replace("{{EMAIL_TEXT}}", confirmationEmailComplete);
 
+    // Re-initialize the mailer object for the confirmation email
     mailOptions = {
         from: process.env.EMAIL_NAME,
         to: req.body.email,
@@ -269,6 +286,7 @@ app.post('/positionsInquire', async function (req, res) {
         html: htmlString
     };
 
+    // Send the confirmation email
     await wrappedSendMail(mailOptions, "Position Inquiry Confirmation")
     .then(function(info){
         console.log(info);
@@ -278,6 +296,47 @@ app.post('/positionsInquire', async function (req, res) {
         returnStatus = 400;
         returnMessage = 'Bad Request: Invalid Email address - Email failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending emails.';
     });
+
+    const encryptedEmail = crypto.createHash('md5').update(req.body.email.toLowerCase()).digest("hex");
+
+    // If the user chose to subscribe to the email list, add their information to the Mailchimp audience.
+    if (req.body.isSubscription) {
+        // Attempt to update first, if update fails, attempt to create.  If create fails, invalid input.
+        await mailchimp.request({
+            method: 'put',
+            path: '/lists/' + list_id + "/members/" + encryptedEmail,
+            body: {
+                "email_address": req.body.email,
+                "status": "pending",
+                "interests": {
+                    "a1d3fc5a73": req.body.interests.includes("Clerical"), // Clerical
+                    "122d5d08ad": req.body.interests.includes("Industrial"), // Industrial
+                    "2c3127049d": req.body.interests.includes("Labor"), // Labor
+                    "6af78a599d": req.body.interests.includes("Warehouse"), // Warehouse
+                    "6109fac32c": req.body.interests.includes("Professional") // Professional
+                },
+                "merge_fields": {
+                    "FNAME": req.body.firstName,
+                    "LNAME": req.body.lastName,
+                    // "LOCATION": req.body.lastName,
+                    "PHONE": req.body.phone,
+                    "METHOD": req.body.contactMethod,
+                    "INTERESTS": req.body.interests.join(",  "),
+                    "DETAILS": req.body.details,
+                    "ID": uniqueID
+                }
+            }
+        })
+        .then(function(info){
+            console.log(info);
+            returnStatus = info.statusCode;
+        })
+        .catch(function(err) {
+            returnStatus = err.statusCode;
+            console.error(err);
+            returnMessage = 'Bad Request: Invalid Request to Mailchimp API - Failed to subscribe to mailing list failed to send - Contact lwalker@qm3us.com to request that the server admin verifies that the server is properly sending requests to Mailchimp.';
+        });
+    }
 
     // 7. Return a successful response to the client
     return res.status(returnStatus).send(returnMessage);

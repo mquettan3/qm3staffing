@@ -1,0 +1,8 @@
+To find the interest categories within the list id run the following:
+
+curl --request GET --url 'https://us3.api.mailchimp.com/3.0/lists/b7fb7971b3/interest-categories' --user 'anystring:apikey-us3' --include
+
+To find the interest IDs within the category id run the following:
+
+curl --request GET --url 'https://us3.api.mailchimp.com/3.0/lists/b7fb7971b3/interest-categories/ee5ea55a40/interests' --user 'anystring:apikey-us3' --include
+

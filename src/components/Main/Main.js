@@ -70,7 +70,7 @@ class Main extends Component {
               {/* <OurValues /> */}
               <CallToAction
                 action_name="Employers"
-                action_description="Inquire about finding the Right talent for your open opportunies!"
+                action_description="Are you an employer?  Let us help you find the Right talent for your open opportunies!"
                 link="/employers"
               />
               <OurTeam />

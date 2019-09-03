@@ -23,7 +23,6 @@ export default class Navbar extends Component {
         window.addEventListener('click', this.handleClick);
 
         // If we recieved a hash location in the route:  Scroll to it!
-        
         if(this.props.hash !== "") {
             var destination = $(this.props.hash);
             if(destination.length) {
@@ -31,6 +30,7 @@ export default class Navbar extends Component {
                     scrollTop: destination.offset().top-70
                 }, 1000);
 
+                // This is necessary to open the closed accordians when linking to an accordian.
                 $(this.props.hash + " .collapsed").addClass('collapse');
                 $(this.props.hash + " .collapsed").removeClass('collapsed');
                 $(this.props.hash + " .accordianLinkHook").addClass('show');

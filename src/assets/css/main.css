@@ -283,3 +283,18 @@ section.quote h2 {
   }
 
   /* End Loading Spinner */
+
+  .checkbox-label {
+    width: 90%;
+    padding-left: 5px;
+  }
+
+  .subscription-checkbox {
+      position: absolute;
+      top: 4px;
+  }
+
+  .subscription-checkbox-wrapper {
+      display: inline-block;
+      width: 13px;
+  }

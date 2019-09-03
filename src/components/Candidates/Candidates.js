@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from "../Main/Navbar.js"
 import ContactHeader from "../Main/ContactHeader.js"
-import CallToAction from "../Main/CallToAction.js"
 import Footer from "../Main/Footer.js"
+import CallToAction from "../Main/CallToAction.js"
 import '../../assets/css/main.css';
 import Toast from 'react-bootstrap/Toast.js';
 
@@ -28,6 +28,7 @@ export default class Candidates extends Component {
       this.toggleShowFail = this.toggleShowFail.bind(this);
       this.toggleShowInvalid = this.toggleShowInvalid.bind(this);
       this.onContactMethodChange = this.onContactMethodChange.bind(this);
+      this.onIsSubscriptionChange = this.onIsSubscriptionChange.bind(this);
 
       this.state = {
         firstName: {value: "", isValid: false},
@@ -38,6 +39,7 @@ export default class Candidates extends Component {
         interests: {value: [], isValid: false},
         resume: {value: [], isValid: false},
         details: {value: "", isValid: false},
+        isSubscription: false,
         submitButtonClicked: false,
         showSuccess: false,
         showFail: false,
@@ -47,6 +49,10 @@ export default class Candidates extends Component {
     }
     componentDidMount() {
       window.scrollTo(0,0);
+    }
+
+    onIsSubscriptionChange(e) {
+      this.setState({isSubscription: e.target.checked});
     }
 
     onFirstNameChange(e) {
@@ -155,7 +161,8 @@ export default class Candidates extends Component {
             contactMethod: this.state.contactMethod.value,
             interests: this.state.interests.value,
             resume: this.state.resume.value.name,
-            details: this.state.details.value
+            details: this.state.details.value,
+            isSubscription: this.state.isSubscription
           }).then(function (response) {
               // handle success   
               console.log(response);
@@ -223,6 +230,12 @@ export default class Candidates extends Component {
                 location="Candidates"
                 hash={this.props.location.hash}
               />
+              <CallToAction 
+              link="http://10.0.0.134:3000/candidates/#candidateForm"
+              location="Candidates"
+              action_name="Subscribe"
+              action_description="Subscribe to our open positions mailing list!"
+              />
               <div className="container justify-content-center">
                 <div className="row">
                   <h1 className="col-sm-12 text-center mt-4">Services we Provide to YOU!</h1>
@@ -254,11 +267,11 @@ export default class Candidates extends Component {
                   </div>
                 </div>
               </div>
-              <div className="container justify-content-center">
+              <div id="candidateForm" className="container justify-content-center">
                 <div className="row">
                   <h1 className="text-center mt-4">Inquire About Future Positions</h1>
                   <div className="separator"></div>
-                  <p className="col-sm-12">All of our open positions will be up-to-date on both LinkedIn and Indeed.  Please follow either of the links below to view all of our open positions.</p>
+                  <p className="col-sm-12">Please fill out the form below if you'd like to begin the conversation with QM3 Solutions so that we may assist you in finding a new position!  We'd love if you subscribed to our mailing list as well!</p>
                   <br /> <br />
                   <div className="col-md-8 offset-md-2 col-sm-12">
                     <fieldset className="form-group">
@@ -330,6 +343,12 @@ export default class Candidates extends Component {
                             You must provide additional details!
                           </div>
                         </div>
+                        <div className="form-group has-feedback">
+                          <div className="subscription-checkbox-wrapper">
+                            <input className="subscription-checkbox" type="checkbox" name="subscription" id="subscriptionCheckbox" checked={this.state.isSubscription} onChange={this.onIsSubscriptionChange}></input>
+                          </div>
+                          <label className="checkbox-label" htmlFor="subscriptionCheckbox">I would like to subscribe to the QM3 Solutions mailing list in order to receive customized open position notifications.</label>
+                        </div>
                         <div className="form-group">
                           <label htmlFor="inputDetails">*Required Fields</label>
                         </div>
@@ -346,7 +365,7 @@ export default class Candidates extends Component {
                     <strong className="mr-auto">Position Request Success!</strong>
                   </Toast.Header>
                   <Toast.Body>
-                    Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.
+                    Thank you for submitting your request!  You should receive a response from a QM3 representative within ~24 hours.  If you chose to subscribe to our mailing list, please confirm your subscription by following the directions in the email sent to the email address you provided.
                   </Toast.Body>
                 </Toast>
                 <Toast show={this.state.showFail} onClose={this.toggleShowFail}>
@@ -354,7 +373,7 @@ export default class Candidates extends Component {
                     <strong className="mr-auto">Position Request Failed!</strong>
                   </Toast.Header>
                   <Toast.Body>
-                    Unfortunately, there was a server-side error causing your request to fail.  Please try again later.  If this issue persists, please contact QM3 Solutions support at support@qm3solutions.com.
+                    Unfortunately, there was a server-side error causing your request to fail.  Please try again later.  If this issue persists, please contact QM3 Solutions support at info@qm3solutions.com.
                   </Toast.Body>
                 </Toast>
                 <Toast show={this.state.showInvalid} onClose={this.toggleShowInvalid}>
