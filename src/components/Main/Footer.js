@@ -35,9 +35,9 @@ export default class Footer extends Component {
                       <div className="separator-2"></div>
                       <p>Please contact us with any questions you may have.  We are here to bridge the gap and ease the connection between talent and opportunity.<br/><br/>Follow us on social media!</p>
                       <ul className="social-links circle animated-effect-1">
-                        <li className="facebook"><a href="https://www.facebook.com/QM3US"><i className="fa fa-facebook"></i></a></li>
-                        <li className="linkedin"><a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/"><i className="fa fa-linkedin"></i></a></li>
-                        <li className="instagram"><a href="#"><i className="fa fa-instagram"></i></a></li>
+                        <li className="facebook"><a href="https://www.facebook.com/QM3US" aria-label="Follow us on Facebook!"><i className="fa fa-facebook"></i></a></li>
+                        <li className="linkedin"><a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/" aria-label="Follow us on LinkedIn!"><i className="fa fa-linkedin"></i></a></li>
+                        <li className="instagram"><a href="#"><i className="fa fa-instagram" aria-label="Follow us on Instagram!"></i></a></li>
                       </ul>
                       <div className="separator-2"></div>
                       <ul className="list-icons">
