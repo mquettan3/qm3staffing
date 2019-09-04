@@ -4,7 +4,7 @@ import '../../assets/css/main.css';
 export default class ContactHeader extends Component {  
     render() {
       return (
-          <div id="home" className="header-top dark">
+          <div className="header-top dark">
               <div className="container">
                 <div className="row">
                   <div className="col-2 col-md-5">
