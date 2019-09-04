@@ -79,8 +79,12 @@ Email Address: {{Email}}
 Phone Number: {{PhoneNumber}}
 Preferred Contact Method: {{ContactMethod}}
 Fields of Interest: {{Interests}}
+Did this person Opt to subscribe to our mailing list?: {{Subscribed}}
+
 Details:
 {{Details}}
+
+
 -----
 
 ** Resume Attached
@@ -236,6 +240,8 @@ app.post('/positionsInquire', async function (req, res) {
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Interests}}", req.body.interests.join(",  "));
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Details}}", req.body.details);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{RequestID}}", uniqueID);
+    positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Subscribed}}", req.body.isSubscription ? "Yes" : "No");
+    
     console.log(positionsInquireEmailComplete);
 
     // Ppopualte the confirmation email which gets sent to the user with the user data
