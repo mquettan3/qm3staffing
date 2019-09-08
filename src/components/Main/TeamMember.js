@@ -23,13 +23,13 @@ export default class TeamMember extends Component {
               <p>{this.props.bio}</p>
               <ul className="social-links circle margin-clear colored">
                 {this.props.facebook && 
-                    <li className="facebook"><a href={this.props.facebook}><i className="fa fa-facebook"></i></a></li>
+                    <li className="facebook"><a href={this.props.facebook} aria-label="Add me on Facebook!"><i className="fa fa-facebook"></i></a></li>
                 }
                 {this.props.twitter && 
-                    <li className="twitter"><a href={this.props.twitter}><i className="fa fa-twitter"></i></a></li>
+                    <li className="twitter"><a href={this.props.twitter} aria-label="Follow me on Twitter!"><i className="fa fa-twitter"></i></a></li>
                 }    
                 {this.props.linkedin &&             
-                    <li className="linkedin"><a href={this.props.linkedin}><i className="fa fa-linkedin"></i></a></li>
+                    <li className="linkedin"><a href={this.props.linkedin} aria-label="Connect with me on LinkedIn!"><i className="fa fa-linkedin"></i></a></li>
                 }
               </ul>
               <br />

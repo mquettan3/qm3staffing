@@ -1,6 +1,9 @@
 // Using express to simplify node.js routing and server creation
 const express = require('express');
 
+// Compression for express ervers
+const compression = require('compression');
+
 // Adding body-parser to simplify obtaining the body of POST HTTP requests
 // To handle HTTP POST request in Express.js version 4 and above, you need to install middleware module called body-parser.
 // body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
@@ -79,8 +82,12 @@ Email Address: {{Email}}
 Phone Number: {{PhoneNumber}}
 Preferred Contact Method: {{ContactMethod}}
 Fields of Interest: {{Interests}}
+Did this person Opt to subscribe to our mailing list?: {{Subscribed}}
+
 Details:
 {{Details}}
+
+
 -----
 
 ** Resume Attached
@@ -127,6 +134,7 @@ const app = express();
 
 // Apply all middlewares to our server
 app.use(cors());
+app.use(compression());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -236,6 +244,8 @@ app.post('/positionsInquire', async function (req, res) {
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Interests}}", req.body.interests.join(",  "));
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Details}}", req.body.details);
     positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{RequestID}}", uniqueID);
+    positionsInquireEmailComplete = positionsInquireEmailComplete.replace("{{Subscribed}}", req.body.isSubscription ? "Yes" : "No");
+    
     console.log(positionsInquireEmailComplete);
 
     // Ppopualte the confirmation email which gets sent to the user with the user data

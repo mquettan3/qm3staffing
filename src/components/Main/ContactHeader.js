@@ -4,7 +4,7 @@ import '../../assets/css/main.css';
 export default class ContactHeader extends Component {  
     render() {
       return (
-          <div id="home" className="header-top dark">
+          <div className="header-top dark">
               <div className="container">
                 <div className="row">
                   <div className="col-2 col-md-5">
@@ -18,9 +18,9 @@ export default class ContactHeader extends Component {
                         <div className="btn-group dropdown">
                           <button id="header-top-drop-1" type="button" className="btn dropdown-toggle dropdown-toggle--no-caret" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fa fa-share-alt"></i></button>
                           <ul className="dropdown-menu dropdown-animation" aria-labelledby="header-top-drop-1">
-                            <li className="linkedin"><a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/"><i className="fa fa-linkedin"></i></a></li>
-                            <li className="facebook"><a href="https://www.facebook.com/QM3US"><i className="fa fa-facebook"></i></a></li>
-                            <li className="instagram"><a href="#"><i className="fa fa-instagram"></i></a></li>
+                            <li className="linkedin"><a href="https://www.linkedin.com/company/integrated-construction-management-inc./jobs/" aria-label="Follow us on LinkedIn!"><i className="fa fa-linkedin"></i></a></li>
+                            <li className="facebook"><a href="https://www.facebook.com/QM3US" aria-label="Follow us on Facebook!"><i className="fa fa-facebook"></i></a></li>
+                            <li className="instagram"><a href="#" aria-label="Follow us on Instagram!"><i className="fa fa-instagram"></i></a></li>
                           </ul>
                         </div>
                       </div>
