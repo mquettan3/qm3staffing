@@ -1,3 +1,7 @@
+// Error Tracker
+const Sentry = require('@sentry/node');
+Sentry.init({ dsn: 'https://8fc0286d948b42a8878e27efc8d1f5c9@sentry.io/1672934' });
+
 // Using express to simplify node.js routing and server creation
 const express = require('express');
 
