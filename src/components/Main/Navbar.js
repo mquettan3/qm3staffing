@@ -172,6 +172,24 @@ export default class Navbar extends Component {
     }
 
     handleClick(e) {
+        // Add in IE support
+        if (!e.target.prototype.matches) {
+            e.target.prototype.matches = e.target.prototype.msMatchesSelector || e.target.prototype.webkitMatchesSelector;
+        }
+          
+        if (!e.target.prototype.closest) {
+            e.target.prototype.closest = function(s) {
+                var el = this;
+            
+                do {
+                    if (el.matches(s)) return el;
+                    el = el.parentElement || el.parentNode;
+                } while (el !== null && el.nodeType === 1);
+                return null;
+            };
+        }
+        // End IE Support 
+
         // Find if the user has clicked outside of the header
         if (!e.target.closest('.header-container .header.fixed')) {
             //Remove show if it exists
@@ -182,11 +200,6 @@ export default class Navbar extends Component {
     }
 
     render() {
-        // let isSloganHidden = "";
-        // if(window.scrollY > this.contact_header_height) {
-        //     isSloganHidden = "slogan-hidden";
-        // }
-
         let homeLink = <Link to="/" className="nav-link" id="first-dropdown">Home</Link>;
         if (this.props.location === "Main") {
             homeLink = <a href="#home" className="nav-link smooth-scroll" id="first-dropdown">Home</a>;
@@ -232,10 +245,6 @@ export default class Navbar extends Component {
                         <div id="logo" className="logo">
                             {logoLink}
                         </div>
-
-                        {/* <p className={"site-slogan " + isSloganHidden}>
-                        "We Do It Right!"
-                        </p> */}
                     </div>
 
                     </div>
