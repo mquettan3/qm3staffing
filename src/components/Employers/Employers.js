@@ -488,7 +488,9 @@ export default class Employers extends Component {
                   </div>
                 </div>
               </div>
-              <Footer />
+              <Footer 
+                location="Employers"
+              />
               <div className="ToastHolder" style={toastPosition}>
                 <Toast show={this.state.showSuccess} onClose={this.toggleShowSuccess}>
                   <Toast.Header>

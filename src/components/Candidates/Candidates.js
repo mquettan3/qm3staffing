@@ -358,7 +358,9 @@ export default class Candidates extends Component {
                   </div>
                 </div>
               </div>
-              <Footer />
+              <Footer 
+                location="Candiates"
+              />
               <div className="ToastHolder" style={toastPosition}>
                 <Toast show={this.state.showSuccess} onClose={this.toggleShowSuccess}>
                   <Toast.Header>

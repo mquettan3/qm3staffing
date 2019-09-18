@@ -11,6 +11,12 @@ export default class Footer extends Component {
     }
 
     render() {
+      let learnMore;
+      if(this.props.location === "Main") {
+        learnMore = <a href="#about" className="smooth-scroll">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a>
+      } else {
+        learnMore = <a href="https://www.qm3solutions.com/#about" className="smooth-scroll">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a>
+      }
       return (
         <footer id="footer" className="clearfix">
           <div className="footer">
@@ -20,7 +26,7 @@ export default class Footer extends Component {
                   <div className="offset-lg-1 col-lg-4">
                     <div className="footer-content">
                       <div className="logo-footer"><img className="logo_img" src={QM3Logo} alt="QM3 Solutions"/></div>
-                      <p>QM3 Solutions stands on a foundation of integrity as we aim to make a difference and directly impact the lives of the individuals which we serve...<a href="#about" className="smooth-scroll">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a></p>
+                      <p>QM3 Solutions stands on a foundation of integrity as we aim to make a difference and directly impact the lives of the individuals which we serve...{learnMore}</p>
                       <div className="separator-2"></div>
                       <nav>
                         <ul className="nav flex-column">

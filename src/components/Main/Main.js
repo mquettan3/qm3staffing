@@ -74,7 +74,9 @@ class Main extends Component {
                 link="/employers"
               />
               <OurTeam />
-              <Footer />
+              <Footer
+                location="Main"
+              />
             </div>
           </div>
     );
