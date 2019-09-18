@@ -15,7 +15,7 @@ export default class Footer extends Component {
       if(this.props.location === "Main") {
         learnMore = <a href="#about" className="smooth-scroll">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a>
       } else {
-        learnMore = <a href="https://www.qm3solutions.com/#about" className="smooth-scroll">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a>
+        learnMore = <a href="https://www.qm3solutions.com/#about">Learn More<i className="fa fa-long-arrow-right pl-1"></i></a>
       }
       return (
         <footer id="footer" className="clearfix">
