@@ -276,7 +276,7 @@ export default class Employers extends Component {
       }
 
       return (
-          <div className="employers-wrapper">
+          <div id="home" className="employers-wrapper">
               <ContactHeader />
               <Navbar 
                 location="Employers"

@@ -224,7 +224,7 @@ export default class Candidates extends Component {
         </button>
       }
       return (
-          <div className="candidates-wrapper">
+          <div id="home" className="candidates-wrapper">
               <ContactHeader />
               <Navbar 
                 location="Candidates"
